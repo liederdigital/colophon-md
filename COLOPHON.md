@@ -59,7 +59,7 @@ own history table. Newest first.
 | 2026-10-13 | `<wordpress-plugin>` | Committed under a "Cursor Agent" Git identity | Unknown | Unknown | Another early `CREDITS.md` | Commit `1cfc2d9`. A Git identity is not proof of the tool |
 | 2026-10-12 | `<chrome-extension>` | Claude | Claude app, cloud workspace | Claude Opus 5.5, per the file and the commit trailer | Added a store-review notes section | Commit `bdbb1bf` |
 | 2026-10-04 | `<company-site>` | Codex | Desktop app, per the file | GPT-6-based; exact model Unknown, per the file | The first `CREDITS.md` written by Codex | Commit `b4d7086` |
-| 2026-09-30 | `<ios-app>` | Grok Bot (an agent Ron calls Code Monkey) | Cloud agent working through GitHub, via a pull request, per the file | Unknown | **The earliest `CREDITS.md` found.** It already had the snapshot table, a newest-first builder history, and inline notes asking Ron to confirm what wasn't known | Commit `7f3b5bf`, authored as "Code Monkey"; the file's own history row |
+| 2026-09-30 | `<ios-app>` | Grok Bot (an agent Ron calls Code Monkey) | Cloud agent working through GitHub, via a pull request, per the file | Unknown | **The earliest `CREDITS.md` found.** It already had the snapshot table, a newest-first builder history, and inline notes asking Ron to confirm what wasn't known. Its pull request listed those as open questions; over the next hour the bot filled in Ron's answers, which he relayed from the Claude Code session building the app | Commits `7f3b5bf` (20:06), `c83e515` (20:46), and `84acb12` (21:06), authored as "Code Monkey"; the file's own history row; the pull request description, provided by Ron |
 
 ## Corrections
 
