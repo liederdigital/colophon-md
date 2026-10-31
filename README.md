@@ -47,7 +47,7 @@ models did the work, where, in what role, and who signed off. Agents cite
 commit trailers, Git AI, and Agent Trace records as evidence where they exist,
 and fill in the gaps where they don't. It also works after the fact.
 
-The current instructions are version 1.1.1 (October 31, 2026).
+The current instructions are version 1.1.2 (October 31, 2026).
 
 ## What's in this repository
 

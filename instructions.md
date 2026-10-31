@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.1.1, published October 31, 2026. The convention lives at
+Version 1.1.2, published October 31, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -43,6 +43,10 @@ becomes a chore, people stop keeping it. So the agent doing the work keeps it:
 
 - Update `COLOPHON.md` yourself, in the same commit or pull request as the
   work it describes.
+- A colophon is a summary, not a log. Agents add a row only when the tool,
+  model, model setting, or computer changes, when a new phase of work starts,
+  when they review someone else's work, and before each release. Most pull
+  requests leave it untouched.
 - Fill in everything you can observe. Never ask the owner to type an entry.
 - When you can't establish something, write Unknown and keep going. That's the
   default.
@@ -95,9 +99,9 @@ agrees:
 This project keeps COLOPHON.md, a short record of how it was made.
 Agents update it themselves, in the same commit or pull request as their
 work: add a row when the tool, model, model setting, or computer changes,
-when you review someone else's work, and before each release. Never hold
-up a commit for it. Follow the instructions at
-https://colophon.md/instructions.md.
+when a new phase of work starts, when you review someone else's work, and
+before each release. Never hold up a commit for it. Follow the instructions
+at https://colophon.md/instructions.md.
 ```
 
 **Reconstructing it (forensic mode).** When the project already has history and no colophon,
@@ -219,7 +223,7 @@ otherwise record Unknown and finish.
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
 - Note in "Evidence limits" which version of these instructions you followed
-  (for example, "COLOPHON.md instructions v1.1.1").
+  (for example, "COLOPHON.md instructions v1.1.2").
 - Keep out credentials, private session or chat links, client or customer
   records, signing secrets, computer names, usernames, and unrelated personal
   details. Describe computers generically (for example, "a MacBook Pro").
@@ -237,6 +241,10 @@ was made.
 
 ## Version history
 
+- **1.1.2** (October 31, 2026): most pull requests leave the colophon
+  untouched; a row is added only for a change of tool, model, setting, or
+  computer, a new phase of work, a review, or a release. The AGENTS.md
+  snippet now names new phases of work too.
 - **1.1.1** (October 31, 2026): a required "Directed by" field for the
   accountable human; a note that context files and shared prompts describe what
   tools were told to do, while the colophon records what they actually did.
