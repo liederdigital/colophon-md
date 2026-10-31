@@ -13,6 +13,7 @@ elsewhere.
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, with its source: shown by the tool, configured, or self-reported; or Unknown} |
 | Editor | {editor, or Unknown} |
+| Review | {Human / AI / Both / None / Unknown}, {who or what reviewed, if known} |
 | Human owner | {name}, {direction / review / testing role, only as established} |
 | Era | {first date} to {latest date} ({timezone}) |
 | Status | {active / maintained / archived} |

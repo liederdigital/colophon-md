@@ -47,7 +47,7 @@ models did the work, where, in what role, and who signed off. Agents cite
 commit trailers, Git AI, and Agent Trace records as evidence where they exist,
 and fill in the gaps where they don't. It also works after the fact.
 
-The current instructions are version 1.0 (October 30, 2026).
+The current instructions are version 1.1 (October 31, 2026).
 
 ## What's in this repository
 
@@ -61,6 +61,7 @@ The current instructions are version 1.0 (October 30, 2026).
 | `_headers` | Cloudflare Pages headers so `.md` files display as plain text |
 | `fonts/` | Self-hosted IM Fell English and IBM Plex fonts |
 | `og.png` | The image shown when the site is shared on social media |
+| `favicon.ico`, `favicon.svg`, `favicon-96.png`, `apple-touch-icon.png` | The site icon, as real files so search engines can find it |
 | `colophon-timeline.svg` | A timeline of how COLOPHON.md itself was made, shown in `COLOPHON.md` |
 
 ## Deploying

@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.0, published October 30, 2026. The convention lives at
+Version 1.1, published October 31, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -25,6 +25,9 @@ seeing that a weaker release followed a switch to a different model.
 
 It is not a license, a dependency list, or a list of contributors. Keep license
 and third-party notices in their own files.
+
+A colophon describes the project, never the people. Don't record, measure, or
+rank how much any individual used AI.
 
 Save it as `COLOPHON.md` at the repository root, unless the project already
 uses another name for this record or the owner asks for one.
@@ -178,6 +181,9 @@ deployed. When you review work that another tool or model built, add a
 commits) and your model. Approvals usually show in Git already, because a merge
 records who merged it; fill them in at your next update instead of asking.
 
+Record who reviewed the work as one of: Human, AI, Both, None, or Unknown.
+Review by AI alone is valid; record it as AI, not as None and not left blank.
+
 Write dates in the repository's existing timezone convention. If there isn't
 one, use UTC and say so (for example, "Dates are UTC"). Don't stop to ask, and
 don't assume the clock of the machine you are running on is the project's
@@ -204,7 +210,7 @@ otherwise record Unknown and finish.
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
 - Note in "Evidence limits" which version of these instructions you followed
-  (for example, "COLOPHON.md instructions v1.0").
+  (for example, "COLOPHON.md instructions v1.1").
 - Keep out credentials, private session or chat links, client or customer
   records, signing secrets, computer names, usernames, and unrelated personal
   details. Describe computers generically (for example, "a MacBook Pro").
@@ -219,6 +225,14 @@ Stay within what you were asked to do. Commit, push, or open a pull request only
 if the owner has already allowed it. Don't change licenses, repository
 visibility, dependencies, or unrelated files while documenting how the project
 was made.
+
+## Version history
+
+- **1.1** (October 31, 2026): a colophon describes the project, never the
+  people; a Review field (Human, AI, Both, None, or Unknown); "write Unknown and
+  keep going" is the default, and asking the owner is the exception; the
+  proactive and forensic mode names.
+- **1.0** (October 30, 2026): first public version.
 
 ## Template
 
@@ -238,6 +252,7 @@ elsewhere.
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, with its source: shown by the tool, configured, or self-reported; or Unknown} |
 | Editor | {editor, or Unknown} |
+| Review | {Human / AI / Both / None / Unknown}, {who or what reviewed, if known} |
 | Human owner | {name}, {direction / review / testing role, only as established} |
 | Era | {first date} to {latest date} ({timezone}) |
 | Status | {active / maintained / archived} |

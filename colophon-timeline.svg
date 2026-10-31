@@ -51,7 +51,7 @@
 <line class="tl-tick" x1="639.0" y1="312" x2="647.0" y2="300"/>
 <line class="tl-tick" x1="647.0" y1="312" x2="655.0" y2="300"/>
 <polyline class="tl-path" points="197.5,286 205.8,110 223.9,110 224.2,154 249.0,286 279.5,154 279.6,198 384.6,154 395.2,242 426.2,198 426.4,154 611.2,154"/>
-<polyline class="tl-path" points="689.7,154 697.9,286 726.2,198 749.1,110 824.9,286 855.0,110 857.8,154 860.5,286 864.1,110 922.6,154 931.7,110 940.9,154"/>
+<polyline class="tl-path" points="689.7,154 697.9,286 726.2,198 749.1,110 824.9,286 855.0,110 857.8,154 860.5,286 867.8,110 922.6,154 931.7,110 940.9,154"/>
 <line class="tl-path" x1="611.2" y1="154" x2="689.7" y2="154" stroke-dasharray="4 5"/>
 <line class="tl-release" x1="223.9" y1="86" x2="223.9" y2="306"/>
 <text class="tl-release-label" x="223.9" y="76" text-anchor="middle">First file</text>
@@ -79,7 +79,7 @@
 <g><title>Oct 30, 9:16 PM. Grok bot, reviewed. Pre-launch review: three fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="855.0" cy="110" r="6.5"/></g>
 <g><title>Oct 30, 9:19 PM. Claude, built. Applied the review. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="857.8" cy="154" r="8"/></g>
 <g><title>Oct 30, 9:22 PM. Ron Stauffer, approved. Approved it for launch. Model: Not applicable.</title><path class="tl-approved" d="M860.5 278 L868.5 286 L860.5 294 L852.5 286 Z"/></g>
-<g><title>Oct 30, about 9:26 PM. Grok bot, reviewed. Second review: three small fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="864.1" cy="110" r="6.5"/></g>
+<g><title>Oct 30, about 9:30 PM. Grok bot, reviewed. Second review: three small fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="867.8" cy="110" r="6.5"/></g>
 <g><title>Oct 30, about 10:30 PM. Claude, built. Applied the second review and built this chart. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="922.6" cy="154" r="8"/></g>
 <g><title>Oct 30, about 10:40 PM. Grok bot, reviewed. Final pass: ready to ship. Model: Unknown.</title><circle class="tl-reviewed" cx="931.7" cy="110" r="6.5"/></g>
 <g><title>Oct 30, about 10:50 PM. Claude, built. Applied the final polish. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="940.9" cy="154" r="8"/></g>
