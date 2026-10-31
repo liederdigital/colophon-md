@@ -8,6 +8,11 @@
 <meta property="og:title" content="COLOPHON.md">
 <meta property="og:description" content="A short, honest record of how a project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://colophon-md.pages.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="COLOPHON.md: a short, honest record of which AI tools and models built a project, and when.">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2323443D'/%3E%3Cg fill='none' stroke='%23D8B865' stroke-width='4' stroke-linecap='round'%3E%3Ccircle cx='32' cy='41' r='13'/%3E%3Cpath d='M19 41h26M32 28V9M25 15h14'/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preload" href="fonts/im-fell-english-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -205,6 +210,8 @@ p { margin: 0 0 1rem; }
 .modes p { margin: 0; }
 
 .table-scroll { overflow-x: auto; margin-top: 1.5rem; }
+.table-scroll.wide { max-width: 60rem; margin-bottom: 1.5rem; }
+.table-scroll.wide table { min-width: 46rem; font-size: 0.9375rem; }
 table { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: 0.9875rem; }
 th, td { text-align: left; vertical-align: top; padding: 0.75rem 1rem 0.75rem 0; border-bottom: 1px solid var(--rule); }
 th { font-weight: 600; font-size: 0.9375rem; color: var(--muted); }
@@ -286,6 +293,30 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none.</p>
       <p>Think of it as the credits at the end of a film, and as a maintenance log: who built each part, which model reviewed it, and who signed off. When version 1.1.8 turns out worse than 1.1.7, or a bug turns up in production, the colophon shows which agents and models were working on the project at the time, and in which mode. If a model version later turns out to have had a flaw, you’ll know which projects, and which weeks, to check.</p>
       <p>Start one when you create the repository. It takes a minute on day one, and an afternoon of detective work after 27 commits, two computers, and three agents.</p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="example">
+    <div class="prose">
+      <h2 id="example">What it looks like nine months later</h2>
+      <p>One web app, five tools, three devices, two people. This is its builder history, newest first.</p>
+    </div>
+    <div class="table-scroll wide">
+      <table>
+        <thead><tr><th scope="col">Date</th><th scope="col">Who or what</th><th scope="col">Role</th><th scope="col">Where it ran</th><th scope="col">Model and setting</th><th scope="col">What changed</th></tr></thead>
+        <tbody>
+          <tr><td>Nov 25</td><td>You</td><td>Approved</td><td>github.com</td><td>Not applicable</td><td>Merged the sign-up pull request</td></tr>
+          <tr><td>Nov 24</td><td>Claude Code</td><td>Reviewed</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Reviewed the sign-up pull request</td></tr>
+          <tr><td>Nov 24</td><td>A collaborator, using Codex</td><td>Built</td><td>Codex, on their laptop</td><td>GPT-6-Astra, high</td><td>New sign-up flow</td></tr>
+          <tr><td>Nov 18</td><td>GitHub Copilot</td><td>Built</td><td>Chrome, on github.com</td><td>Unknown</td><td>Fixed a pricing table in the README</td></tr>
+          <tr><td>Nov 15</td><td>A Grok bot</td><td>Built</td><td>iPhone, by voice, through the GitHub command line</td><td>Unknown</td><td>Two small copy changes</td></tr>
+          <tr><td>Nov 10</td><td>Claude Code</td><td>Built</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Accounts and billing</td></tr>
+          <tr><td>Nov 3</td><td>Google Antigravity</td><td>Built</td><td>Mac app</td><td>Argon 4</td><td>First version</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose">
+      <p>If sign-up breaks next August, you know where to start looking. The two Unknowns are honest gaps: those tools didn’t show which model they used.</p>
     </div>
   </section>
 
@@ -404,10 +435,10 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
         </div>
       </details>
       <details>
-        <summary>Don’t other tools already track AI code?</summary>
+        <summary>Doesn’t something like this already exist?</summary>
         <div>
-          <p>Some do, line by line. <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record which lines an agent wrote, and the Linux kernel asks for an <a href="https://docs.kernel.org/process/coding-assistants.html">Assisted-by line</a> on each commit.</p>
-          <p>Those records are precise, but they only cover work done after they were set up, and they’re written for machines. COLOPHON.md is the summary a person can read, and it works after the fact. Use both.</p>
+          <p>Pieces of it do. AI declaration files such as <a href="https://github.com/DimwitLabs/AI-DECLARATION.md">AI-DECLARATION.md</a> state how much AI was involved, as a level. Line-by-line tools such as <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record exactly which lines an agent wrote, and the Linux kernel asks for an <a href="https://docs.kernel.org/process/coding-assistants.html">Assisted-by line</a> on each commit. Commit notes like Co-Authored-By help too, but not every tool adds them, and they rarely say where a tool ran or which setting it used.</p>
+          <p>None of the ones we found keeps a plain-language timeline of which tools and models did the work, where, in what role, and who signed off. That’s the gap COLOPHON.md fills, and it works after the fact, too. Use it alongside any of them.</p>
         </div>
       </details>
       <details>
@@ -434,7 +465,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
   <div class="wrap">
     <svg class="device" width="20" height="29" viewBox="0 0 40 58" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="40" r="14"/><path d="M6 40h28M20 26V5M13 11.5h14"/></svg>
     <p>An open convention started by <a href="https://github.com/ronstauffer">Ron Stauffer</a> of <a href="https://liederdigital.com">Lieder Digital</a>.</p>
-    <p>The instructions and template are dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. How this site was made is recorded in its own <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">COLOPHON.md</a>.</p>
+    <p>The instructions and template are dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Instructions version 1.0, October 30, 2026. How this site was made is recorded in its own <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">COLOPHON.md</a>.</p>
   </div>
 </footer>
 

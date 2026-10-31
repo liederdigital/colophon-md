@@ -4,8 +4,9 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-The convention lives at https://github.com/liederdigital/colophon-md and is in
-the public domain (CC0 1.0).
+Version 1.0, published October 30, 2026. The convention lives at
+https://github.com/liederdigital/colophon-md and is in the public domain
+(CC0 1.0).
 
 ## What a colophon is for
 
@@ -181,6 +182,8 @@ otherwise record Unknown and finish.
 
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
+- Note in "Evidence limits" which version of these instructions you followed
+  (for example, "COLOPHON.md instructions v1.0").
 - Keep out credentials, private session or chat links, client or customer
   records, signing secrets, and unrelated personal details.
 - Optionally add a one-line link from the README to `COLOPHON.md`. Keep the

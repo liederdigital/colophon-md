@@ -34,6 +34,16 @@ saved. Those logs stay on each computer, so run it on every computer you used.
 
 The one rule: write **Unknown** instead of guessing.
 
+## How it's different
+
+AI declaration files, such as AI-DECLARATION.md, state how much AI was
+involved. Line-by-line tools, such as Agent Trace and Git AI, record which
+lines an agent wrote. COLOPHON.md is the plain-language timeline between them:
+which tools and models did the work, where, in what role, and who signed off.
+It works alongside any of them, and after the fact.
+
+The current instructions are version 1.0 (October 30, 2026).
+
 ## What's in this repository
 
 | File | What it is |
@@ -45,6 +55,7 @@ The one rule: write **Unknown** instead of guessing.
 | `AGENTS.md` | Notes for agents working on this repository |
 | `_headers` | Cloudflare Pages headers so `.md` files display as plain text |
 | `fonts/` | Self-hosted IM Fell English and IBM Plex fonts |
+| `og.png` | The image shown when the site is shared on social media |
 
 ## Deploying
 
