@@ -38,6 +38,7 @@ through the repositories' Git history and an earlier Claude chat.
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
+| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Turned the "nine months later" example into a timeline chart, styled after band-member timelines: one row per tool or person, a throughline handed from tool to tool, release markers, and shapes for built, reviewed, and approved; the table moved into a toggle below it | Observed in session; chart requested by Ron |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Switched the site's addresses, the AGENTS.md snippet, and the share image link to colophon.md, and marked it as the canonical address | Observed in session |
 | 2026-10-30 | Ron Stauffer | Deployed | .MD registry; Cloudflare DNS and Pages | Not applicable | Registered colophon.md and connected it to the site, with SSL | Owner-confirmed, with the registration receipt and the Cloudflare dashboard he shared |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Before launch: added the "nine months later" example, an honest answer about similar projects (after a fresh search), version 1.0 of the instructions, and a share image (`og.png`) | Observed in session; launch items Owner-confirmed |

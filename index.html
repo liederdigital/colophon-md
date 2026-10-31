@@ -41,6 +41,7 @@
   --cloth-muted: #9DB3AC;
   --gilt: #9C762B;
   --gilt-on-cloth: #D8B865;
+  --dot-built: #23443D;
 
   --serif: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --serif-sc: "IM Fell English SC", var(--serif);
@@ -63,11 +64,12 @@
     --cloth-muted: #93AAA3;
     --gilt: #C9A95E;
     --gilt-on-cloth: #D8B865;
+    --dot-built: #6FA796;
   }
 }
 :root[data-theme="dark"] {
   --paper: #15181D; --page: #1C2027; --ink: #E6E5DE; --muted: #A3A8B2; --rule: #323741;
-  --cloth: #1F3C36; --cloth-ink: #E8EAE3; --cloth-muted: #93AAA3; --gilt: #C9A95E; --gilt-on-cloth: #D8B865;
+  --cloth: #1F3C36; --cloth-ink: #E8EAE3; --cloth-muted: #93AAA3; --gilt: #C9A95E; --gilt-on-cloth: #D8B865; --dot-built: #6FA796;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -213,6 +215,29 @@ p { margin: 0 0 1rem; }
 
 .table-scroll { overflow-x: auto; margin-top: 1.5rem; }
 .table-scroll.wide { max-width: 60rem; margin-bottom: 1.5rem; }
+/* Example timeline */
+.chart-scroll { overflow-x: auto; margin: 1.75rem 0 0.75rem; max-width: 62rem; }
+.timeline { display: block; width: 100%; min-width: 46rem; height: auto; }
+.tl-lane { stroke: var(--rule); stroke-width: 1; }
+.tl-label { fill: var(--ink); font: 500 13.5px var(--sans); }
+.tl-axis-line { stroke: var(--rule); }
+.tl-tick { stroke: var(--muted); }
+.tl-month { fill: var(--muted); font: 400 12.5px var(--sans); }
+.tl-release { stroke: var(--gilt); stroke-width: 1.5; stroke-dasharray: 3 4; }
+.tl-release-label { fill: var(--gilt); font: 500 13px var(--mono); }
+.tl-path { fill: none; stroke: var(--muted); stroke-width: 2; stroke-linejoin: round; opacity: 0.55; }
+.tl-built { fill: var(--dot-built); stroke: var(--paper); stroke-width: 2.5; }
+.tl-reviewed { fill: var(--paper); stroke: var(--gilt); stroke-width: 3; }
+.tl-approved { fill: var(--ink); stroke: var(--paper); stroke-width: 2.5; }
+.tl-note { fill: var(--ink); font: italic 400 14px var(--serif); paint-order: stroke; stroke: var(--paper); stroke-width: 6px; stroke-linejoin: round; }
+.tl-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0 0 1.5rem; padding: 0; list-style: none; color: var(--muted); font-size: 0.9375rem; }
+.tl-legend li { display: inline-flex; align-items: center; gap: 0.5rem; }
+.tl-legend .tl-built, .tl-legend .tl-approved { stroke-width: 0; }
+.scroll-hint { display: none; margin: 1.25rem 0 -1rem; color: var(--muted); font-size: 0.875rem; }
+@media (max-width: 760px) { .scroll-hint { display: block; } }
+details.rows { margin-top: 1.25rem; border-top: 1px solid var(--rule); }
+details.rows .table-scroll { margin-top: 0.25rem; }
+
 .table-scroll.wide table { min-width: 46rem; font-size: 0.9375rem; }
 table { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: 0.9875rem; }
 th, td { text-align: left; vertical-align: top; padding: 0.75rem 1rem 0.75rem 0; border-bottom: 1px solid var(--rule); }
@@ -301,24 +326,102 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   <section class="band" aria-labelledby="example">
     <div class="prose">
       <h2 id="example">What it looks like nine months later</h2>
-      <p>One web app, five tools, three devices, two people. This is its builder history, newest first.</p>
+      <p>One web app, five AI tools, three devices, two people. Each row is a tool or a person; each mark is a piece of work. The line is the project itself, handed from tool to tool.</p>
     </div>
-    <div class="table-scroll wide">
-      <table>
-        <thead><tr><th scope="col">Date</th><th scope="col">Who or what</th><th scope="col">Role</th><th scope="col">Where it ran</th><th scope="col">Model and setting</th><th scope="col">What changed</th></tr></thead>
-        <tbody>
-          <tr><td>Nov 25</td><td>You</td><td>Approved</td><td>github.com</td><td>Not applicable</td><td>Merged the sign-up pull request</td></tr>
-          <tr><td>Nov 24</td><td>Claude Code</td><td>Reviewed</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Reviewed the sign-up pull request</td></tr>
-          <tr><td>Nov 24</td><td>A collaborator, using Codex</td><td>Built</td><td>Codex, on their laptop</td><td>GPT-6-Astra, high</td><td>New sign-up flow</td></tr>
-          <tr><td>Nov 18</td><td>GitHub Copilot</td><td>Built</td><td>Chrome, on github.com</td><td>Unknown</td><td>Fixed a pricing table in the README</td></tr>
-          <tr><td>Nov 15</td><td>A Grok bot</td><td>Built</td><td>iPhone, by voice, through the GitHub command line</td><td>Unknown</td><td>Two small copy changes</td></tr>
-          <tr><td>Nov 10</td><td>Claude Code</td><td>Built</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Accounts and billing</td></tr>
-          <tr><td>Nov 3</td><td>Google Antigravity</td><td>Built</td><td>Mac app</td><td>Argon 4</td><td>First version</td></tr>
-        </tbody>
-      </table>
+    <p class="scroll-hint">Swipe sideways to see the whole timeline.</p>
+    <div class="chart-scroll">
+<svg class="timeline" viewBox="0 0 960 346" role="img" aria-labelledby="tl-title tl-desc">
+<title id="tl-title">Example builder timeline for one web app</title>
+<desc id="tl-desc">One row per AI tool or person, from February to October. A single line passes from tool to tool as the work is handed around: Google Antigravity builds the first version, Claude Code builds billing, Codex reviews it, you release v1.0, a Grok bot and GitHub Copilot make small changes, a collaborator builds sign-up with Codex, Claude Code reviews it, and on September 8 Claude Code builds checkout on Sonnet 5.5 instead of Opus 5.5 before v1.3. Every event is also listed in the table below.</desc>
+<line class="tl-lane" x1="164" y1="66" x2="935" y2="66"/>
+<text class="tl-label" x="154" y="70.5" text-anchor="end">Google Antigravity</text>
+<line class="tl-lane" x1="164" y1="110" x2="935" y2="110"/>
+<text class="tl-label" x="154" y="114.5" text-anchor="end">Claude Code</text>
+<line class="tl-lane" x1="164" y1="154" x2="935" y2="154"/>
+<text class="tl-label" x="154" y="158.5" text-anchor="end">Codex</text>
+<line class="tl-lane" x1="164" y1="198" x2="935" y2="198"/>
+<text class="tl-label" x="154" y="202.5" text-anchor="end">Grok bot</text>
+<line class="tl-lane" x1="164" y1="242" x2="935" y2="242"/>
+<text class="tl-label" x="154" y="246.5" text-anchor="end">GitHub Copilot</text>
+<line class="tl-lane" x1="164" y1="286" x2="935" y2="286"/>
+<text class="tl-label" x="154" y="290.5" text-anchor="end">You (owner)</text>
+<line class="tl-axis-line" x1="164" y1="306" x2="935" y2="306"/>
+<line class="tl-tick" x1="172.0" y1="302" x2="172.0" y2="310"/>
+<text class="tl-month" x="172.0" y="326" text-anchor="middle">Feb</text>
+<line class="tl-tick" x1="256.8" y1="302" x2="256.8" y2="310"/>
+<text class="tl-month" x="256.8" y="326" text-anchor="middle">Mar</text>
+<line class="tl-tick" x1="350.6" y1="302" x2="350.6" y2="310"/>
+<text class="tl-month" x="350.6" y="326" text-anchor="middle">Apr</text>
+<line class="tl-tick" x1="441.5" y1="302" x2="441.5" y2="310"/>
+<text class="tl-month" x="441.5" y="326" text-anchor="middle">May</text>
+<line class="tl-tick" x1="535.3" y1="302" x2="535.3" y2="310"/>
+<text class="tl-month" x="535.3" y="326" text-anchor="middle">Jun</text>
+<line class="tl-tick" x1="626.2" y1="302" x2="626.2" y2="310"/>
+<text class="tl-month" x="626.2" y="326" text-anchor="middle">Jul</text>
+<line class="tl-tick" x1="720.0" y1="302" x2="720.0" y2="310"/>
+<text class="tl-month" x="720.0" y="326" text-anchor="middle">Aug</text>
+<line class="tl-tick" x1="813.9" y1="302" x2="813.9" y2="310"/>
+<text class="tl-month" x="813.9" y="326" text-anchor="middle">Sep</text>
+<line class="tl-tick" x1="904.7" y1="302" x2="904.7" y2="310"/>
+<text class="tl-month" x="904.7" y="326" text-anchor="middle">Oct</text>
+<polyline class="tl-path" points="178.1,66 241.6,66 284.0,110 296.1,154 311.3,286 414.2,198 480.8,110 538.4,242 547.4,286 665.5,154 677.6,110 695.8,286 801.8,110 841.1,286"/>
+<line class="tl-release" x1="311.3" y1="42" x2="311.3" y2="306"/>
+<text class="tl-release-label" x="311.3" y="32" text-anchor="middle">v1.0</text>
+<line class="tl-release" x1="547.4" y1="42" x2="547.4" y2="306"/>
+<text class="tl-release-label" x="547.4" y="32" text-anchor="middle">v1.1</text>
+<line class="tl-release" x1="695.8" y1="42" x2="695.8" y2="306"/>
+<text class="tl-release-label" x="695.8" y="32" text-anchor="middle">v1.2</text>
+<line class="tl-release" x1="841.1" y1="42" x2="841.1" y2="306"/>
+<text class="tl-release-label" x="841.1" y="32" text-anchor="middle">v1.3</text>
+<text class="tl-note" x="801.8" y="94" text-anchor="middle">Aug 28: switched to Sonnet 5.5</text>
+<g><title>Feb 3: Google Antigravity, built. First version. Mac app. Model: Argon 4.</title><circle class="tl-built" cx="178.1" cy="66" r="8.5"/></g>
+<g><title>Feb 24: Google Antigravity, built. Accounts. Mac app. Model: Argon 4.</title><circle class="tl-built" cx="241.6" cy="66" r="8.5"/></g>
+<g><title>Mar 10: Claude Code, built. Billing. Terminal on a MacBook Pro. Model: Opus 5.5.</title><circle class="tl-built" cx="284.0" cy="110" r="8.5"/></g>
+<g><title>Mar 14: Codex, reviewed. Reviewed the billing pull request. Codex app on your Mac. Model: GPT-6-Sol.</title><circle class="tl-reviewed" cx="296.1" cy="154" r="7"/></g>
+<g><title>Mar 19: You, approved. Released v1.0. github.com. Model: Not applicable.</title><path class="tl-approved" d="M311.3 277.5 L319.8 286 L311.3 294.5 L302.8 286 Z"/></g>
+<g><title>Apr 22: Grok bot, built. Two copy changes, by voice. iPhone, through the GitHub command line. Model: Unknown.</title><circle class="tl-built" cx="414.2" cy="198" r="8.5"/></g>
+<g><title>May 14: Claude Code, built. Sharing. Terminal on a MacBook Pro. Model: Opus 5.5.</title><circle class="tl-built" cx="480.8" cy="110" r="8.5"/></g>
+<g><title>Jun 2: GitHub Copilot, built. Fixed the pricing table. Chrome, on github.com. Model: Unknown.</title><circle class="tl-built" cx="538.4" cy="242" r="8.5"/></g>
+<g><title>Jun 5: You, approved. Released v1.1. github.com. Model: Not applicable.</title><path class="tl-approved" d="M547.4 277.5 L555.9 286 L547.4 294.5 L538.9 286 Z"/></g>
+<g><title>Jul 14: Codex, built. New sign-up flow (a collaborator). Codex, on their laptop. Model: GPT-6-Astra, high.</title><circle class="tl-built" cx="665.5" cy="154" r="8.5"/></g>
+<g><title>Jul 18: Claude Code, reviewed. Reviewed the sign-up pull request. Terminal on a MacBook Pro. Model: Opus 5.5.</title><circle class="tl-reviewed" cx="677.6" cy="110" r="7"/></g>
+<g><title>Jul 24: You, approved. Released v1.2. github.com. Model: Not applicable.</title><path class="tl-approved" d="M695.8 277.5 L704.3 286 L695.8 294.5 L687.3 286 Z"/></g>
+<g><title>Aug 28: Claude Code, built. Faster checkout. Terminal on a MacBook Pro. Model: Sonnet 5.5.</title><circle class="tl-built" cx="801.8" cy="110" r="8.5"/></g>
+<g><title>Sep 10: You, approved. Released v1.3. github.com. Model: Not applicable.</title><path class="tl-approved" d="M841.1 277.5 L849.6 286 L841.1 294.5 L832.6 286 Z"/></g>
+</svg>
     </div>
+    <ul class="tl-legend" aria-label="Legend">
+      <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle class="tl-built" cx="9" cy="9" r="7"/></svg>Built</li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle class="tl-reviewed" cx="9" cy="9" r="5.5"/></svg>Reviewed</li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path class="tl-approved" d="M9 1.5 L16.5 9 L9 16.5 L1.5 9 Z"/></svg>Approved</li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><line class="tl-release" x1="9" y1="1" x2="9" y2="17"/></svg>Release</li>
+    </ul>
     <div class="prose">
-      <p>If sign-up breaks next August, you know where to start looking. The two Unknowns are honest gaps: those tools didn’t show which model they used.</p>
+      <p>When a checkout bug turns up in v1.3, the colophon shows what changed: on August 28, Claude Code built checkout on Sonnet 5.5 instead of Opus 5.5. The two Unknowns are honest gaps, because those tools didn’t show which model they used.</p>
+      <details class="rows">
+        <summary>Show the same history as rows in COLOPHON.md</summary>
+        <div class="table-scroll wide">
+          <table>
+            <thead><tr><th scope="col">Date</th><th scope="col">Who or what</th><th scope="col">Role</th><th scope="col">Where it ran</th><th scope="col">Model and setting</th><th scope="col">What changed</th></tr></thead>
+            <tbody>
+          <tr><td>Sep 10</td><td>You</td><td>Approved</td><td>github.com</td><td>Not applicable</td><td>Released v1.3</td></tr>
+          <tr><td>Aug 28</td><td>Claude Code</td><td>Built</td><td>Terminal on a MacBook Pro</td><td>Sonnet 5.5</td><td>Faster checkout</td></tr>
+          <tr><td>Jul 24</td><td>You</td><td>Approved</td><td>github.com</td><td>Not applicable</td><td>Released v1.2</td></tr>
+          <tr><td>Jul 18</td><td>Claude Code</td><td>Reviewed</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Reviewed the sign-up pull request</td></tr>
+          <tr><td>Jul 14</td><td>A collaborator, using Codex</td><td>Built</td><td>Codex, on their laptop</td><td>GPT-6-Astra, high</td><td>New sign-up flow</td></tr>
+          <tr><td>Jun 5</td><td>You</td><td>Approved</td><td>github.com</td><td>Not applicable</td><td>Released v1.1</td></tr>
+          <tr><td>Jun 2</td><td>GitHub Copilot</td><td>Built</td><td>Chrome, on github.com</td><td>Unknown</td><td>Fixed the pricing table</td></tr>
+          <tr><td>May 14</td><td>Claude Code</td><td>Built</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Sharing</td></tr>
+          <tr><td>Apr 22</td><td>Grok bot</td><td>Built</td><td>iPhone, through the GitHub command line</td><td>Unknown</td><td>Two copy changes, by voice</td></tr>
+          <tr><td>Mar 19</td><td>You</td><td>Approved</td><td>github.com</td><td>Not applicable</td><td>Released v1.0</td></tr>
+          <tr><td>Mar 14</td><td>Codex</td><td>Reviewed</td><td>Codex app on your Mac</td><td>GPT-6-Sol</td><td>Reviewed the billing pull request</td></tr>
+          <tr><td>Mar 10</td><td>Claude Code</td><td>Built</td><td>Terminal on a MacBook Pro</td><td>Opus 5.5</td><td>Billing</td></tr>
+          <tr><td>Feb 24</td><td>Google Antigravity</td><td>Built</td><td>Mac app</td><td>Argon 4</td><td>Accounts</td></tr>
+          <tr><td>Feb 3</td><td>Google Antigravity</td><td>Built</td><td>Mac app</td><td>Argon 4</td><td>First version</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
     </div>
   </section>
 
