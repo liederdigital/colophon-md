@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW1KC5YTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW1KC5YTVS');
+</script>
 <title>COLOPHON.md</title>
 <meta name="description" content="A simple, open convention for recording how a software project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
 <meta property="og:title" content="COLOPHON.md">
@@ -634,6 +643,10 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
     if (!ok) throw new Error("copy failed");
   }
 
+  function track(name) {
+    if (typeof window.gtag === "function") window.gtag("event", name);
+  }
+
   function confirmOn(button) {
     const original = button.dataset.label || button.textContent;
     button.dataset.label = original;
@@ -652,25 +665,31 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
     try {
       await writeClipboard(text);
       confirmOn(button);
+      track("copy_instructions");
       say("Instructions copied. Paste them into your coding agent.");
     } catch {
       say("Your browser blocked copying.", true);
     }
   });
 
-  function copyOnClick(id, text) {
+  function copyOnClick(id, text, eventName) {
     document.getElementById(id).addEventListener("click", async (event) => {
       const button = event.currentTarget;
       try {
         await writeClipboard(text);
         confirmOn(button);
+        track(eventName);
       } catch {
         say("Your browser blocked copying. Select the text and copy it yourself.");
       }
     });
   }
-  copyOnClick("copy-prompt", promptText);
-  copyOnClick("copy-snippet", snippetText);
+  copyOnClick("copy-prompt", promptText, "copy_prompt");
+  copyOnClick("copy-snippet", snippetText, "copy_agents_snippet");
+
+  document.querySelectorAll('a[download]').forEach((link) => {
+    link.addEventListener("click", () => track("download_template"));
+  });
 })();
 </script>
 </body>

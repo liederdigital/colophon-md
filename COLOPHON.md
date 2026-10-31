@@ -38,6 +38,7 @@ through the repositories' Git history and an earlier Claude chat.
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
+| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Added Ron's Google Analytics 4 tag, plus events for copying the instructions, the prompt, and the AGENTS.md snippet, and for downloading the template | Observed in session; tag supplied by Ron |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Added a "Who's using it?" answer linking to GitHub's code search, and an offer from Lieder Digital to reconstruct colophons for existing projects | Observed in session; both requested by Ron |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Turned the "nine months later" example into a timeline chart, styled after band-member timelines: one row per tool or person, a throughline handed from tool to tool, release markers, and shapes for built, reviewed, and approved; the table moved into a toggle below it | Observed in session; chart requested by Ron |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Switched the site's addresses, the AGENTS.md snippet, and the share image link to colophon.md, and marked it as the canonical address | Observed in session |
