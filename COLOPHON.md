@@ -17,7 +17,7 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Editor | Claude sessions: none; the agent wrote the files directly. Codex CLI's enclosing editor: Unknown |
 | Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work throughout, and chose the COLOPHON.md name and byline. The first file's wording was the Grok bot's, adapting his September 28 message, per the bot. His review of the first site version: Unknown |
 | Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30 (America/Denver) |
-| Status | Live at https://colophon-md.pages.dev (concept; no custom domain yet) |
+| Status | Live at https://colophon.md |
 
 ## How the work was done
 
@@ -38,6 +38,8 @@ through the repositories' Git history and an earlier Claude chat.
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
+| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Switched the site's addresses, the AGENTS.md snippet, and the share image link to colophon.md, and marked it as the canonical address | Observed in session |
+| 2026-10-30 | Ron Stauffer | Deployed | .MD registry; Cloudflare DNS and Pages | Not applicable | Registered colophon.md and connected it to the site, with SSL | Owner-confirmed, with the registration receipt and the Cloudflare dashboard he shared |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Before launch: added the "nine months later" example, an honest answer about similar projects (after a fresh search), version 1.0 of the instructions, and a share image (`og.png`) | Observed in session; launch items Owner-confirmed |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (session configuration) | Stated the purpose as a credits roll and a breadcrumb trail, with exact model versions, settings, and releases (`0b03d33`); added the Role column and the "never get in the way" rule, so agents fill in their own entries and approving the pull request approves them | Observed in session; purpose and the no-extra-steps requirement Owner-confirmed |
 | 2026-10-30 | Claude | Researched and documented | Cloud workspace (Claude desktop app), with read access to Ron's GitHub repositories and his local copy of this repository | Claude Opus 5.5 (session configuration) | Traced the convention's origins through the Git history of ten private repositories, earlier Claude chats, and records Ron provided; added Origins and corrections; removed private repository names and the Grok bot's name at Ron's request | Observed in session; removal requests Owner-confirmed |

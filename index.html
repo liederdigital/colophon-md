@@ -8,7 +8,9 @@
 <meta property="og:title" content="COLOPHON.md">
 <meta property="og:description" content="A short, honest record of how a project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://colophon-md.pages.dev/og.png">
+<link rel="canonical" href="https://colophon.md/">
+<meta property="og:url" content="https://colophon.md/">
+<meta property="og:image" content="https://colophon.md/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="COLOPHON.md: a short, honest record of which AI tools and models built a project, and when.">
@@ -359,7 +361,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
             <h3>Give your agent the instructions</h3>
             <p>Use the copy button above and paste the instructions into your coding agent. Or, if it can read web pages, send it this line:</p>
             <div class="prompt">
-              <code id="prompt-text">Read the COLOPHON.md instructions at github.com/liederdigital/colophon-md and follow them to create COLOPHON.md for this repository.</code>
+              <code id="prompt-text">Read https://colophon.md/instructions.md and follow it to create or update COLOPHON.md for this repository.</code>
               <button type="button" class="btn" id="copy-prompt">Copy</button>
             </div>
           </div>
@@ -383,7 +385,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
             <div class="prompt snippet">
               <pre id="snippet-text">## Colophon
 
-This project keeps COLOPHON.md, a short record of how it was made. Agents update it themselves, in the same commit or pull request as their work: add a row when the tool, model, model setting, or computer changes, when you review someone else's work, and before each release. Never hold up a commit for it. Follow the instructions in instructions.md at github.com/liederdigital/colophon-md.</pre>
+This project keeps COLOPHON.md, a short record of how it was made. Agents update it themselves, in the same commit or pull request as their work: add a row when the tool, model, model setting, or computer changes, when you review someone else's work, and before each release. Never hold up a commit for it. Follow the instructions at https://colophon.md/instructions.md.</pre>
               <button type="button" class="btn" id="copy-snippet">Copy</button>
             </div>
           </div>
@@ -472,7 +474,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
 <script>
 (() => {
   const statusEl = document.getElementById("status");
-  const repoFile = "https://github.com/liederdigital/colophon-md/blob/main/instructions.md";
+  const repoFile = "https://colophon.md/instructions.md";
   const localUrl = new URL("instructions.md", location.href);
   const onWeb = location.protocol === "https:" || location.protocol === "http:";
 

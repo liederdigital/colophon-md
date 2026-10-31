@@ -15,8 +15,8 @@ Start one when you create the repository. It takes a minute on day one, and an
 afternoon of detective work after 27 commits, two computers, and three agents.
 
 - **Ask your agent.** Give it [`instructions.md`](instructions.md), or tell it:
-  *"Read instructions.md from github.com/liederdigital/colophon-md and follow
-  it to create COLOPHON.md for this repository."*
+  *"Read https://colophon.md/instructions.md and follow it to create or update
+  COLOPHON.md for this repository."*
 - **Write it yourself.** Copy [`template.md`](template.md) to your repository
   root as `COLOPHON.md` and fill it in.
 - **Keep it current.** Add the short Colophon snippet from `instructions.md` to
@@ -76,6 +76,6 @@ The instructions, template, and site are dedicated to the public domain under
 fonts in `fonts/` are under the SIL Open Font License; see the license files in
 that folder.
 
-Live at https://colophon-md.pages.dev. Started by
+Live at https://colophon.md. Started by
 [Ron Stauffer](https://github.com/ronstauffer) of
 [Lieder Digital](https://liederdigital.com).

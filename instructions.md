@@ -5,8 +5,8 @@ how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
 Version 1.0, published October 30, 2026. The convention lives at
-https://github.com/liederdigital/colophon-md and is in the public domain
-(CC0 1.0).
+https://colophon.md (source: https://github.com/liederdigital/colophon-md)
+and is in the public domain (CC0 1.0).
 
 ## What a colophon is for
 
@@ -78,7 +78,7 @@ Agents update it themselves, in the same commit or pull request as their
 work: add a row when the tool, model, model setting, or computer changes,
 when you review someone else's work, and before each release. Never hold
 up a commit for it. Follow the instructions at
-https://colophon-md.pages.dev/instructions.md.
+https://colophon.md/instructions.md.
 ```
 
 **Reconstructing it.** When the project already has history and no colophon,
