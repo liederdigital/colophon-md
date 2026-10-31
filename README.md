@@ -50,4 +50,6 @@ The instructions, template, and site are dedicated to the public domain under
 fonts in `fonts/` are under the SIL Open Font License; see the license files in
 that folder.
 
-Started by Ron Stauffer of [Lieder Digital](https://liederdigital.com).
+Live at https://colophon-md.pages.dev. Started by
+[Ron Stauffer](https://github.com/ronstauffer) of
+[Lieder Digital](https://liederdigital.com).
