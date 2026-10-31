@@ -6,6 +6,8 @@ each contributed, and who directed it. License and third-party notices live in
 
 Private repositories are named with placeholders such as `<ios-app>`.
 
+![A timeline of how COLOPHON.md was made, from Ron's first message on September 28 to launch on October 30, 2026](colophon-timeline.svg)
+
 ## Snapshot
 
 | | |
@@ -39,7 +41,7 @@ through the repositories' Git history and an earlier Claude chat. Before launch,
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
 | 2026-10-30 | Ron Stauffer | Approved | Claude app | Not applicable | Approved the site, instructions, and template for launch, after the Grok bot's review | Owner-confirmed in the Claude session |
-| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Built the site, instructions, and template, then revised them through the evening: two ways to use it, roles, the no-extra-steps rules, the timeline chart, the move to colophon.md, analytics, and the fixes from the Grok bot's review | Observed in session; each change is its own commit, from `07e8025` onward |
+| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Built the site, instructions, and template, then revised them through the evening: two ways to use it, roles, the no-extra-steps rules, the timeline chart, the move to colophon.md, analytics, the fixes from the Grok bot's review, the proactive and forensic mode names, and a timeline of this repository's own history (`colophon-timeline.svg`) | Observed in session; each change is its own commit, from `07e8025` onward |
 | 2026-10-30 | A Grok bot | Reviewed | Grok Bot app | Unknown | Pre-launch review of the site, instructions, template, and repository: three fixes before launch and several smaller points | The review, shared by Ron |
 | 2026-10-30 | Ron Stauffer | Deployed | .MD registry; Cloudflare; GitHub command line | Not applicable | Registered colophon.md and connected it with SSL; redirected the pages.dev and www addresses to it; made the repository public | Owner-confirmed, with the receipt, dashboard screenshots, and terminal output he shared |
 | 2026-10-30 | Claude | Researched and documented | Cloud workspace (Claude desktop app), with read access to Ron's GitHub repositories and his local copy of this repository | Claude Opus 5.5 (session configuration) | Traced the convention's origins through the Git history of ten private repositories, earlier Claude chats, and records Ron provided; added Origins and corrections; removed private repository names and the Grok bot's name at Ron's request | Observed in session; removal requests Owner-confirmed |

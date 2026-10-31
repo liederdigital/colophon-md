@@ -28,8 +28,8 @@ Like the credits at the end of a film, it lists everyone and everything
 involved. Like a maintenance log, it lets you trace a bug, or a weaker release,
 back to the models in use at the time.
 
-Already have a project with history? The same instructions cover
-reconstructing a colophon from Git history and the session logs your agents
+Already have a project with history? The same instructions cover forensic
+mode: reconstructing a colophon from Git history and the session logs your agents
 saved. Those logs stay on each computer, so run it on every computer you used.
 
 The one rule: write **Unknown** instead of guessing.
@@ -56,6 +56,7 @@ The current instructions are version 1.0 (October 30, 2026).
 | `_headers` | Cloudflare Pages headers so `.md` files display as plain text |
 | `fonts/` | Self-hosted IM Fell English and IBM Plex fonts |
 | `og.png` | The image shown when the site is shared on social media |
+| `colophon-timeline.svg` | A timeline of how COLOPHON.md itself was made, shown in `COLOPHON.md` |
 
 ## Deploying
 

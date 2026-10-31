@@ -48,10 +48,11 @@ sign-off.
 
 ## Keep it current, or reconstruct it
 
-A colophon is either kept as the work happens or reconstructed afterward.
+A colophon is either kept as the work happens (proactive mode) or
+reconstructed afterward (forensic mode).
 Decide which one applies before you start; a project can need both.
 
-**Keeping it current.** When the project is new, or its colophon is up to
+**Keeping it current (proactive mode).** When the project is new, or its colophon is up to
 date, record what you can observe in this session: your tool, where you are
 running, and your model if you can see it. Add a row whenever the tool, model,
 model setting, or computer changes, or a new phase of work starts. Don't add a
@@ -90,7 +91,7 @@ up a commit for it. Follow the instructions at
 https://colophon.md/instructions.md.
 ```
 
-**Reconstructing it.** When the project already has history and no colophon,
+**Reconstructing it (forensic mode).** When the project already has history and no colophon,
 or the colophon has gaps, rebuild the record from evidence. Besides Git
 history, look for session logs that coding agents saved on this computer, if
 you are able to read them (for example, Codex keeps sessions under
