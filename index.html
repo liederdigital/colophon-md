@@ -437,7 +437,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       </div>
       <div>
         <h3>Reconstruct one after the fact</h3>
-        <p>For a project that already has history. The agent reads the Git log and any session logs your coding agents saved, fills in what it can, and marks the rest Unknown. Those logs stay on the computer where the work happened, so run it on each computer you used.</p>
+        <p>For a project that already has history. The agent reads the Git log and any session logs your coding agents saved, fills in what it can, and marks the rest Unknown. Those logs stay on the computer where the work happened, so run it on each computer you used. If you’d rather hand it off, <a href="https://liederdigital.com">Lieder Digital</a> can reconstruct it for you.</p>
       </div>
     </div>
   </section>
@@ -545,6 +545,14 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
           <p>Pieces of it do. AI declaration files such as <a href="https://github.com/DimwitLabs/AI-DECLARATION.md">AI-DECLARATION.md</a> state how much AI was involved, as a level. Line-by-line tools such as <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record exactly which lines an agent wrote, and the Linux kernel asks for an <a href="https://docs.kernel.org/process/coding-assistants.html">Assisted-by line</a> on each commit. Commit notes like Co-Authored-By help too, but not every tool adds them, and they rarely say where a tool ran or which setting it used.</p>
           <p>None of the ones we found keeps a plain-language timeline of which tools and models did the work, where, in what role, and who signed off. That’s the gap COLOPHON.md fills, and it works after the fact, too. Use it alongside any of them.</p>
         </div>
+      </details>
+      <details>
+        <summary>Who’s using it?</summary>
+        <div><p>It’s brand new, so not many projects yet. You can see every public repository with a COLOPHON.md using <a href="https://github.com/search?q=path%3A**%2FCOLOPHON.md&amp;type=code">GitHub’s code search</a> (you’ll need to be signed in to GitHub). Some results are older book-style colophons that predate this convention.</p></div>
+      </details>
+      <details>
+        <summary>Can someone reconstruct one for me?</summary>
+        <div><p>Yes. If a project already has months of history across several tools and computers, <a href="https://liederdigital.com">Lieder Digital</a>, the studio behind COLOPHON.md, can reconstruct its colophon for you, with the evidence for each entry.</p></div>
       </details>
       <details>
         <summary>Can a colophon prove who wrote the code?</summary>
