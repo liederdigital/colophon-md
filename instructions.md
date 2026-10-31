@@ -38,7 +38,8 @@ becomes a chore, people stop keeping it. So the agent doing the work keeps it:
   work it describes.
 - Fill in everything you can observe. Never ask the owner to type an entry.
 - When something needs the owner, ask one yes-or-no question with your best
-  evidence already filled in. If there's no answer, write Unknown and carry on.
+  evidence already filled in. If no one is there to answer, don't ask: write
+  Unknown and carry on.
 - Don't hold up a commit, a merge, or a release waiting on the colophon.
 
 A person reviewing the pull request sees the colophon change next to the code,
@@ -57,14 +58,22 @@ model setting, or computer changes, or a new phase of work starts. Don't add a
 row for every commit; a colophon is a summary, not a log.
 
 Record the exact model name and version, and any setting such as a reasoning
-level, exactly as the tool shows them, along with the date of every switch.
-That precision is what lets someone line up a problem with the model that was
-in use when it was introduced. Git already records when each commit happened;
-the colophon records which model was active then.
+level, along with the date of every switch. Say where each model value came
+from:
 
-Before each release, check the file and name the release version (for example,
-v1.1.8) in the row that covers it, so releases can be compared with model
-switches.
+- **shown by the tool**: in its interface, its logs, or a commit trailer it
+  wrote;
+- **configured**: in a setting or config file;
+- **self-reported**: the model named itself.
+
+A model naming itself is not Observed; label it self-reported. That precision
+is what lets someone line up a problem with the model that was in use when it
+was introduced. Git already records when each commit happened; the colophon
+records which model was active then.
+
+When you can see a release being prepared (a version bump, a new tag, a release
+branch, or the owner says so), name the release version (for example, v1.1.8)
+in the row that covers it, so releases can be compared with model switches.
 
 If the repository's agent instructions (such as `AGENTS.md`) don't mention
 `COLOPHON.md`, suggest adding these lines, and add them only if the owner
@@ -121,8 +130,13 @@ Watch for these traps:
   this one.
 - Session logs on one computer say nothing about work done on another.
 - Do not infer an exact model or setting from a list of available models, a
-  default preference, or a commit signature. Record a model only when it was
-  observed in the session or confirmed by the owner.
+  default preference, or another project's colophon. Record a model only with
+  its source (shown by the tool, configured, or self-reported) or as confirmed
+  by the owner.
+
+If the repository has line-level attribution (such as Git AI or Agent Trace
+records) or commit trailers (such as `Co-Authored-By`), use them as evidence
+and cite them. The colophon summarizes those records; it doesn't replace them.
 
 Name the surface where each tool ran as precisely as you can: desktop app,
 browser or cloud workspace, command line (CLI), IDE extension, or a hosted
@@ -148,7 +162,9 @@ Include:
 
 Add a history row for a new builder, a change of surface, model, or model
 setting, a review, a release, or a meaningful phase of work, not for every
-small edit. Cite commit hashes, paths, pull requests, or "Owner-confirmed" as
+small edit. A meaningful phase is something you'd mention to someone taking
+over the project: a new feature, a rewrite, a migration, or a release. Combine
+same-day work by the same builder into one row. Cite commit hashes, paths, pull requests, or "Owner-confirmed" as
 evidence. If the repository is a toolkit
 or template, keep the toolkit's own history separate from products built with
 it.
@@ -159,8 +175,10 @@ deployed. When you review work that another tool or model built, add a
 commits) and your model. Approvals usually show in Git already, because a merge
 records who merged it; fill them in at your next update instead of asking.
 
-Write dates in the project's timezone (follow the repository's convention, or
-ask the owner). Don't substitute the clock of the machine you are running on.
+Write dates in the repository's existing timezone convention. If there isn't
+one, use UTC and say so (for example, "Dates are UTC"). Don't stop to ask, and
+don't assume the clock of the machine you are running on is the project's
+timezone.
 Don't cite a commit hash for the commit that will contain your own edit; it
 doesn't exist yet. The commit that created the file can be found later with
 `git log -- COLOPHON.md`.
@@ -185,7 +203,10 @@ otherwise record Unknown and finish.
 - Note in "Evidence limits" which version of these instructions you followed
   (for example, "COLOPHON.md instructions v1.0").
 - Keep out credentials, private session or chat links, client or customer
-  records, signing secrets, and unrelated personal details.
+  records, signing secrets, computer names, usernames, and unrelated personal
+  details. Describe computers generically (for example, "a MacBook Pro").
+- For a client's private project, leave it to the owner and the client whether
+  the colophon is published.
 - Optionally add a one-line link from the README to `COLOPHON.md`. Keep the
   detail in the colophon.
 
@@ -212,7 +233,7 @@ elsewhere.
 | Project | {project name} |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
-| Model / mode | {model and setting, as observed or owner-confirmed, or Unknown} |
+| Model / mode | {model and setting, with its source: shown by the tool, configured, or self-reported; or Unknown} |
 | Editor | {editor, or Unknown} |
 | Human owner | {name}, {direction / review / testing role, only as established} |
 | Era | {first date} to {latest date} ({timezone}) |
@@ -227,7 +248,7 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
+| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting (source), or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 

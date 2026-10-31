@@ -13,9 +13,9 @@
   gtag('config', 'G-XW1KC5YTVS');
 </script>
 <title>COLOPHON.md</title>
-<meta name="description" content="A simple, open convention for recording how a software project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
+<meta name="description" content="A credits file for AI-built code: an open convention for recording which AI tools and models built a project, when, where they ran, and who directed the work.">
 <meta property="og:title" content="COLOPHON.md">
-<meta property="og:description" content="A short, honest record of how a project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
+<meta property="og:description" content="A credits file for AI-built code: which tools and models built a project, when, where they ran, and who signed off. When something breaks, it tells you where to look.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://colophon.md/">
 <meta property="og:url" content="https://colophon.md/">
@@ -281,7 +281,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 
 <header class="wrap masthead">
   <h1>COLOPHON<span class="ext">.md</span></h1>
-  <p class="lede">A short, honest record of how a project was made: which AI tools and models built it and when, where they ran, and who directed the work.</p>
+  <p class="lede">A credits file for AI-built code: a short, honest record of which tools and models built a project, when, where they ran, and who signed off. When something breaks months later, it tells you where to look.</p>
   <div class="actions">
     <button type="button" class="btn btn-primary" id="copy-instructions">Copy instructions for your agent</button>
     <a class="btn" href="template.md" download="COLOPHON.md">Download the template</a>
@@ -296,7 +296,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     <div class="leaf">
       <svg class="device" width="30" height="44" viewBox="0 0 40 58" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="40" r="14"/><path d="M6 40h28M20 26V5M13 11.5h14"/></svg>
       <p><span class="sc">This page</span> was composed in October 2026 by Claude, an AI model made by Anthropic, working in a cloud workspace at the direction of Ron Stauffer. The headings are set in IM Fell English, a digital revival of the Fell types of seventeenth-century Oxford; the text in IBM Plex.</p>
-      <p class="tail">Who reviewed it is not yet recorded.</p>
+      <p class="tail">It was reviewed before launch by a Grok bot.</p>
     </div>
     <figcaption>A colophon, set the way printers have set them for centuries.</figcaption>
   </figure>
@@ -311,9 +311,10 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 |---|---|</span>
 <span class="md-p">|</span> Primary builder <span class="md-p">|</span> Claude, by Anthropic             <span class="md-p">|</span>
 <span class="md-p">|</span> Surface         <span class="md-p">|</span> Cloud workspace, Claude app      <span class="md-p">|</span>
-<span class="md-p">|</span> Model / mode    <span class="md-p">|</span> Claude Opus 5.5, as configured   <span class="md-p">|</span>
+<span class="md-p">|</span> Model           <span class="md-p">|</span> Claude Opus 5.5, as configured   <span class="md-p">|</span>
+<span class="md-p">|</span> Mode            <span class="md-p">|</span> <span class="md-u">Unknown</span>                          <span class="md-p">|</span>
 <span class="md-p">|</span> Human owner     <span class="md-p">|</span> Ron Stauffer: concept, direction <span class="md-p">|</span>
-<span class="md-p">|</span> Review          <span class="md-p">|</span> <span class="md-u">Unknown</span>                          <span class="md-p">|</span>
+<span class="md-p">|</span> Reviewed by     <span class="md-p">|</span> A Grok bot, before launch        <span class="md-p">|</span>
 <span class="md-p">|</span> Era             <span class="md-p">|</span> 2026-10-30 (America/Denver)      <span class="md-p">|</span></pre>
     </div>
     <figcaption>The same facts, kept as a file at the root of the repository.</figcaption>
@@ -328,14 +329,14 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       <p>A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
       <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none.</p>
       <p>Think of it as the credits at the end of a film, and as a maintenance log: who built each part, which model reviewed it, and who signed off. When version 1.1.8 turns out worse than 1.1.7, or a bug turns up in production, the colophon shows which agents and models were working on the project at the time, and in which mode. If a model version later turns out to have had a flaw, you’ll know which projects, and which weeks, to check.</p>
-      <p>Start one when you create the repository. It takes a minute on day one, and an afternoon of detective work after 27 commits, two computers, and three agents.</p>
+      <p>Start one when you create the repository. It takes a minute on day one. Reconstructing <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">this site’s own history</a> afterward took an evening, three AI tools, and a lot of digging.</p>
     </div>
   </section>
 
   <section class="band" aria-labelledby="example">
     <div class="prose">
       <h2 id="example">What it looks like nine months later</h2>
-      <p>One web app, five AI tools, three devices, two people. Each row is a tool or a person; each mark is a piece of work. The line is the project itself, handed from tool to tool.</p>
+      <p>A made-up example: one web app, five AI tools, three devices, two people. Each row is a tool or a person; each mark is a piece of work. The line is the project itself, handed from tool to tool.</p>
     </div>
     <p class="scroll-hint">Swipe sideways to see the whole timeline.</p>
     <div class="chart-scroll">
@@ -551,8 +552,8 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       <details>
         <summary>Doesn’t something like this already exist?</summary>
         <div>
-          <p>Pieces of it do. AI declaration files such as <a href="https://github.com/DimwitLabs/AI-DECLARATION.md">AI-DECLARATION.md</a> state how much AI was involved, as a level. Line-by-line tools such as <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record exactly which lines an agent wrote, and the Linux kernel asks for an <a href="https://docs.kernel.org/process/coding-assistants.html">Assisted-by line</a> on each commit. Commit notes like Co-Authored-By help too, but not every tool adds them, and they rarely say where a tool ran or which setting it used.</p>
-          <p>None of the ones we found keeps a plain-language timeline of which tools and models did the work, where, in what role, and who signed off. That’s the gap COLOPHON.md fills, and it works after the fact, too. Use it alongside any of them.</p>
+          <p>Pieces of it do, and COLOPHON.md is meant to sit on top of them. AI declaration files such as <a href="https://github.com/DimwitLabs/AI-DECLARATION.md">AI-DECLARATION.md</a> state how much AI was involved, as a single level. Line-by-line tools such as <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record exactly which lines an agent wrote. Commit notes like Co-Authored-By name the tool on each commit, but they’re optional, many people turn them off, and they don’t say where the tool ran, who reviewed the work, or which release it shipped in. The Linux kernel asked for an Assisted-by line on AI-assisted commits, but the line no longer names the model, and in October <a href="https://lwn.net/Articles/1099653/">a patch proposed dropping it</a>.</p>
+          <p>None of these is something a client or a future maintainer can read in a minute. COLOPHON.md is that readable summary: agents cite those records as evidence where they exist and fill in the gaps where they don’t. It also works after the fact.</p>
         </div>
       </details>
       <details>
@@ -561,7 +562,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       </details>
       <details>
         <summary>Can someone reconstruct one for me?</summary>
-        <div><p>Yes. If a project already has months of history across several tools and computers, <a href="https://liederdigital.com">Lieder Digital</a>, the studio behind COLOPHON.md, can reconstruct its colophon for you, with the evidence for each entry.</p></div>
+        <div><p>Yes. If a project already has months of history across several tools and computers, <a href="https://liederdigital.com">Lieder Digital</a>, the studio behind COLOPHON.md, can reconstruct its colophon for you, with the evidence for each entry. It’s useful for agencies handing a project to a client, and for buyers checking a codebase before they take it over.</p></div>
       </details>
       <details>
         <summary>Can a colophon prove who wrote the code?</summary>
@@ -569,7 +570,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       </details>
       <details>
         <summary>What should stay out of it?</summary>
-        <div><p>Passwords and keys, private chat or session links, client records, and personal details that have nothing to do with how the project was made.</p></div>
+        <div><p>Passwords and keys, private chat or session links, client records, computer names and usernames (say “a MacBook Pro,” not its name), and personal details that have nothing to do with how the project was made. If the project belongs to a client, decide with them whether the file is published at all.</p></div>
       </details>
       <details>
         <summary>What if I didn’t use AI?</summary>

@@ -11,7 +11,7 @@ elsewhere.
 | Project | {project name} |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
-| Model / mode | {model and setting, as observed or owner-confirmed, or Unknown} |
+| Model / mode | {model and setting, with its source: shown by the tool, configured, or self-reported; or Unknown} |
 | Editor | {editor, or Unknown} |
 | Human owner | {name}, {direction / review / testing role, only as established} |
 | Era | {first date} to {latest date} ({timezone}) |
@@ -26,7 +26,7 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
+| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting (source), or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 
