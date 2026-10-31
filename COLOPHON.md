@@ -17,7 +17,7 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Surface | Claude cloud workspace, started from the Claude desktop app; Codex CLI for its update |
 | Model / mode | Claude: Opus 5.5, configured for the sessions (`claude-opus-5-5`); the serving model was not independently verified; mode Unknown. Codex: `gpt-6-astra`, high, shown by the tool in its session log. The Grok bot reviewer and the precursor sessions: mostly Unknown |
 | Editor | Claude sessions: none; the agent wrote the files directly. Codex CLI's enclosing editor: Unknown |
-| Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work throughout, and chose the COLOPHON.md name and byline. The first file's wording was the Grok bot's, adapting his September 28 message, per the bot. Approved the site for launch on 2026-10-30; how closely he read every page is not recorded |
+| Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work, chose the COLOPHON.md name and byline, and approved the launch on 2026-10-30. The Grok bot says it drafted the first file's wording from his message. How closely he read every page is not recorded |
 | Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30 (America/Denver) |
 | Status | Live at https://colophon.md; public repository |
 
@@ -34,17 +34,17 @@ October 30, Ron chose the COLOPHON.md name and byline, Claude adapted the skill
 into public instructions and a template and built this website, and Ron
 connected the repository to Cloudflare Pages. Later that day Codex searched
 Ron's local Codex history for the origin, and Claude traced the full timeline
-through the repositories' Git history and an earlier Claude chat. Before launch, a Grok bot reviewed the site and instructions, and Claude applied its fixes.
+through the repositories' Git history and an earlier Claude chat. Before launch, a Grok bot reviewed the site and instructions, Claude applied its fixes, and the bot checked them again.
 
 ## Builder history (newest first)
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
 | 2026-10-30 | Ron Stauffer | Approved | Claude app | Not applicable | Approved the site, instructions, and template for launch, after the Grok bot's review | Owner-confirmed in the Claude session |
-| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Built the site, instructions, and template, then revised them through the evening: two ways to use it, roles, the no-extra-steps rules, the timeline chart, the move to colophon.md, analytics, the fixes from the Grok bot's review, the proactive and forensic mode names, and a timeline of this repository's own history (`colophon-timeline.svg`) | Observed in session; each change is its own commit, from `07e8025` onward |
-| 2026-10-30 | A Grok bot | Reviewed | Grok Bot app | Unknown | Pre-launch review of the site, instructions, template, and repository: three fixes before launch and several smaller points | The review, shared by Ron |
+| 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Built the site, instructions, and template, then revised them through the evening: two ways to use it, roles, the no-extra-steps rules, the timeline chart, the move to colophon.md, analytics, the fixes from the Grok bot's review, the proactive and forensic mode names, a timeline of this repository's own history (`colophon-timeline.svg`), and a two-slide gallery of timelines with hover details showing each model | Observed in session; each change is its own commit, from `07e8025` onward |
+| 2026-10-30 | A Grok bot | Reviewed | Grok Bot app | Unknown | Two reviews of the site, instructions, template, and repository: before launch (three fixes and several smaller points), then a re-check after the fixes (ready to launch, three small fixes) | Both reviews, shared by Ron |
 | 2026-10-30 | Ron Stauffer | Deployed | .MD registry; Cloudflare; GitHub command line | Not applicable | Registered colophon.md and connected it with SSL; redirected the pages.dev and www addresses to it; made the repository public | Owner-confirmed, with the receipt, dashboard screenshots, and terminal output he shared |
-| 2026-10-30 | Claude | Researched and documented | Cloud workspace (Claude desktop app), with read access to Ron's GitHub repositories and his local copy of this repository | Claude Opus 5.5 (session configuration) | Traced the convention's origins through the Git history of ten private repositories, earlier Claude chats, and records Ron provided; added Origins and corrections; removed private repository names and the Grok bot's name at Ron's request | Observed in session; removal requests Owner-confirmed |
+| 2026-10-30 | Claude | Researched and documented | Cloud workspace (Claude desktop app), with read access to Ron's GitHub repositories and his local copy of this repository | Claude Opus 5.5 (session configuration) | Traced the convention's origins through the Git history of ten private repositories, earlier Claude chats, and records Ron provided; added Origins and corrections; at Ron's request, replaced private repository names with placeholders and the bot's own name with "a Grok bot" | Observed in session; removal requests Owner-confirmed |
 | 2026-10-30 | Ron Stauffer | Approved | Codex CLI | Not applicable | Approved Codex's colophon update ("Looks good") before it was committed and pushed as `65f28b4` | Codex session transcript, provided by Ron |
 | 2026-10-30 | Codex, directed by Ron Stauffer | Researched and documented | CLI in `colophon-md` (session originator: `codex-tui`) | `gpt-6-astra`; high reasoning, recorded in this session's turn context | Searched local Codex history and skill files; separated the idea's origin from the recorded skill work; updated this colophon and preserved the earlier Unknown row | Observed in this session on 2026-10-30; Ron requested the investigation and an uncommitted diff |
 | 2026-10-30 | Ron Stauffer | Deployed | Cloudflare Pages | Not applicable | Connected this repository to Cloudflare Pages and put the site live at colophon-md.pages.dev | Owner-confirmed |
@@ -85,9 +85,9 @@ the October 15 skill commit (`921ae5a`) and found an earlier history. The
 first `CREDITS.md` found dates from September 30 and was written by a Grok
 bot, not Codex. This corrects Ron's tentative recollection that the idea began
 in Codex: Codex wrote the October 4 file and the October 15 skill. Where the
-idea was first proposed is still Unknown. Private repository names and the
-bot's name were removed from this file at Ron's request; no other facts were
-changed.
+idea was first proposed is still Unknown. At Ron's request, private repository names
+were replaced with placeholders, and the bot's own name with "a Grok bot"; no
+other facts were changed.
 
 2026-10-30, later still: An export of the Claude session that built
 `<ios-app>` shows that Claude made the first reusable version of the idea on

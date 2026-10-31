@@ -1,88 +1,88 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 378" width="980" height="378" role="img" aria-labelledby="t d">
-<title id="t">How COLOPHON.md was made, September 28 to October 30, 2026</title>
-<desc id="d">One row each for a Grok bot, Claude, Codex, Cursor, and Ron Stauffer. A line passes between them: Ron proposes the idea in a Grok bot chat on September 28; the Grok bot writes the first file on September 30; Claude, Codex, and Cursor write more; Codex turns them into a skill on October 15; on launch day, October 30, Claude builds the site, Codex and the Grok bot research and review it, and Ron approves it.</desc>
+<svg class="timeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 396" width="980" height="396" role="group" aria-labelledby="ct-title ct-desc">
+<title id="ct-title">How this website was made, September 28 to October 30, 2026</title>
+<desc id="ct-desc">One row each for a Grok bot, Claude, Codex, Cursor, and Ron Stauffer. Ron proposes the idea in a Grok bot chat on September 28; the Grok bot writes the first file on September 30; Claude, Codex, and Cursor write more; Codex turns them into a skill on October 15. On launch day, October 30, shown hour by hour, Claude builds the site, Codex and the Grok bot research and review it, and Ron approves it. Each mark is listed with its model in this site’s COLOPHON.md.</desc>
 <style>
   .bg { fill: #F2F3EF; }
-  .lane { stroke: #CBCEC6; stroke-width: 1; }
-  .label { fill: #1C2230; font: 500 13.5px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
   .title { fill: #1C2230; font: 400 22px "IM Fell English", Georgia, "Times New Roman", serif; }
-  .axis { stroke: #CBCEC6; }
-  .tick { stroke: #545B69; }
-  .tickl { fill: #545B69; font: 400 12.5px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
-  .panel { fill: #545B69; font: italic 400 13px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
-  .ms { stroke: #9C762B; stroke-width: 1.5; stroke-dasharray: 3 4; }
-  .msl { fill: #9C762B; font: 500 12.5px "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
-  .path { fill: none; stroke: #545B69; stroke-width: 2; stroke-linejoin: round; opacity: .5; }
-  .built { fill: #23443D; stroke: #F2F3EF; stroke-width: 2.5; }
-  .reviewed { fill: #F2F3EF; stroke: #9C762B; stroke-width: 3; }
-  .decided { fill: #1C2230; stroke: #F2F3EF; stroke-width: 2.5; }
-  .brk { stroke: #545B69; stroke-width: 1.5; }
-  .leg { fill: #545B69; font: 400 13px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .tl-lane, .tl-axis-line { stroke: #CBCEC6; stroke-width: 1; }
+  .tl-label { fill: #1C2230; font: 500 13.5px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .tl-tick { stroke: #545B69; stroke-width: 1.5; }
+  .tl-month, .leg { fill: #545B69; font: 400 12.5px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .tl-panel { fill: #545B69; font: italic 400 13px "IBM Plex Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .tl-release { stroke: #9C762B; stroke-width: 1.5; stroke-dasharray: 3 4; }
+  .tl-release-label { fill: #9C762B; font: 500 12.5px "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+  .tl-path { fill: none; stroke: #545B69; stroke-width: 2; stroke-linejoin: round; opacity: .5; }
+  .tl-built { fill: #23443D; stroke: #F2F3EF; stroke-width: 2.5; }
+  .tl-reviewed { fill: #F2F3EF; stroke: #9C762B; stroke-width: 3; }
+  .tl-approved { fill: #1C2230; stroke: #F2F3EF; stroke-width: 2.5; }
 </style>
-<rect class="bg" width="980" height="378" rx="6"/>
-<text class="title" x="24" y="38">How COLOPHON.md was made</text>
-<line class="lane" x1="164" y1="96" x2="646" y2="96"/>
-<line class="lane" x1="694" y1="96" x2="946" y2="96"/>
-<text class="label" x="154" y="100.5" text-anchor="end">Grok bot</text>
-<line class="lane" x1="164" y1="140" x2="646" y2="140"/>
-<line class="lane" x1="694" y1="140" x2="946" y2="140"/>
-<text class="label" x="154" y="144.5" text-anchor="end">Claude</text>
-<line class="lane" x1="164" y1="184" x2="646" y2="184"/>
-<line class="lane" x1="694" y1="184" x2="946" y2="184"/>
-<text class="label" x="154" y="188.5" text-anchor="end">Codex</text>
-<line class="lane" x1="164" y1="228" x2="646" y2="228"/>
-<line class="lane" x1="694" y1="228" x2="946" y2="228"/>
-<text class="label" x="154" y="232.5" text-anchor="end">Cursor</text>
-<line class="lane" x1="164" y1="272" x2="646" y2="272"/>
-<line class="lane" x1="694" y1="272" x2="946" y2="272"/>
-<text class="label" x="154" y="276.5" text-anchor="end">Ron Stauffer</text>
-<line class="axis" x1="164" y1="292" x2="646" y2="292"/>
-<line class="axis" x1="694" y1="292" x2="946" y2="292"/>
-<line class="tick" x1="186.2" y1="288" x2="186.2" y2="296"/><text class="tickl" x="186.2" y="312" text-anchor="middle">Sep 28</text>
-<line class="tick" x1="285.5" y1="288" x2="285.5" y2="296"/><text class="tickl" x="285.5" y="312" text-anchor="middle">Oct 5</text>
-<line class="tick" x1="384.7" y1="288" x2="384.7" y2="296"/><text class="tickl" x="384.7" y="312" text-anchor="middle">Oct 12</text>
-<line class="tick" x1="484.0" y1="288" x2="484.0" y2="296"/><text class="tickl" x="484.0" y="312" text-anchor="middle">Oct 19</text>
-<line class="tick" x1="583.3" y1="288" x2="583.3" y2="296"/><text class="tickl" x="583.3" y="312" text-anchor="middle">Oct 26</text>
-<line class="tick" x1="700.0" y1="288" x2="700.0" y2="296"/><text class="tickl" x="700.0" y="312" text-anchor="middle">6 PM</text>
-<line class="tick" x1="765.5" y1="288" x2="765.5" y2="296"/><text class="tickl" x="765.5" y="312" text-anchor="middle">7 PM</text>
-<line class="tick" x1="830.9" y1="288" x2="830.9" y2="296"/><text class="tickl" x="830.9" y="312" text-anchor="middle">8 PM</text>
-<line class="tick" x1="896.4" y1="288" x2="896.4" y2="296"/><text class="tickl" x="896.4" y="312" text-anchor="middle">9 PM</text>
-<text class="panel" x="406.0" y="332" text-anchor="middle">September 28 to October 29</text>
-<text class="panel" x="820.0" y="332" text-anchor="middle">October 30, launch day, by the hour</text>
-<line class="brk" x1="662.0" y1="298" x2="670.0" y2="286"/>
-<line class="brk" x1="670.0" y1="298" x2="678.0" y2="286"/>
-<polyline class="path" points="198.8,272 207.5,96 226.4,96 226.8,140 252.8,272 284.8,140 284.9,184 395.1,140 406.2,228 438.8,184 439.0,140 632.9,140"/>
-<polyline class="path" points="716.4,140 726.2,272 760.0,184 787.3,96 877.8,272 913.8,96 917.1,140 920.4,272"/>
-<line class="path" x1="632.9" y1="140" x2="716.4" y2="140" stroke-dasharray="4 5"/>
-<line class="ms" x1="226.4" y1="70" x2="226.4" y2="292"/>
-<text class="msl" x="226.4" y="61" text-anchor="middle">First file</text>
-<line class="ms" x1="438.8" y1="70" x2="438.8" y2="292"/>
-<text class="msl" x="438.8" y="61" text-anchor="middle">Skill</text>
-<line class="ms" x1="920.4" y1="70" x2="920.4" y2="292"/>
-<text class="msl" x="920.4" y="61" text-anchor="middle">Launch</text>
-<g><title>Sep 28, 9:22 PM: Ron Stauffer. Proposed the idea and the name CREDITS.md, in a Grok bot chat.</title><path class="decided" d="M198.8 264 L206.8 272 L198.8 280 L190.8 272 Z"/></g>
-<g><title>Sep 29, 12:00 PM: Grok bot. Built the template with Ron (per the bot&#x27;s notes, Sep 29 to Oct 1).</title><circle class="built" cx="207.5" cy="96" r="8"/></g>
-<g><title>Sep 30, 8:06 PM: Grok bot. Added the first CREDITS.md, to a private iOS app.</title><circle class="built" cx="226.4" cy="96" r="8"/></g>
-<g><title>Sep 30, 8:44 PM: Claude. Answered the bot&#x27;s open questions and checked its pull request.</title><circle class="reviewed" cx="226.8" cy="140" r="6.5"/></g>
-<g><title>Oct 2, 4:41 PM: Ron Stauffer. Merged the first CREDITS.md.</title><path class="decided" d="M252.8 264 L260.8 272 L252.8 280 L244.8 272 Z"/></g>
-<g><title>Oct 4, 10:58 PM: Claude. Pulled the idea out into a reusable kit: guide, template, skill.</title><circle class="built" cx="284.8" cy="140" r="8"/></g>
-<g><title>Oct 4, 11:08 PM: Codex. Wrote the first CREDITS.md by Codex, for a private company site.</title><circle class="built" cx="284.9" cy="184" r="8"/></g>
-<g><title>Oct 12, 5:36 PM: Claude. Wrote a CREDITS.md for a private Chrome extension.</title><circle class="built" cx="395.1" cy="140" r="8"/></g>
-<g><title>Oct 13, 12:16 PM: Cursor. A CREDITS.md for a private WordPress plugin (committed as Cursor Agent).</title><circle class="built" cx="406.2" cy="228" r="8"/></g>
-<g><title>Oct 15, 7:29 PM: Codex. Turned the examples into the repository-credits skill.</title><circle class="built" cx="438.8" cy="184" r="8"/></g>
-<g><title>Oct 15, 7:50 PM: Claude. Saved the skill as a Claude skill.</title><circle class="built" cx="439.0" cy="140" r="8"/></g>
-<g><title>Oct 29, 12:00 PM: Claude. Found ten repositories with a CREDITS.md.</title><circle class="reviewed" cx="632.9" cy="140" r="6.5"/></g>
-<g><title>Oct 30, 6:15 PM: Claude. Built the public convention and this website.</title><circle class="built" cx="716.4" cy="140" r="8"/></g>
-<g><title>Oct 30, 6:24 PM: Ron Stauffer. Put it live on Cloudflare Pages.</title><path class="decided" d="M726.2 264 L734.2 272 L726.2 280 L718.2 272 Z"/></g>
-<g><title>Oct 30, 6:55 PM: Codex. Searched its own history for the origin.</title><circle class="reviewed" cx="760.0" cy="184" r="6.5"/></g>
-<g><title>Oct 30, 7:20 PM: Grok bot. Found Ron&#x27;s September 28 message.</title><circle class="reviewed" cx="787.3" cy="96" r="6.5"/></g>
-<g><title>Oct 30, 8:43 PM: Ron Stauffer. Connected colophon.md.</title><path class="decided" d="M877.8 264 L885.8 272 L877.8 280 L869.8 272 Z"/></g>
-<g><title>Oct 30, 9:16 PM: Grok bot. Pre-launch review.</title><circle class="reviewed" cx="913.8" cy="96" r="6.5"/></g>
-<g><title>Oct 30, 9:19 PM: Claude. Applied the review.</title><circle class="built" cx="917.1" cy="140" r="8"/></g>
-<g><title>Oct 30, 9:22 PM: Ron Stauffer. Approved it for launch.</title><path class="decided" d="M920.4 264 L928.4 272 L920.4 280 L912.4 272 Z"/></g>
-<circle class="built" cx="31" cy="352" r="6.5" style="stroke-width:0"/><text class="leg" x="44" y="356">Built</text>
-<circle class="reviewed" cx="109" cy="352" r="5.5"/><text class="leg" x="122" y="356">Reviewed or researched</text>
-<path class="decided" d="M305 345 L312 352 L305 359 L298 352 Z" style="stroke-width:0"/><text class="leg" x="318" y="356">Proposed, deployed, or approved</text>
-<line class="ms" x1="563" y1="344" x2="563" y2="360"/><text class="leg" x="574" y="356">Milestone</text>
-<text class="leg" x="956" y="356" text-anchor="end">Times are Mountain Time</text>
+<rect class="bg" width="980" height="396" rx="6"/>
+<text class="title" x="24" y="40">How this website was made</text>
+<line class="tl-lane" x1="164" y1="110" x2="624" y2="110"/>
+<line class="tl-lane" x1="670" y1="110" x2="956" y2="110"/>
+<text class="tl-label" x="154" y="114.5" text-anchor="end">Grok bot</text>
+<line class="tl-lane" x1="164" y1="154" x2="624" y2="154"/>
+<line class="tl-lane" x1="670" y1="154" x2="956" y2="154"/>
+<text class="tl-label" x="154" y="158.5" text-anchor="end">Claude</text>
+<line class="tl-lane" x1="164" y1="198" x2="624" y2="198"/>
+<line class="tl-lane" x1="670" y1="198" x2="956" y2="198"/>
+<text class="tl-label" x="154" y="202.5" text-anchor="end">Codex</text>
+<line class="tl-lane" x1="164" y1="242" x2="624" y2="242"/>
+<line class="tl-lane" x1="670" y1="242" x2="956" y2="242"/>
+<text class="tl-label" x="154" y="246.5" text-anchor="end">Cursor</text>
+<line class="tl-lane" x1="164" y1="286" x2="624" y2="286"/>
+<line class="tl-lane" x1="670" y1="286" x2="956" y2="286"/>
+<text class="tl-label" x="154" y="290.5" text-anchor="end">Ron Stauffer</text>
+<line class="tl-axis-line" x1="164" y1="306" x2="624" y2="306"/>
+<line class="tl-axis-line" x1="670" y1="306" x2="956" y2="306"/>
+<line class="tl-tick" x1="185.5" y1="302" x2="185.5" y2="310"/><text class="tl-month" x="185.5" y="326" text-anchor="middle">Sep 28</text>
+<line class="tl-tick" x1="280.1" y1="302" x2="280.1" y2="310"/><text class="tl-month" x="280.1" y="326" text-anchor="middle">Oct 5</text>
+<line class="tl-tick" x1="374.7" y1="302" x2="374.7" y2="310"/><text class="tl-month" x="374.7" y="326" text-anchor="middle">Oct 12</text>
+<line class="tl-tick" x1="469.3" y1="302" x2="469.3" y2="310"/><text class="tl-month" x="469.3" y="326" text-anchor="middle">Oct 19</text>
+<line class="tl-tick" x1="563.9" y1="302" x2="563.9" y2="310"/><text class="tl-month" x="563.9" y="326" text-anchor="middle">Oct 26</text>
+<line class="tl-tick" x1="676.0" y1="302" x2="676.0" y2="310"/><text class="tl-month" x="676.0" y="326" text-anchor="middle">6 PM</text>
+<line class="tl-tick" x1="733.7" y1="302" x2="733.7" y2="310"/><text class="tl-month" x="733.7" y="326" text-anchor="middle">7 PM</text>
+<line class="tl-tick" x1="791.4" y1="302" x2="791.4" y2="310"/><text class="tl-month" x="791.4" y="326" text-anchor="middle">8 PM</text>
+<line class="tl-tick" x1="849.1" y1="302" x2="849.1" y2="310"/><text class="tl-month" x="849.1" y="326" text-anchor="middle">9 PM</text>
+<line class="tl-tick" x1="906.7" y1="302" x2="906.7" y2="310"/><text class="tl-month" x="906.7" y="326" text-anchor="middle">10 PM</text>
+<text class="tl-panel" x="395.0" y="346" text-anchor="middle">September 28 to October 29</text>
+<text class="tl-panel" x="813.0" y="346" text-anchor="middle">October 30, launch day, by the hour</text>
+<line class="tl-tick" x1="639.0" y1="312" x2="647.0" y2="300"/>
+<line class="tl-tick" x1="647.0" y1="312" x2="655.0" y2="300"/>
+<polyline class="tl-path" points="197.5,286 205.8,110 223.9,110 224.2,154 249.0,286 279.5,154 279.6,198 384.6,154 395.2,242 426.2,198 426.4,154 611.2,154"/>
+<polyline class="tl-path" points="690.4,154 699.1,286 728.9,198 752.9,110 832.7,286 864.4,110 867.3,154 870.2,286 911.5,110 935.6,154"/>
+<line class="tl-path" x1="611.2" y1="154" x2="690.4" y2="154" stroke-dasharray="4 5"/>
+<line class="tl-release" x1="223.9" y1="86" x2="223.9" y2="306"/>
+<text class="tl-release-label" x="223.9" y="76" text-anchor="middle">First file</text>
+<line class="tl-release" x1="426.2" y1="86" x2="426.2" y2="306"/>
+<text class="tl-release-label" x="426.2" y="76" text-anchor="middle">Skill</text>
+<line class="tl-release" x1="870.2" y1="86" x2="870.2" y2="306"/>
+<text class="tl-release-label" x="870.2" y="76" text-anchor="middle">Launch</text>
+<g><title>Sep 28, 9:22 PM. Ron Stauffer, proposed. Proposed the idea and the name CREDITS.md. Model: Not applicable.</title><path class="tl-approved" d="M197.5 278 L205.5 286 L197.5 294 L189.5 286 Z"/></g>
+<g><title>Sep 29 to Oct 1. Grok bot, built. Built the template with Ron. Model: Unknown.</title><circle class="tl-built" cx="205.8" cy="110" r="8"/></g>
+<g><title>Sep 30, 8:06 PM. Grok bot, built. Added the first CREDITS.md, to a private iOS app. Model: Unknown.</title><circle class="tl-built" cx="223.9" cy="110" r="8"/></g>
+<g><title>Sep 30, 8:44 PM. Claude, reviewed. Answered the bot&#x27;s open questions and checked its pull request. Model: Claude Opus 5.5 (from its commit trailers).</title><circle class="tl-reviewed" cx="224.2" cy="154" r="6.5"/></g>
+<g><title>Oct 2, 4:41 PM. Ron Stauffer, approved. Merged the first CREDITS.md. Model: Not applicable.</title><path class="tl-approved" d="M249.0 278 L257.0 286 L249.0 294 L241.0 286 Z"/></g>
+<g><title>Oct 4, 10:58 PM. Claude, built. Pulled the idea out into a reusable kit: a guide, a template, and a skill. Model: Unknown.</title><circle class="tl-built" cx="279.5" cy="154" r="8"/></g>
+<g><title>Oct 4, 11:08 PM. Codex, built. Wrote its first CREDITS.md, for a private company site. Model: GPT-6-based; exact model Unknown.</title><circle class="tl-built" cx="279.6" cy="198" r="8"/></g>
+<g><title>Oct 12, 5:36 PM. Claude, built. Wrote a CREDITS.md for a private Chrome extension. Model: Claude Opus 5.5 (from the file and its commit trailer).</title><circle class="tl-built" cx="384.6" cy="154" r="8"/></g>
+<g><title>Oct 13, 12:16 PM. Cursor, built. Added a CREDITS.md to a private WordPress plugin. Model: Unknown.</title><circle class="tl-built" cx="395.2" cy="242" r="8"/></g>
+<g><title>Oct 15, 7:29 PM. Codex, built. Turned the examples into the repository-credits skill. Model: Unknown.</title><circle class="tl-built" cx="426.2" cy="198" r="8"/></g>
+<g><title>Oct 15, about 7:50 PM. Claude, built. Saved the skill as a Claude skill. Model: Unknown.</title><circle class="tl-built" cx="426.4" cy="154" r="8"/></g>
+<g><title>Oct 29. Claude, researched. Found ten repositories with a CREDITS.md. Model: Unknown.</title><circle class="tl-reviewed" cx="611.2" cy="154" r="6.5"/></g>
+<g><title>Oct 30, 6:15 PM. Claude, built. Built the public convention and this website. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="690.4" cy="154" r="8"/></g>
+<g><title>Oct 30, 6:24 PM. Ron Stauffer, deployed. Put it live on Cloudflare Pages. Model: Not applicable.</title><path class="tl-approved" d="M699.1 278 L707.1 286 L699.1 294 L691.1 286 Z"/></g>
+<g><title>Oct 30, 6:55 PM. Codex, researched. Searched its own history for the origin. Model: GPT-6-Astra, high (shown by the tool).</title><circle class="tl-reviewed" cx="728.9" cy="198" r="6.5"/></g>
+<g><title>Oct 30, about 7:20 PM. Grok bot, researched. Found Ron&#x27;s September 28 message. Model: Unknown.</title><circle class="tl-reviewed" cx="752.9" cy="110" r="6.5"/></g>
+<g><title>Oct 30, 8:43 PM. Ron Stauffer, deployed. Connected colophon.md. Model: Not applicable.</title><path class="tl-approved" d="M832.7 278 L840.7 286 L832.7 294 L824.7 286 Z"/></g>
+<g><title>Oct 30, 9:16 PM. Grok bot, reviewed. Pre-launch review: three fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="864.4" cy="110" r="6.5"/></g>
+<g><title>Oct 30, 9:19 PM. Claude, built. Applied the review. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="867.3" cy="154" r="8"/></g>
+<g><title>Oct 30, 9:22 PM. Ron Stauffer, approved. Approved it for launch. Model: Not applicable.</title><path class="tl-approved" d="M870.2 278 L878.2 286 L870.2 294 L862.2 286 Z"/></g>
+<g><title>Oct 30, about 10 PM. Grok bot, reviewed. Second review: ready to launch, with a few small fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="911.5" cy="110" r="6.5"/></g>
+<g><title>Oct 30, about 10:30 PM. Claude, built. Applied the second review and built this chart. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="935.6" cy="154" r="8"/></g>
+<circle class="tl-built" cx="31" cy="370" r="6.5" style="stroke-width:0"/><text class="leg" x="44" y="374">Built</text>
+<circle class="tl-reviewed" cx="109" cy="370" r="5.5"/><text class="leg" x="122" y="374">Reviewed or researched</text>
+<path class="tl-approved" d="M305 363 L312 370 L305 377 L298 370 Z" style="stroke-width:0"/><text class="leg" x="318" y="374">Proposed, deployed, or approved</text>
+<line class="tl-release" x1="563" y1="362" x2="563" y2="378"/><text class="leg" x="574" y="374">Milestone</text>
+<text class="leg" x="956" y="374" text-anchor="end">Times are Mountain Time</text>
 </svg>
