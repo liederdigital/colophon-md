@@ -15,17 +15,18 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Surface | Claude cloud workspace, started from the Claude desktop app; Codex CLI for its update |
 | Model / mode | Claude Opus 5.5, as configured for the Claude sessions (`claude-opus-5-5`); the serving model was not independently verified; mode Unknown. Codex session: `gpt-6-astra`, high reasoning. Precursor sessions: mostly Unknown |
 | Editor | Claude sessions: none; the agent wrote the files directly. Codex CLI's enclosing editor: Unknown |
-| Human owner | Ron Stauffer (Lieder Digital): direction throughout, choice of name and byline. Where he first proposed the idea, how much of the precursor text he wrote, and his review of the first site version: Unknown |
-| Era | First precursor file found 2026-09-30; first reusable kit 2026-10-04; reusable skill 2026-10-15; public convention and website 2026-10-30 (America/Denver) |
+| Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work throughout, and chose the COLOPHON.md name and byline. How much of the first file's text he wrote, and his review of the first site version: Unknown |
+| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30 (America/Denver) |
 | Status | Live at https://colophon-md.pages.dev (concept; no custom domain yet) |
 
 ## How the work was done
 
-The convention began as `CREDITS.md` files in Ron's private repositories. The
-earliest one found was added on September 30, 2026 by a Grok bot working on one
-of his apps. On October 4, Ron asked Claude to pull the idea out into a
-reusable kit, and Codex, Claude, and Cursor wrote more of these files over the
-next two weeks. On October 15, Codex turned the examples into a
+Ron proposed the idea, and the name `CREDITS.md`, on September 28, 2026, in a
+chat with a Grok bot, and asked whether an industry standard already existed.
+The bot built a template over the next few days and added the first file to
+one of his apps on September 30. On October 4, Ron asked Claude to pull the
+idea out into a reusable kit, and Codex, Claude, and Cursor wrote more of these
+files over the next two weeks. On October 15, Codex turned the examples into a
 "repository-credits" skill, which Ron saved as a Claude skill that evening. On
 October 30, Ron chose the COLOPHON.md name and byline, Claude adapted the skill
 into public instructions and a template and built this website, and Ron
@@ -60,8 +61,10 @@ own history table. Newest first.
 | 2026-10-13 | `<wordpress-plugin>` | Committed under a "Cursor Agent" Git identity | Unknown | Unknown | Another early `CREDITS.md` | Commit `1cfc2d9`. A Git identity is not proof of the tool |
 | 2026-10-12 | `<chrome-extension>` | Claude | Claude app, cloud workspace | Claude Opus 5.5, per the file and the commit trailer | Added a store-review notes section | Commit `bdbb1bf` |
 | 2026-10-04 23:08 | `<company-site>` | Codex | Desktop app, per the file | GPT-6-based; exact model Unknown, per the file | The first `CREDITS.md` written by Codex, five minutes after Claude produced its one-file instructions for other AI tools. Whether Ron gave Codex that file is Unknown | Commit `b4d7086` |
-| 2026-10-04 22:58 | Claude chat, in the session that built `<ios-app>` | Claude, at Ron's request | Claude app, cloud workspace | Unknown | **The first reusable version.** Ron asked Claude to "split out the whole idea and concept" so he could reuse it. Claude made a plain-English guide with 10 rules, a blank template, a Claude skill, and a single instructions file for any other AI tool | Export of the Claude session, provided by Ron |
-| 2026-09-30 | `<ios-app>` | A Grok bot | Cloud agent working through GitHub, via a pull request, per the file | Unknown | **The earliest `CREDITS.md` found.** It already had the snapshot table, a newest-first builder history, and inline notes asking Ron to confirm what wasn't known. Its pull request listed those as open questions; over the next hour the bot filled in Ron's answers, which he relayed from the Claude session building the app. That session first mentions `CREDITS.md` about 20 minutes after the bot's first commit | Commits `7f3b5bf` (20:06), `c83e515` (20:46), and `84acb12` (21:06), under the bot's Git identity; the file's own history row; the pull request description and an export of the Claude session, both provided by Ron |
+| 2026-10-04 22:58 | Claude chat, in the session that built `<ios-app>` | Claude, at Ron's request | Claude app, cloud workspace | Unknown | **Claude's reusable kit.** Ron asked Claude to "split out the whole idea and concept" so he could reuse it. Claude made a plain-English guide with 10 rules, a blank template, a Claude skill, and a single instructions file for any other AI tool | Export of the Claude session, provided by Ron |
+| 2026-09-30 | `<ios-app>` | A Grok bot | Grok Bot Mac app, working through GitHub without a local copy, via a pull request | Unknown | **The earliest `CREDITS.md` found.** It already had the snapshot table, a newest-first builder history, and inline notes asking Ron to confirm what wasn't known. Its pull request listed those as open questions; over the next hour the bot filled in Ron's answers, which he relayed from the Claude session building the app. That session first mentions `CREDITS.md` about 20 minutes after the bot's first commit. Ron merged the pull request on October 2 | Commits `7f3b5bf` (20:06), `c83e515` (20:46), and `84acb12` (21:06), under the bot's Git identity; merge commit `513ce07` (2026-10-02 16:41); the file's own history row; the pull request description and an export of the Claude session, both provided by Ron |
+| 2026-09-29 to 2026-10-01 | Grok Bot chat | A Grok bot, with Ron | Grok Bot Mac app | Unknown | Built the template, and saved the bot's own `CREDITS.md` skill around October 1 | The bot's condensed notes, relayed by Ron; its detailed record of these days is no longer available |
+| 2026-09-28 21:22 | Grok Bot chat | Ron Stauffer | Grok Bot Mac app, from Ron's Mac | Not applicable | **Where it started.** Ron proposed the idea and the name: "I'm thinking of a new idea which would be adding a document called CREDITS.md." He wanted a standalone file rather than part of the README, and asked whether an industry standard already existed | The Grok bot's transcript of that chat, quoted word for word by the bot and relayed by Ron |
 
 ## Corrections
 
@@ -87,6 +90,15 @@ October 4, eleven days before the Codex skill. It also shows the idea first
 came up in that session about 20 minutes after the Grok bot's first commit, so
 it didn't start there. Whether Ron or the Grok bot first proposed it is still
 Unknown.
+
+2026-10-30, latest: The Grok bot found Ron's first message in its transcript.
+On September 28 at 9:22 PM, Ron proposed both the idea and the name
+`CREDITS.md`. This resolves who first proposed it (Ron) and where (a chat with
+the Grok bot). It also corrects the previous entry's claim that Claude made the
+first reusable version on October 4: the bot's notes say it built a template
+and saved its own skill between September 29 and October 1. Who wrote the
+first file's first-person "Why this file exists" paragraph is still Unknown;
+the bot believes it paraphrased Ron's message but can't verify that.
 
 ## Evidence limits
 
@@ -123,8 +135,12 @@ history of the ten repositories with a `CREDITS.md`, two earlier Claude chats
 (October 15 and October 29), the September 30 pull request description, and an
 export of the Claude session that built `<ios-app>`; Ron provided the last two.
 Each early file's builder comes from its commit and its own history table,
-which the writing agent filled in. The Grok bot's own conversation history,
-ChatGPT, and other computers were not searched. So where the idea was first
-proposed, and whether Ron or the Grok bot wrote the first file's text, remain
-Unknown. That file's first-person "Why this file exists" paragraph suggests Ron
-supplied the wording, but this is not established.
+which the writing agent filled in.
+
+The Grok bot answered from its own records, and Ron relayed the answers: a
+word-for-word transcript of September 28, and condensed notes for September 29
+to October 5. Its detailed record of those later days is no longer available,
+and it can see only its own chat with Ron. ChatGPT, other tools, and other
+computers were not searched, so an earlier mention elsewhere can't be ruled
+out. The bot's model, and who wrote the first file's first-person paragraph,
+remain Unknown.
