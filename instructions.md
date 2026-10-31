@@ -9,7 +9,7 @@ the public domain (CC0 1.0).
 
 ## What a colophon is for
 
-A colophon answers four questions for the next person who opens the repository:
+A colophon answers five questions for the next person who opens the repository:
 
 1. Which tools and models built this?
 2. Where did they run?
@@ -27,6 +27,22 @@ and third-party notices in their own files.
 
 Save it as `COLOPHON.md` at the repository root, unless the project already
 uses another name for this record or the owner asks for one.
+
+## Never get in the way
+
+A colophon must never slow down a commit or a pull request. If keeping it
+becomes a chore, people stop keeping it. So the agent doing the work keeps it:
+
+- Update `COLOPHON.md` yourself, in the same commit or pull request as the
+  work it describes.
+- Fill in everything you can observe. Never ask the owner to type an entry.
+- When something needs the owner, ask one yes-or-no question with your best
+  evidence already filled in. If there's no answer, write Unknown and carry on.
+- Don't hold up a commit, a merge, or a release waiting on the colophon.
+
+A person reviewing the pull request sees the colophon change next to the code,
+so approving the pull request approves the entry. There is no separate
+sign-off.
 
 ## Keep it current, or reconstruct it
 
@@ -57,9 +73,11 @@ agrees:
 ## Colophon
 
 This project keeps COLOPHON.md, a short record of how it was made.
-Update it whenever the tool, model, model setting, or computer changes,
-when a new phase of work starts, and before each release. Follow the
-instructions at https://colophon-md.pages.dev/instructions.md.
+Agents update it themselves, in the same commit or pull request as their
+work: add a row when the tool, model, model setting, or computer changes,
+when you review someone else's work, and before each release. Never hold
+up a commit for it. Follow the instructions at
+https://colophon-md.pages.dev/instructions.md.
 ```
 
 **Reconstructing it.** When the project already has history and no colophon,
@@ -128,10 +146,17 @@ Include:
 - the limits of your evidence.
 
 Add a history row for a new builder, a change of surface, model, or model
-setting, a release, or a meaningful phase of work, not for every small edit. Cite commit hashes, paths,
-pull requests, or "Owner-confirmed" as evidence. If the repository is a toolkit
+setting, a review, a release, or a meaningful phase of work, not for every
+small edit. Cite commit hashes, paths, pull requests, or "Owner-confirmed" as
+evidence. If the repository is a toolkit
 or template, keep the toolkit's own history separate from products built with
 it.
+
+Give each row a role in a word or two: built, reviewed, tested, approved, or
+deployed. When you review work that another tool or model built, add a
+"reviewed" row that names what you reviewed (a pull request or a range of
+commits) and your model. Approvals usually show in Git already, because a merge
+records who merged it; fill them in at your next update instead of asking.
 
 Write dates in the project's timezone (follow the repository's convention, or
 ask the owner). Don't substitute the clock of the machine you are running on.
@@ -197,9 +222,9 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 ## Builder history (newest first)
 
-| Date | Builder | Surface | Model / mode | Contribution | Evidence |
-|---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
+| Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
+|---|---|---|---|---|---|---|
+| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 

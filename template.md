@@ -24,9 +24,9 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 ## Builder history (newest first)
 
-| Date | Builder | Surface | Model / mode | Contribution | Evidence |
-|---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
+| Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
+|---|---|---|---|---|---|---|
+| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 
