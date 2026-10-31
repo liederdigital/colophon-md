@@ -15,7 +15,7 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Surface | Claude cloud workspace, started from the Claude desktop app; Codex CLI for its update |
 | Model / mode | Claude: Opus 5.5, configured for the sessions (`claude-opus-5-5`); the serving model was not independently verified; mode Unknown. Codex: `gpt-6-astra`, high, shown by the tool in its session log. The Grok bot reviewer and the precursor sessions: mostly Unknown |
 | Editor | Claude sessions: none; the agent wrote the files directly. Codex CLI's enclosing editor: Unknown |
-| Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work throughout, and chose the COLOPHON.md name and byline. The first file's wording was the Grok bot's, adapting his September 28 message, per the bot. His review of the first site version: Unknown |
+| Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work throughout, and chose the COLOPHON.md name and byline. The first file's wording was the Grok bot's, adapting his September 28 message, per the bot. Approved the site for launch on 2026-10-30; how closely he read every page is not recorded |
 | Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30 (America/Denver) |
 | Status | Live at https://colophon.md; public repository |
 
@@ -38,6 +38,7 @@ through the repositories' Git history and an earlier Claude chat. Before launch,
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
+| 2026-10-30 | Ron Stauffer | Approved | Claude app | Not applicable | Approved the site, instructions, and template for launch, after the Grok bot's review | Owner-confirmed in the Claude session |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Built the site, instructions, and template, then revised them through the evening: two ways to use it, roles, the no-extra-steps rules, the timeline chart, the move to colophon.md, analytics, and the fixes from the Grok bot's review | Observed in session; each change is its own commit, from `07e8025` onward |
 | 2026-10-30 | A Grok bot | Reviewed | Grok Bot app | Unknown | Pre-launch review of the site, instructions, template, and repository: three fixes before launch and several smaller points | The review, shared by Ron |
 | 2026-10-30 | Ron Stauffer | Deployed | .MD registry; Cloudflare; GitHub command line | Not applicable | Registered colophon.md and connected it with SSL; redirected the pages.dev and www addresses to it; made the repository public | Owner-confirmed, with the receipt, dashboard screenshots, and terminal output he shared |
@@ -109,6 +110,10 @@ bot's. It found no message from Ron with that wording, but its detailed record
 of September 29 to October 4 is condensed, so this rests on the bot's account
 and the first commit. The bot's model is still Unknown: no commit, setting, or
 saved message records it.
+
+2026-10-30, at launch: Ron approved the site for launch. This resolves the
+earlier "review of the first site version: Unknown" as far as approval goes;
+how closely he read every page is still not recorded.
 
 ## Evidence limits
 
