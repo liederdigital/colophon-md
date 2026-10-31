@@ -17,9 +17,10 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Surface | Claude cloud workspace, started from the Claude desktop app; Codex CLI for its update |
 | Model / mode | Claude: Opus 5.5, configured for the sessions (`claude-opus-5-5`); the serving model was not independently verified; mode Unknown. Codex: `gpt-6-astra`, high, shown by the tool in its session log. The Grok bot reviewer and the precursor sessions: mostly Unknown |
 | Editor | Claude sessions: none; the agent wrote the files directly. Codex CLI's enclosing editor: Unknown |
-| Review | AI: a Grok bot reviewed the site, instructions, and template three times before launch, and wrote the change list for version 1.1. Ron Stauffer approved the launch |
+| Review | AI: a Grok bot reviewed the site, instructions, and template three times before launch, and wrote the change lists for versions 1.1 and 1.1.1. Ron Stauffer approved the launch |
+| Directed by | Ron Stauffer |
 | Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work, chose the COLOPHON.md name and byline, and approved the launch on 2026-10-30. The Grok bot says it drafted the first file's wording from his message. How closely he read every page is not recorded |
-| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30; instructions version 1.1 on 2026-10-31 (America/Denver) |
+| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30; instructions versions 1.1 and 1.1.1 on 2026-10-31 (America/Denver) |
 | Status | Live at https://colophon.md; public repository |
 
 ## How the work was done
@@ -35,15 +36,16 @@ October 30, Ron chose the COLOPHON.md name and byline, Claude adapted the skill
 into public instructions and a template and built this website, and Ron put it
 live. Codex and Claude then traced the idea's origins. A Grok bot reviewed the
 site three times before launch, and Claude applied each round of fixes. On
-October 31, Claude made version 1.1 of the instructions from the bot's change
-list.
+October 31, Claude made versions 1.1 and 1.1.1 of the instructions from the
+bot's change lists.
 
 ## Builder history (newest first)
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
-| 2026-10-31 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Instructions version 1.1 from the Grok bot's change list: the rule that a colophon describes the project, never the people; a Review field; an "Is this anti-AI?" question; a line on why this matters now. Also real favicon files, so search engines can show the site's icon, and this file trimmed to a summary | Observed in session; the version 1.1 pull request |
-| 2026-10-30 to 2026-10-31 | A Grok bot, directed by Ron Stauffer | Reviewed; no code written | Grok Bot Mac and iPhone apps (per the bot) | Unknown (not shown by the tool; no self-report used) | Three reviews before launch (fixes, a re-check, and a final pass), then the change list for version 1.1 | All four, shared by Ron |
+| 2026-10-31 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Instructions versions 1.1 and 1.1.1 from the Grok bot's change lists. Version 1.1: the rule that a colophon describes the project, never the people; a Review field; an "Is this anti-AI?" question; a line on why this matters now; real favicon files, so search engines can show the site's icon; this file trimmed to a summary. Version 1.1.1: a required "Directed by" field; a note that context files describe what tools were told to do; an "Add your project" link; a new footer; `CONTRIBUTING.md` | Observed in session; commit `1226565` (version 1.1) and the version 1.1.1 commit |
+| 2026-10-31 | Grok Bot, directed by Ron Stauffer | Reviewed; no code written | Grok Bot Mac and iPhone apps (per the bot) | Unknown (not shown by the tool; no self-report used) | Change lists for versions 1.1 and 1.1.1 | Both, shared by Ron |
+| 2026-10-30 | Grok Bot, directed by Ron Stauffer | Pre-launch reviewer; no code written | Grok Bot Mac and iPhone apps (per the bot) | Unknown (not shown by the tool; no self-report used) | Three reviews before launch: fixes, a re-check, and a final pass | All three, shared by Ron |
 | 2026-10-30 | Ron Stauffer | Approved | Codex CLI; Claude app | Not applicable | Approved Codex's colophon update ("Looks good") before it was committed as `65f28b4`; approved the site, instructions, and template for launch after the Grok bot's reviews | Codex session transcript, provided by Ron; Owner-confirmed in the Claude session |
 | 2026-10-30 | Ron Stauffer | Deployed | Cloudflare Pages; .MD registry; GitHub command line | Not applicable | Put the site live at colophon-md.pages.dev; registered colophon.md and connected it with SSL; redirected the pages.dev and www addresses to it; made the repository public | Owner-confirmed, with the receipt, dashboard screenshots, and terminal output he shared |
 | 2026-10-30 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Built the site, instructions, and template, then revised them through the evening: roles, the no-extra-steps rules, the proactive and forensic mode names, the move to colophon.md, analytics, a gallery of timelines with hover details for each model, and each round of the Grok bot's fixes | Observed in session; each change is its own commit, from `07e8025` onward |
@@ -111,9 +113,9 @@ Earlier entries stay as written; each correction says what changed.
 
 ## Evidence limits
 
-- This file follows COLOPHON.md instructions version 1.1. Dates use
+- This file follows COLOPHON.md instructions version 1.1.1. Dates use
   America/Denver; session timestamps were converted from UTC.
-- The launch and version 1.1 entries come from the Claude sessions that did
+- The launch, version 1.1, and version 1.1.1 entries come from the Claude sessions that did
   the work. Claude's model is the one configured for those sessions; the
   serving model was not independently verified.
 - Codex's update inspected this repository's files and first two commits

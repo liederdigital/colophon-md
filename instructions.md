@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.1, published October 31, 2026. The convention lives at
+Version 1.1.1, published October 31, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -22,6 +22,10 @@ Like the credits at the end of a film, it lists everyone and everything
 involved. Like a maintenance log, it lets someone trace a problem, or an
 improvement, back to the tools and models in use at the time: for example,
 seeing that a weaker release followed a switch to a different model.
+
+Context files (such as `AGENTS.md`, `CLAUDE.md`, or `.cursor` rules) and shared
+prompts describe what tools were told to do; the colophon records what they
+actually did.
 
 It is not a license, a dependency list, or a list of contributors. Keep license
 and third-party notices in their own files.
@@ -184,6 +188,11 @@ records who merged it; fill them in at your next update instead of asking.
 Record who reviewed the work as one of: Human, AI, Both, None, or Unknown.
 Review by AI alone is valid; record it as AI, not as None and not left blank.
 
+Record who directed the work. "Directed by" means the accountable human: the
+person who set the tools to work and answers for the result. It is required,
+even when AI did all the work. Never write None. Write Unknown only if it truly
+can't be established.
+
 Write dates in the repository's existing timezone convention. If there isn't
 one, use UTC and say so (for example, "Dates are UTC"). Don't stop to ask, and
 don't assume the clock of the machine you are running on is the project's
@@ -210,7 +219,7 @@ otherwise record Unknown and finish.
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
 - Note in "Evidence limits" which version of these instructions you followed
-  (for example, "COLOPHON.md instructions v1.1").
+  (for example, "COLOPHON.md instructions v1.1.1").
 - Keep out credentials, private session or chat links, client or customer
   records, signing secrets, computer names, usernames, and unrelated personal
   details. Describe computers generically (for example, "a MacBook Pro").
@@ -228,6 +237,9 @@ was made.
 
 ## Version history
 
+- **1.1.1** (October 31, 2026): a required "Directed by" field for the
+  accountable human; a note that context files and shared prompts describe what
+  tools were told to do, while the colophon records what they actually did.
 - **1.1** (October 31, 2026): a colophon describes the project, never the
   people; a Review field (Human, AI, Both, None, or Unknown); "write Unknown and
   keep going" is the default, and asking the owner is the exception; the
@@ -253,6 +265,7 @@ elsewhere.
 | Model / mode | {model and setting, with its source: shown by the tool, configured, or self-reported; or Unknown} |
 | Editor | {editor, or Unknown} |
 | Review | {Human / AI / Both / None / Unknown}, {who or what reviewed, if known} |
+| Directed by | {the accountable human; required even when AI did all the work; never None, and Unknown only if truly unknown} |
 | Human owner | {name}, {direction / review / testing role, only as established} |
 | Era | {first date} to {latest date} ({timezone}) |
 | Status | {active / maintained / archived} |

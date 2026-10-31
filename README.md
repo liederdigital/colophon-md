@@ -47,7 +47,7 @@ models did the work, where, in what role, and who signed off. Agents cite
 commit trailers, Git AI, and Agent Trace records as evidence where they exist,
 and fill in the gaps where they don't. It also works after the fact.
 
-The current instructions are version 1.1 (October 31, 2026).
+The current instructions are version 1.1.1 (October 31, 2026).
 
 ## What's in this repository
 
@@ -58,6 +58,7 @@ The current instructions are version 1.1 (October 31, 2026).
 | `template.md` | The blank template |
 | `COLOPHON.md` | How this repository was made |
 | `AGENTS.md` | Notes for agents working on this repository |
+| `CONTRIBUTING.md` | How to suggest a change or add your project |
 | `_headers` | Cloudflare Pages headers so `.md` files display as plain text |
 | `fonts/` | Self-hosted IM Fell English and IBM Plex fonts |
 | `og.png` | The image shown when the site is shared on social media |
@@ -75,6 +76,10 @@ repository and use:
 
 To preview locally, open `index.html` in a browser, or run `npx serve` in this
 folder so the copy button can load `instructions.md`.
+
+## Contributing
+
+Ideas and fixes are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
