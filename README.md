@@ -20,8 +20,12 @@ afternoon of detective work after 27 commits, two computers, and three agents.
 - **Write it yourself.** Copy [`template.md`](template.md) to your repository
   root as `COLOPHON.md` and fill it in.
 - **Keep it current.** Add the short Colophon snippet from `instructions.md` to
-  your `AGENTS.md`, so every agent updates the file when a new tool, model,
-  computer, or phase of work starts, and before each release.
+  your `AGENTS.md`, so every agent updates the file whenever the tool, model,
+  model setting, or computer changes, and before each release.
+
+Like the credits at the end of a film, it lists everyone and everything
+involved. Like a maintenance log, it lets you trace a bug, or a weaker release,
+back to the models in use at the time.
 
 Already have a project with history? The same instructions cover
 reconstructing a colophon from Git history and the session logs your agents

@@ -26,7 +26,7 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 | Date | Builder | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool} | {surface} | {model, or Unknown} | {phase or scope} | {commits, paths, PRs, or Owner-confirmed} |
+| {YYYY-MM-DD} | {tool} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 

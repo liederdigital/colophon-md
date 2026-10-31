@@ -11,10 +11,16 @@ the public domain (CC0 1.0).
 
 A colophon answers four questions for the next person who opens the repository:
 
-1. Which tools built this?
+1. Which tools and models built this?
 2. Where did they run?
-3. What did each one contribute?
-4. Who directed or reviewed the work?
+3. When did each one start and stop?
+4. What did each one contribute?
+5. Who directed or reviewed the work?
+
+Like the credits at the end of a film, it lists everyone and everything
+involved. Like a maintenance log, it lets someone trace a problem, or an
+improvement, back to the tools and models in use at the time: for example,
+seeing that a weaker release followed a switch to a different model.
 
 It is not a license, a dependency list, or a list of contributors. Keep license
 and third-party notices in their own files.
@@ -29,9 +35,19 @@ Decide which one applies before you start; a project can need both.
 
 **Keeping it current.** When the project is new, or its colophon is up to
 date, record what you can observe in this session: your tool, where you are
-running, and your model if you can see it. Add a row when a new tool, model,
-computer, or phase of work starts, and check the file before each release.
-Don't add a row for every commit; a colophon is a summary, not a log.
+running, and your model if you can see it. Add a row whenever the tool, model,
+model setting, or computer changes, or a new phase of work starts. Don't add a
+row for every commit; a colophon is a summary, not a log.
+
+Record the exact model name and version, and any setting such as a reasoning
+level, exactly as the tool shows them, along with the date of every switch.
+That precision is what lets someone line up a problem with the model that was
+in use when it was introduced. Git already records when each commit happened;
+the colophon records which model was active then.
+
+Before each release, check the file and name the release version (for example,
+v1.1.8) in the row that covers it, so releases can be compared with model
+switches.
 
 If the repository's agent instructions (such as `AGENTS.md`) don't mention
 `COLOPHON.md`, suggest adding these lines, and add them only if the owner
@@ -41,9 +57,9 @@ agrees:
 ## Colophon
 
 This project keeps COLOPHON.md, a short record of how it was made.
-Update it when a new tool, model, computer, or phase of work starts,
-and before each release. Follow the instructions at
-https://colophon-md.pages.dev/instructions.md.
+Update it whenever the tool, model, model setting, or computer changes,
+when a new phase of work starts, and before each release. Follow the
+instructions at https://colophon-md.pages.dev/instructions.md.
 ```
 
 **Reconstructing it.** When the project already has history and no colophon,
@@ -111,8 +127,8 @@ Include:
 - a builder history, newest first,
 - the limits of your evidence.
 
-Add a history row for a new builder, a change of surface or model, or a
-meaningful phase of work, not for every small edit. Cite commit hashes, paths,
+Add a history row for a new builder, a change of surface, model, or model
+setting, a release, or a meaningful phase of work, not for every small edit. Cite commit hashes, paths,
 pull requests, or "Owner-confirmed" as evidence. If the repository is a toolkit
 or template, keep the toolkit's own history separate from products built with
 it.
@@ -183,7 +199,7 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 | Date | Builder | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool} | {surface} | {model, or Unknown} | {phase or scope} | {commits, paths, PRs, or Owner-confirmed} |
+| {YYYY-MM-DD} | {tool} | {surface} | {model, version, and setting, or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 

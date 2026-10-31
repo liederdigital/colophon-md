@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>COLOPHON.md</title>
-<meta name="description" content="A simple, open convention for recording how a software project was made: which AI tools built it, where they ran, and who directed the work.">
+<meta name="description" content="A simple, open convention for recording how a software project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
 <meta property="og:title" content="COLOPHON.md">
-<meta property="og:description" content="A short, honest record of how a project was made: which AI tools built it, where they ran, and who directed the work.">
+<meta property="og:description" content="A short, honest record of how a project was made: which AI tools and models built it and when, where they ran, and who directed the work.">
 <meta property="og:type" content="website">
 <meta name="color-scheme" content="light dark">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2323443D'/%3E%3Cg fill='none' stroke='%23D8B865' stroke-width='4' stroke-linecap='round'%3E%3Ccircle cx='32' cy='41' r='13'/%3E%3Cpath d='M19 41h26M32 28V9M25 15h14'/%3E%3C/g%3E%3C/svg%3E">
@@ -238,7 +238,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 
 <header class="wrap masthead">
   <h1>COLOPHON<span class="ext">.md</span></h1>
-  <p class="lede">A short, honest record of how a project was made: which AI tools built it, where they ran, and who directed the work.</p>
+  <p class="lede">A short, honest record of how a project was made: which AI tools and models built it and when, where they ran, and who directed the work.</p>
   <div class="actions">
     <button type="button" class="btn btn-primary" id="copy-instructions">Copy instructions for your agent</button>
     <a class="btn" href="template.md" download="COLOPHON.md">Download the template</a>
@@ -284,6 +284,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       <p>Someone will inherit your project: a client, the next developer, or you, a year from now. They’ll want to know how it was built, and the Git history won’t tell them.</p>
       <p>A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
       <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none.</p>
+      <p>Think of it as the credits at the end of a film, and as a maintenance log. When version 1.1.8 turns out worse than 1.1.7, or a bug turns up in production, the colophon shows which agents and models were working on the project at the time, and in which mode. If a model version later turns out to have had a flaw, you’ll know which projects, and which weeks, to check.</p>
       <p>Start one when you create the repository. It takes a minute on day one, and an afternoon of detective work after 27 commits, two computers, and three agents.</p>
     </div>
   </section>
@@ -296,7 +297,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     <div class="modes">
       <div>
         <h3>Keep one as you go</h3>
-        <p>Add COLOPHON.md when you create the repository, and ask your agents to update it whenever a new tool, model, computer, or phase of work starts, and before each release. Each entry comes from the agent doing the work, so almost everything is observed rather than remembered.</p>
+        <p>Add COLOPHON.md when you create the repository, and ask your agents to update it whenever the tool, model, model setting, or computer changes, when a new phase of work starts, and before each release. Each entry comes from the agent doing the work, so almost everything is observed rather than remembered.</p>
       </div>
       <div>
         <h3>Reconstruct one after the fact</h3>
@@ -351,7 +352,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
             <div class="prompt snippet">
               <pre id="snippet-text">## Colophon
 
-This project keeps COLOPHON.md, a short record of how it was made. Update it when a new tool, model, computer, or phase of work starts, and before each release. Follow the instructions in instructions.md at github.com/liederdigital/colophon-md.</pre>
+This project keeps COLOPHON.md, a short record of how it was made. Update it whenever the tool, model, model setting, or computer changes, when a new phase of work starts, and before each release. Follow the instructions in instructions.md at github.com/liederdigital/colophon-md.</pre>
               <button type="button" class="btn" id="copy-snippet">Copy</button>
             </div>
           </div>
@@ -446,7 +447,8 @@ This project keeps COLOPHON.md, a short record of how it was made. Update it whe
 
   const snippetText = "## Colophon\n\n" +
     "This project keeps COLOPHON.md, a short record of how it was made. " +
-    "Update it when a new tool, model, computer, or phase of work starts, " +
+    "Update it whenever the tool, model, model setting, or computer changes, " +
+    "when a new phase of work starts, " +
     `and before each release. Follow the instructions at ${instructionsRef}.`;
   document.getElementById("snippet-text").textContent = snippetText;
 
