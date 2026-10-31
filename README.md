@@ -11,11 +11,21 @@ guess.
 
 ## Add one to your project
 
+Start one when you create the repository. It takes a minute on day one, and an
+afternoon of detective work after 27 commits, two computers, and three agents.
+
 - **Ask your agent.** Give it [`instructions.md`](instructions.md), or tell it:
   *"Read instructions.md from github.com/liederdigital/colophon-md and follow
   it to create COLOPHON.md for this repository."*
 - **Write it yourself.** Copy [`template.md`](template.md) to your repository
   root as `COLOPHON.md` and fill it in.
+- **Keep it current.** Add the short Colophon snippet from `instructions.md` to
+  your `AGENTS.md`, so every agent updates the file when a new tool, model,
+  computer, or phase of work starts, and before each release.
+
+Already have a project with history? The same instructions cover
+reconstructing a colophon from Git history and the session logs your agents
+saved. Those logs stay on each computer, so run it on every computer you used.
 
 The one rule: write **Unknown** instead of guessing.
 

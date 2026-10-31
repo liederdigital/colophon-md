@@ -22,6 +22,42 @@ and third-party notices in their own files.
 Save it as `COLOPHON.md` at the repository root, unless the project already
 uses another name for this record or the owner asks for one.
 
+## Keep it current, or reconstruct it
+
+A colophon is either kept as the work happens or reconstructed afterward.
+Decide which one applies before you start; a project can need both.
+
+**Keeping it current.** When the project is new, or its colophon is up to
+date, record what you can observe in this session: your tool, where you are
+running, and your model if you can see it. Add a row when a new tool, model,
+computer, or phase of work starts, and check the file before each release.
+Don't add a row for every commit; a colophon is a summary, not a log.
+
+If the repository's agent instructions (such as `AGENTS.md`) don't mention
+`COLOPHON.md`, suggest adding these lines, and add them only if the owner
+agrees:
+
+```markdown
+## Colophon
+
+This project keeps COLOPHON.md, a short record of how it was made.
+Update it when a new tool, model, computer, or phase of work starts,
+and before each release. Follow the instructions at
+https://colophon-md.pages.dev/instructions.md.
+```
+
+**Reconstructing it.** When the project already has history and no colophon,
+or the colophon has gaps, rebuild the record from evidence. Besides Git
+history, look for session logs that coding agents saved on this computer, if
+you are able to read them (for example, Codex keeps sessions under
+`~/.codex/sessions/` and Claude Code under `~/.claude/projects/`). Read them
+without changing them, and don't copy transcript text into the colophon.
+
+Session logs stay on the computer where the work happened. Say in "Evidence
+limits" which computers and tools you checked, and tell the owner that running
+the same pass on their other computers may fill more gaps. Expect more
+Unknowns than in a colophon kept as you go; that is normal.
+
 ## Gather the record
 
 Read the repository's instructions for agents (such as `AGENTS.md`), any
@@ -48,6 +84,7 @@ Watch for these traps:
   shows the tool was set up, not that it was used.
 - A linked repository, or another project's colophon, is not evidence about
   this one.
+- Session logs on one computer say nothing about work done on another.
 - Do not infer an exact model or setting from a list of available models, a
   default preference, or a commit signature. Record a model only when it was
   observed in the session or confirmed by the owner.

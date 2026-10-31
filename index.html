@@ -195,6 +195,14 @@ p { margin: 0 0 1rem; }
 }
 .prompt code { flex: 1 1 16rem; align-self: center; font-size: 0.875rem; line-height: 1.5; overflow-wrap: anywhere; }
 .prompt .btn { min-height: 2.5rem; padding: 0.4rem 0.9rem; font-size: 0.9375rem; }
+.snippet { align-items: flex-start; }
+.snippet pre { flex: 1 1 18rem; margin: 0; padding: 0.35rem 0; font: 400 0.8125rem/1.6 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; }
+
+.modes { display: grid; grid-template-columns: 1fr; gap: 0 2.5rem; max-width: 60rem; margin-top: 1.75rem; }
+@media (min-width: 760px) { .modes { grid-template-columns: 1fr 1fr; } }
+.modes > div { padding: 1rem 0 1.25rem; border-top: 1px solid var(--rule); }
+.modes h3 { margin: 0 0 0.5rem; font: italic 400 1.5rem/1.2 var(--serif); }
+.modes p { margin: 0; }
 
 .table-scroll { overflow-x: auto; margin-top: 1.5rem; }
 table { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: 0.9875rem; }
@@ -270,16 +278,34 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 </div>
 
 <main>
-  <section class="band"aria-labelledby="why">
+  <section class="band" aria-labelledby="why">
     <div class="prose">
       <h2 id="why">Why keep one</h2>
       <p>Someone will inherit your project: a client, the next developer, or you, a year from now. They’ll want to know how it was built, and the Git history won’t tell them.</p>
       <p>A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
-      <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none, and you can add one to a project that’s already finished.</p>
+      <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none.</p>
+      <p>Start one when you create the repository. It takes a minute on day one, and an afternoon of detective work after 27 commits, two computers, and three agents.</p>
     </div>
   </section>
 
-  <section class="band"aria-labelledby="rule">
+  <section class="band" aria-labelledby="modes">
+    <div class="prose">
+      <h2 id="modes">Two ways to use it</h2>
+      <p>You can keep a colophon as you go or reconstruct one later. Keeping it as you go is easier and far more accurate.</p>
+    </div>
+    <div class="modes">
+      <div>
+        <h3>Keep one as you go</h3>
+        <p>Add COLOPHON.md when you create the repository, and ask your agents to update it whenever a new tool, model, computer, or phase of work starts, and before each release. Each entry comes from the agent doing the work, so almost everything is observed rather than remembered.</p>
+      </div>
+      <div>
+        <h3>Reconstruct one after the fact</h3>
+        <p>For a project that already has history. The agent reads the Git log and any session logs your coding agents saved, fills in what it can, and marks the rest Unknown. Those logs stay on the computer where the work happened, so run it on each computer you used.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="rule">
     <div class="prose">
       <h2 id="rule">The one rule</h2>
       <p>Every fact in a colophon is one of three kinds, and the file says which.</p>
@@ -292,7 +318,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     </div>
   </section>
 
-  <section class="band"aria-labelledby="how">
+  <section class="band" aria-labelledby="how">
     <div class="prose">
       <h2 id="how">Add one to your project</h2>
       <ol class="steps">
@@ -308,8 +334,8 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
         </li>
         <li>
           <div>
-            <h3>Let it read the history</h3>
-            <p>The agent looks through the repository and its commits, then writes COLOPHON.md at the root.</p>
+            <h3>Let it write the first version</h3>
+            <p>On a new project, the agent records the session it’s working in. On an existing one, it reads the Git history and any saved session logs. Either way, it writes COLOPHON.md at the root.</p>
           </div>
         </li>
         <li>
@@ -320,8 +346,14 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
         </li>
         <li>
           <div>
-            <h3>Update it when something changes</h3>
-            <p>Add a line for a new tool, a new model, or a new phase of work. Not every commit.</p>
+            <h3>Keep it current</h3>
+            <p>Add these lines to your AGENTS.md, or whichever instructions file your agents read, so each one updates the colophon when something changes and before each release. A colophon is a summary, not a log, so it doesn’t need a line for every commit.</p>
+            <div class="prompt snippet">
+              <pre id="snippet-text">## Colophon
+
+This project keeps COLOPHON.md, a short record of how it was made. Update it when a new tool, model, computer, or phase of work starts, and before each release. Follow the instructions in instructions.md at github.com/liederdigital/colophon-md.</pre>
+              <button type="button" class="btn" id="copy-snippet">Copy</button>
+            </div>
           </div>
         </li>
       </ol>
@@ -329,7 +361,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     </div>
   </section>
 
-  <section class="band"aria-labelledby="fits">
+  <section class="band" aria-labelledby="fits">
     <div class="prose">
       <h2 id="fits">Where it fits</h2>
       <p>COLOPHON.md sits beside the files a repository already has. Each one answers a different question.</p>
@@ -348,7 +380,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     </div>
   </section>
 
-  <section class="band"aria-labelledby="questions">
+  <section class="band" aria-labelledby="questions">
     <div class="prose">
       <h2 id="questions">Questions</h2>
       <details>
@@ -357,7 +389,14 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       </details>
       <details>
         <summary>Is this an official standard?</summary>
-        <div><p>No. It’s an open convention that anyone can use, change, or ignore. The instructions and template are in the public domain under CC0.</p></div>
+        <div><p>Not yet. It’s an open convention that anyone can use, change, or ignore. The more projects keep one, the more people will know to look for it. The instructions and template are in the public domain under CC0.</p></div>
+      </details>
+      <details>
+        <summary>Isn’t this what git blame is for?</summary>
+        <div>
+          <p>They answer different questions. Git blame shows, line by line, which commit last changed each line and which account made it. That’s the Git identity, not necessarily the person or tool that wrote the code, and a later edit or reformat replaces it.</p>
+          <p>A colophon steps back to the whole project and records what Git can’t see: which agents and models did the work, on which computers, and who directed and reviewed it.</p>
+        </div>
       </details>
       <details>
         <summary>Don’t other tools already track AI code?</summary>
@@ -401,8 +440,15 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   const localUrl = new URL("instructions.md", location.href);
   const onWeb = location.protocol === "https:" || location.protocol === "http:";
 
-  const promptText = `Read ${onWeb ? localUrl.href : repoFile} and follow it to create or update COLOPHON.md for this repository.`;
+  const instructionsRef = onWeb ? localUrl.href : repoFile;
+  const promptText = `Read ${instructionsRef} and follow it to create or update COLOPHON.md for this repository.`;
   document.getElementById("prompt-text").textContent = promptText;
+
+  const snippetText = "## Colophon\n\n" +
+    "This project keeps COLOPHON.md, a short record of how it was made. " +
+    "Update it when a new tool, model, computer, or phase of work starts, " +
+    `and before each release. Follow the instructions at ${instructionsRef}.`;
+  document.getElementById("snippet-text").textContent = snippetText;
 
   let instructions = null;
   const loading = fetch(localUrl)
@@ -461,15 +507,19 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     }
   });
 
-  document.getElementById("copy-prompt").addEventListener("click", async (event) => {
-    const button = event.currentTarget;
-    try {
-      await writeClipboard(promptText);
-      confirmOn(button);
-    } catch {
-      say("Your browser blocked copying. Select the line and copy it yourself.");
-    }
-  });
+  function copyOnClick(id, text) {
+    document.getElementById(id).addEventListener("click", async (event) => {
+      const button = event.currentTarget;
+      try {
+        await writeClipboard(text);
+        confirmOn(button);
+      } catch {
+        say("Your browser blocked copying. Select the text and copy it yourself.");
+      }
+    });
+  }
+  copyOnClick("copy-prompt", promptText);
+  copyOnClick("copy-snippet", snippetText);
 })();
 </script>
 </body>
