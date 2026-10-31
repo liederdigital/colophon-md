@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COLOPHON.md</title>
+<meta name="description" content="A simple, open convention for recording how a software project was made: which AI tools built it, where they ran, and who directed the work.">
+<meta property="og:title" content="COLOPHON.md">
+<meta property="og:description" content="A short, honest record of how a project was made: which AI tools built it, where they ran, and who directed the work.">
+<meta property="og:type" content="website">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%2323443D'/%3E%3Cg fill='none' stroke='%23D8B865' stroke-width='4' stroke-linecap='round'%3E%3Ccircle cx='32' cy='41' r='13'/%3E%3Cpath d='M19 41h26M32 28V9M25 15h14'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="fonts/im-fell-english-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "IM Fell English"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/im-fell-english-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IM Fell English"; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/im-fell-english-latin-400-italic.woff2) format("woff2"); }
+@font-face { font-family: "IM Fell English SC"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/im-fell-english-sc-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-sans-latin-400-italic.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2"); }
+
+:root {
+  --paper: #F2F3EF;
+  --page: #FBFBF8;
+  --ink: #1C2230;
+  --muted: #545B69;
+  --rule: #CBCEC6;
+  --cloth: #23443D;
+  --cloth-ink: #E8EAE3;
+  --cloth-muted: #9DB3AC;
+  --gilt: #9C762B;
+  --gilt-on-cloth: #D8B865;
+
+  --serif: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --serif-sc: "IM Fell English SC", var(--serif);
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --gutter: 16px;
+  --wide: 72rem;
+  --prose: 40rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15181D;
+    --page: #1C2027;
+    --ink: #E6E5DE;
+    --muted: #A3A8B2;
+    --rule: #323741;
+    --cloth: #1F3C36;
+    --cloth-ink: #E8EAE3;
+    --cloth-muted: #93AAA3;
+    --gilt: #C9A95E;
+    --gilt-on-cloth: #D8B865;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #15181D; --page: #1C2027; --ink: #E6E5DE; --muted: #A3A8B2; --rule: #323741;
+  --cloth: #1F3C36; --cloth-ink: #E8EAE3; --cloth-muted: #93AAA3; --gilt: #C9A95E; --gilt-on-cloth: #D8B865;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+code { font-family: var(--mono); font-size: 0.9em; }
+
+.wrap { max-width: var(--wide); margin-inline: auto; padding-inline: var(--gutter); }
+.band {
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(var(--wide) - 2 * var(--gutter));
+  margin-inline: auto;
+  padding-block: 3.75rem;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 720px) { :root { --gutter: 32px; } }
+
+/* Masthead */
+.masthead { padding-block: 4.5rem 1rem; }
+.masthead h1 {
+  margin: 0;
+  font: 400 clamp(3.1rem, 11vw, 7rem)/0.95 var(--serif);
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+.masthead h1 .ext { font-family: var(--mono); font-size: 0.42em; letter-spacing: 0; vertical-align: 0.12em; margin-left: 0.04em; }
+.lede { max-width: 34rem; margin: 1.25rem 0 0; font-size: 1.25rem; line-height: 1.5; }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.75rem; padding: 0.6rem 1.1rem;
+  font: 500 1rem/1.2 var(--sans);
+  color: var(--ink); background: transparent;
+  border: 1px solid var(--ink); border-radius: 3px;
+  text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.btn-primary { background: var(--cloth); border-color: var(--cloth); color: var(--cloth-ink); }
+.btn-primary:hover { background: color-mix(in srgb, var(--cloth) 88%, #000); }
+.btn-text { border-color: transparent; padding-left: 0.4rem; padding-right: 0.4rem; text-decoration: underline; text-underline-offset: 0.18em; }
+.btn-text:hover { background: transparent; text-decoration-thickness: 2px; }
+.status { min-height: 1.6em; margin: 0.75rem 0 0; color: var(--muted); font-size: 0.9375rem; }
+
+/* The two colophons */
+.pair {
+  display: grid; gap: 2rem;
+  grid-template-columns: 1fr;
+  padding-block: 1.5rem 4.5rem;
+}
+@media (min-width: 880px) { .pair { grid-template-columns: 1fr 1fr; gap: 2.75rem; align-items: start; } }
+.pair figure { margin: 0; min-width: 0; }
+.pair figcaption { margin-top: 1.1rem; color: var(--muted); font-size: 0.9375rem; }
+
+.leaf {
+  background: var(--page);
+  border: 1px solid var(--rule);
+  padding: 3rem clamp(1.5rem, 5vw, 3.5rem) 3.25rem;
+  text-align: center;
+  box-shadow:
+    3px 3px 0 -1px var(--page), 3px 3px 0 0 var(--rule),
+    6px 6px 0 -1px var(--page), 6px 6px 0 0 var(--rule);
+}
+.device { display: block; margin: 0 auto 1.5rem; color: var(--gilt); }
+.leaf p {
+  max-width: 24em; margin: 0 auto;
+  font: 400 1.2rem/1.6 var(--serif);
+  hyphens: auto;
+}
+.leaf .sc { font-family: var(--serif-sc); font-size: 1.04em; }
+.leaf .tail { margin-top: 1.25rem; font-style: italic; color: var(--muted); }
+
+.cloth {
+  background-color: var(--cloth);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,0.07) 0 1px, transparent 1px 4px);
+  color: var(--cloth-ink);
+  border-radius: 4px;
+  padding: 1.25rem 0 1.5rem;
+}
+.cloth .label {
+  display: inline-block; margin: 0 1.5rem 1rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--gilt-on-cloth); border-radius: 2px;
+  color: var(--gilt-on-cloth);
+  font: 400 0.9375rem/1.4 var(--serif-sc);
+  letter-spacing: 0.03em;
+}
+.cloth pre {
+  margin: 0; padding: 0 1.5rem;
+  overflow-x: auto;
+  font: 400 0.8125rem/1.7 var(--mono);
+  tab-size: 2;
+}
+.cloth pre:focus-visible { outline-color: var(--gilt-on-cloth); outline-offset: -2px; }
+.md-h { color: var(--gilt-on-cloth); font-weight: 500; }
+.md-p { color: var(--cloth-muted); }
+.md-u { color: var(--gilt-on-cloth); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 0.25em; }
+
+/* Body sections */
+.prose { max-width: var(--prose); }
+h2 { margin: 0 0 1.25rem; font: 400 clamp(1.9rem, 4.5vw, 2.6rem)/1.1 var(--serif); }
+h3 { margin: 0; font: 600 1.0625rem/1.4 var(--sans); }
+p { margin: 0 0 1rem; }
+.prose > :last-child { margin-bottom: 0; }
+
+.kinds { margin: 2rem 0 1.75rem; padding: 0; border-top: 1px solid var(--rule); }
+.kinds div { display: grid; grid-template-columns: 1fr; gap: 0.25rem; padding: 1rem 0; border-bottom: 1px solid var(--rule); }
+@media (min-width: 640px) { .kinds div { grid-template-columns: 11rem 1fr; gap: 1.5rem; } }
+.kinds dt { font: italic 400 1.45rem/1.2 var(--serif); }
+.kinds dd { margin: 0; }
+.motto { font: italic 400 1.35rem/1.45 var(--serif); }
+
+.steps { margin: 1.5rem 0 0; padding: 0; list-style: none; counter-reset: step; }
+.steps > li { counter-increment: step; display: grid; grid-template-columns: 2.25rem 1fr; padding: 0 0 1.5rem; }
+.steps > li::before { content: counter(step); font: 400 1.6rem/1.1 var(--serif); color: var(--gilt); }
+.steps p { margin: 0.35rem 0 0; }
+.prompt {
+  display: flex; gap: 0.5rem; align-items: stretch; flex-wrap: wrap;
+  margin: 0.85rem 0 0; padding: 0.5rem 0.5rem 0.5rem 0.9rem;
+  background: var(--page); border: 1px solid var(--rule); border-radius: 3px;
+}
+.prompt code { flex: 1 1 16rem; align-self: center; font-size: 0.875rem; line-height: 1.5; overflow-wrap: anywhere; }
+.prompt .btn { min-height: 2.5rem; padding: 0.4rem 0.9rem; font-size: 0.9375rem; }
+
+.table-scroll { overflow-x: auto; margin-top: 1.5rem; }
+table { border-collapse: collapse; width: 100%; min-width: 32rem; font-size: 0.9875rem; }
+th, td { text-align: left; vertical-align: top; padding: 0.75rem 1rem 0.75rem 0; border-bottom: 1px solid var(--rule); }
+th { font-weight: 600; font-size: 0.9375rem; color: var(--muted); }
+td:first-child { white-space: nowrap; font-family: var(--mono); font-size: 0.9rem; }
+tr.this td { font-weight: 600; }
+tr.this td:first-child { font-weight: 500; }
+
+details { border-bottom: 1px solid var(--rule); }
+details:first-of-type { border-top: 1px solid var(--rule); }
+summary {
+  display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+  padding: 1rem 0; cursor: pointer; list-style: none;
+  font-weight: 600;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font: 400 1.5rem/1 var(--serif); color: var(--gilt); }
+details[open] summary::after { content: "\2013"; }
+details > div { padding: 0 0 1.25rem; }
+details > div p:last-child { margin-bottom: 0; }
+
+footer { border-top: 1px solid var(--rule); padding-block: 2.5rem 3.5rem; color: var(--muted); font-size: 0.9375rem; }
+footer .device { margin: 0 0 1rem; }
+footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: background-color 120ms ease; }
+}
+</style>
+</head>
+<body>
+
+<header class="wrap masthead">
+  <h1>COLOPHON<span class="ext">.md</span></h1>
+  <p class="lede">A short, honest record of how a project was made: which AI tools built it, where they ran, and who directed the work.</p>
+  <div class="actions">
+    <button type="button" class="btn btn-primary" id="copy-instructions">Copy instructions for your agent</button>
+    <a class="btn" href="template.md" download="COLOPHON.md">Download the template</a>
+    <a class="btn btn-text" href="https://github.com/liederdigital/colophon-md">View on GitHub</a>
+  </div>
+  <p class="status" id="status" role="status" aria-live="polite"></p>
+  <noscript><p>To copy the instructions, open <a href="instructions.md">instructions.md</a>.</p></noscript>
+</header>
+
+<div class="wrap pair">
+  <figure>
+    <div class="leaf">
+      <svg class="device" width="30" height="44" viewBox="0 0 40 58" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="40" r="14"/><path d="M6 40h28M20 26V5M13 11.5h14"/></svg>
+      <p><span class="sc">This page</span> was composed in October 2026 by Claude, an AI model made by Anthropic, working in a cloud workspace at the direction of Ron Stauffer. The headings are set in IM Fell English, a digital revival of the Fell types of seventeenth-century Oxford; the text in IBM Plex.</p>
+      <p class="tail">Who reviewed it is not yet recorded.</p>
+    </div>
+    <figcaption>A colophon, set the way printers have set them for centuries.</figcaption>
+  </figure>
+  <figure>
+    <div class="cloth">
+      <span class="label">Colophon.md</span>
+<pre tabindex="0" aria-label="Excerpt from this site's COLOPHON.md"><span class="md-h"># Colophon</span>
+
+<span class="md-h">## Snapshot</span>
+
+<span class="md-p">| | |
+|---|---|</span>
+<span class="md-p">|</span> Primary builder <span class="md-p">|</span> Claude, by Anthropic             <span class="md-p">|</span>
+<span class="md-p">|</span> Surface         <span class="md-p">|</span> Cloud workspace, Claude app      <span class="md-p">|</span>
+<span class="md-p">|</span> Model / mode    <span class="md-p">|</span> Claude Opus 5.5, as configured   <span class="md-p">|</span>
+<span class="md-p">|</span> Human owner     <span class="md-p">|</span> Ron Stauffer: concept, direction <span class="md-p">|</span>
+<span class="md-p">|</span> Review          <span class="md-p">|</span> <span class="md-u">Unknown</span>                          <span class="md-p">|</span>
+<span class="md-p">|</span> Era             <span class="md-p">|</span> 2026-10-30 (America/Denver)      <span class="md-p">|</span></pre>
+    </div>
+    <figcaption>The same facts, kept as a file at the root of the repository.</figcaption>
+  </figure>
+</div>
+
+<main>
+  <section class="band"aria-labelledby="why">
+    <div class="prose">
+      <h2 id="why">Why keep one</h2>
+      <p>Someone will inherit your project: a client, the next developer, or you, a year from now. They’ll want to know how it was built, and the Git history won’t tell them.</p>
+      <p>A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
+      <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none, and you can add one to a project that’s already finished.</p>
+    </div>
+  </section>
+
+  <section class="band"aria-labelledby="rule">
+    <div class="prose">
+      <h2 id="rule">The one rule</h2>
+      <p>Every fact in a colophon is one of three kinds, and the file says which.</p>
+      <dl class="kinds">
+        <div><dt>Observed</dt><dd>Seen directly: in the work session, the files, or the history.</dd></div>
+        <div><dt>Owner-confirmed</dt><dd>Stated by the person responsible for the project.</dd></div>
+        <div><dt>Unknown</dt><dd>Not established, and written down as Unknown so no one mistakes a guess for a fact.</dd></div>
+      </dl>
+      <p class="motto">An honest Unknown is worth more than a confident guess.</p>
+    </div>
+  </section>
+
+  <section class="band"aria-labelledby="how">
+    <div class="prose">
+      <h2 id="how">Add one to your project</h2>
+      <ol class="steps">
+        <li>
+          <div>
+            <h3>Give your agent the instructions</h3>
+            <p>Use the copy button above and paste the instructions into your coding agent. Or, if it can read web pages, send it this line:</p>
+            <div class="prompt">
+              <code id="prompt-text">Read the COLOPHON.md instructions at github.com/liederdigital/colophon-md and follow them to create COLOPHON.md for this repository.</code>
+              <button type="button" class="btn" id="copy-prompt">Copy</button>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Let it read the history</h3>
+            <p>The agent looks through the repository and its commits, then writes COLOPHON.md at the root.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Fill in what it couldn’t know</h3>
+            <p>Confirm which model you used, who reviewed what, and anything that happened outside the repository.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>Update it when something changes</h3>
+            <p>Add a line for a new tool, a new model, or a new phase of work. Not every commit.</p>
+          </div>
+        </li>
+      </ol>
+      <p>Prefer to do it by hand? <a href="template.md" download="COLOPHON.md">Download the template</a> and fill it in yourself.</p>
+    </div>
+  </section>
+
+  <section class="band"aria-labelledby="fits">
+    <div class="prose">
+      <h2 id="fits">Where it fits</h2>
+      <p>COLOPHON.md sits beside the files a repository already has. Each one answers a different question.</p>
+    </div>
+    <div class="table-scroll prose">
+      <table>
+        <thead><tr><th scope="col">File</th><th scope="col">What it records</th><th scope="col">Written for</th></tr></thead>
+        <tbody>
+          <tr><td>README.md</td><td>What the project is and how to use it</td><td>People using it</td></tr>
+          <tr><td>AGENTS.md</td><td>How to work on the project</td><td>AI agents</td></tr>
+          <tr><td>LICENSE</td><td>Who may use it, and on what terms</td><td>Everyone</td></tr>
+          <tr><td>CREDITS, NOTICE</td><td>The code and people it depends on</td><td>Everyone</td></tr>
+          <tr class="this"><td>COLOPHON.md</td><td>How the project was made</td><td>Whoever inherits it</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="band"aria-labelledby="questions">
+    <div class="prose">
+      <h2 id="questions">Questions</h2>
+      <details>
+        <summary>Are any fields required?</summary>
+        <div><p>No. It’s plain Markdown. The template is a starting point; leave out whatever doesn’t apply.</p></div>
+      </details>
+      <details>
+        <summary>Is this an official standard?</summary>
+        <div><p>No. It’s an open convention that anyone can use, change, or ignore. The instructions and template are in the public domain under CC0.</p></div>
+      </details>
+      <details>
+        <summary>Don’t other tools already track AI code?</summary>
+        <div>
+          <p>Some do, line by line. <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record which lines an agent wrote, and the Linux kernel asks for an <a href="https://docs.kernel.org/process/coding-assistants.html">Assisted-by line</a> on each commit.</p>
+          <p>Those records are precise, but they only cover work done after they were set up, and they’re written for machines. COLOPHON.md is the summary a person can read, and it works after the fact. Use both.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Can a colophon prove who wrote the code?</summary>
+        <div><p>No. It’s a good-faith account. That’s why it keeps what was observed, what the owner confirmed, and what’s unknown apart.</p></div>
+      </details>
+      <details>
+        <summary>What should stay out of it?</summary>
+        <div><p>Passwords and keys, private chat or session links, client records, and personal details that have nothing to do with how the project was made.</p></div>
+      </details>
+      <details>
+        <summary>What if I didn’t use AI?</summary>
+        <div><p>Then say so. A colophon can just as well record that a project was written by hand, in which editor, and when.</p></div>
+      </details>
+      <details>
+        <summary>Why “colophon”?</summary>
+        <div><p>In printing, the colophon is the note at the back of a book that records how it was made: the typeface, the paper, the printer. Many websites keep a colophon page for the same reason. COLOPHON.md brings the idea to the repository.</p></div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="device" width="20" height="29" viewBox="0 0 40 58" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="40" r="14"/><path d="M6 40h28M20 26V5M13 11.5h14"/></svg>
+    <p>An open convention started by Ron Stauffer of <a href="https://liederdigital.com">Lieder Digital</a>.</p>
+    <p>The instructions and template are dedicated to the public domain under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. How this site was made is recorded in its own <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">COLOPHON.md</a>.</p>
+  </div>
+</footer>
+
+<script>
+(() => {
+  const statusEl = document.getElementById("status");
+  const repoFile = "https://github.com/liederdigital/colophon-md/blob/main/instructions.md";
+  const localUrl = new URL("instructions.md", location.href);
+  const onWeb = location.protocol === "https:" || location.protocol === "http:";
+
+  const promptText = `Read ${onWeb ? localUrl.href : repoFile} and follow it to create or update COLOPHON.md for this repository.`;
+  document.getElementById("prompt-text").textContent = promptText;
+
+  let instructions = null;
+  const loading = fetch(localUrl)
+    .then((r) => { if (!r.ok) throw new Error(String(r.status)); return r.text(); })
+    .then((t) => (instructions = t))
+    .catch(() => null);
+
+  function say(message, withLink) {
+    statusEl.textContent = message;
+    if (withLink) {
+      const a = document.createElement("a");
+      a.href = onWeb ? "instructions.md" : repoFile;
+      a.textContent = "Open instructions.md";
+      statusEl.append(" ", a, ".");
+    }
+  }
+
+  async function writeClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.append(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    if (!ok) throw new Error("copy failed");
+  }
+
+  function confirmOn(button) {
+    const original = button.dataset.label || button.textContent;
+    button.dataset.label = original;
+    button.textContent = "Copied";
+    clearTimeout(button._reset);
+    button._reset = setTimeout(() => { button.textContent = original; }, 2200);
+  }
+
+  document.getElementById("copy-instructions").addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    const text = instructions !== null ? instructions : await loading;
+    if (!text) {
+      say("The instructions didn’t load, so nothing was copied.", true);
+      return;
+    }
+    try {
+      await writeClipboard(text);
+      confirmOn(button);
+      say("Instructions copied. Paste them into your coding agent.");
+    } catch {
+      say("Your browser blocked copying.", true);
+    }
+  });
+
+  document.getElementById("copy-prompt").addEventListener("click", async (event) => {
+    const button = event.currentTarget;
+    try {
+      await writeClipboard(promptText);
+      confirmOn(button);
+    } catch {
+      say("Your browser blocked copying. Select the line and copy it yourself.");
+    }
+  });
+})();
+</script>
+</body>
+</html>

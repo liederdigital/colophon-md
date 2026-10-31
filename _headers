@@ -1,0 +1,16 @@
+/instructions.md
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/template.md
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/COLOPHON.md
+  Content-Type: text/plain; charset=utf-8
+
+/README.md
+  Content-Type: text/plain; charset=utf-8
+
+/AGENTS.md
+  Content-Type: text/plain; charset=utf-8
