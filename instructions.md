@@ -37,9 +37,11 @@ becomes a chore, people stop keeping it. So the agent doing the work keeps it:
 - Update `COLOPHON.md` yourself, in the same commit or pull request as the
   work it describes.
 - Fill in everything you can observe. Never ask the owner to type an entry.
-- When something needs the owner, ask one yes-or-no question with your best
-  evidence already filled in. If no one is there to answer, don't ask: write
-  Unknown and carry on.
+- When you can't establish something, write Unknown and keep going. That's the
+  default.
+- Ask the owner only when they're present and the answer would change who gets
+  credit for the work. Make it one yes-or-no question with your best evidence
+  already filled in.
 - Don't hold up a commit, a merge, or a release waiting on the colophon.
 
 A person reviewing the pull request sees the colophon change next to the code,
