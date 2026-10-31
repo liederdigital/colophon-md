@@ -338,9 +338,9 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 <span class="md-p">|</span> Surface         <span class="md-p">|</span> Cloud workspace, Claude app      <span class="md-p">|</span>
 <span class="md-p">|</span> Model           <span class="md-p">|</span> Claude Opus 5.5, as configured   <span class="md-p">|</span>
 <span class="md-p">|</span> Mode            <span class="md-p">|</span> <span class="md-u">Unknown</span>                          <span class="md-p">|</span>
-<span class="md-p">|</span> Human owner     <span class="md-p">|</span> Ron Stauffer: concept, direction <span class="md-p">|</span>
 <span class="md-p">|</span> Review          <span class="md-p">|</span> AI: a Grok bot, before launch    <span class="md-p">|</span>
-<span class="md-p">|</span> Approved by     <span class="md-p">|</span> Ron Stauffer, for launch         <span class="md-p">|</span>
+<span class="md-p">|</span> Directed by     <span class="md-p">|</span> Ron Stauffer                     <span class="md-p">|</span>
+<span class="md-p">|</span> Human owner     <span class="md-p">|</span> Ron Stauffer: concept, approval  <span class="md-p">|</span>
 <span class="md-p">|</span> Era             <span class="md-p">|</span> 2026-10-30 (America/Denver)      <span class="md-p">|</span></pre>
     </div>
     <figcaption>The same facts, kept as a file at the root of the repository.</figcaption>
@@ -383,8 +383,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       <p class="scroll-hint">Swipe sideways to see the whole timeline.</p>
       <div class="slide" data-title="How this website was made" role="group" aria-roledescription="slide" aria-label="1 of 2">
         <div class="chart-scroll">
-<svg class="timeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 318" role="group" aria-labelledby="rt-title rt-desc">
-<title id="rt-title">How this website was made, September 28 to October 30, 2026</title>
+<svg class="timeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 318" role="group" aria-label="How this website was made, September 28 to October 30, 2026" aria-describedby="rt-desc">
 <desc id="rt-desc">One row each for a Grok bot, Claude, Codex, Cursor, and Ron Stauffer. Ron proposes the idea in a Grok bot chat on September 28; the Grok bot writes the first file on September 30; Claude, Codex, and Cursor write more; Codex turns them into a skill on October 15. On launch day, October 30, shown hour by hour, Claude builds the site, Codex and the Grok bot research and review it, and Ron approves it. Each mark is listed with its model in this site’s COLOPHON.md.</desc>
 <line class="tl-lane" x1="164" y1="66" x2="624" y2="66"/>
 <line class="tl-lane" x1="670" y1="66" x2="936" y2="66"/>
@@ -459,8 +458,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       </div>
       <div class="slide" data-title="A made-up example: one web app, nine months in" role="group" aria-roledescription="slide" aria-label="2 of 2" hidden>
         <div class="chart-scroll">
-<svg class="timeline" viewBox="0 0 960 346" role="group" aria-labelledby="ft-title ft-desc">
-<title id="ft-title">A made-up example: one web app, nine months in</title>
+<svg class="timeline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 346" role="group" aria-label="A made-up example: one web app, nine months in" aria-describedby="ft-desc">
 <desc id="ft-desc">One row per AI tool or person, from February to October. Google Antigravity builds the first version, Claude Code builds billing, Codex reviews it, you release v1.0, a Grok bot and GitHub Copilot make small changes, a collaborator builds sign-up with Codex, Claude Code reviews it, and on August 28 Claude Code builds checkout on Sonnet 5.5 instead of Opus 5.5 before v1.3. Every event is also listed in the table below.</desc>
 <line class="tl-lane" x1="164" y1="66" x2="935" y2="66"/>
 <text class="tl-label" x="154" y="70.5" text-anchor="end">Google Antigravity</text>
@@ -722,7 +720,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
     "This project keeps COLOPHON.md, a short record of how it was made. " +
     "Agents update it themselves, in the same commit or pull request as their work: " +
     "add a row when the tool, model, model setting, or computer changes, " +
-    "when you review someone else's work, and before each release. " +
+    "when a new phase of work starts, when you review someone else's work, and before each release. " +
     `Never hold up a commit for it. Follow the instructions at ${instructionsRef}.`;
   document.getElementById("snippet-text").textContent = snippetText;
 
