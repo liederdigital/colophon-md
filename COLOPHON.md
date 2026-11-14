@@ -20,7 +20,7 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Review | AI: a Grok bot reviewed the site, instructions, and template three times before launch, and wrote the change lists for versions 1.1 and 1.1.1; Google Antigravity reviewed the repository post-launch. Ron Stauffer approved the launch |
 | Directed by | Ron Stauffer |
 | Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work, chose the COLOPHON.md name and byline, and approved the launch on 2026-10-30. The Grok bot says it drafted the first file's wording from his message. How closely he read every page is not recorded |
-| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30; instructions versions 1.1 to 1.1.2 on 2026-10-31 (America/Denver) |
+| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30; instructions versions 1.1 to 1.1.2 on 2026-10-31; version 1.2 on 2026-11-13 (America/Denver) |
 | Status | Live at https://colophon.md; public repository |
 
 ## How the work was done
@@ -37,12 +37,15 @@ into public instructions and a template and built this website, and Ron put it
 live. Codex and Claude then traced the idea's origins. A Grok bot reviewed the
 site three times before launch, and Claude applied each round of fixes. On
 October 31, Claude made versions 1.1 to 1.1.2 of the instructions, from the
-bot's change lists and Ron's requests.
+bot's change lists and Ron's requests. On November 13, at Ron's request, Claude
+made version 1.2, after a review in another tool showed that the instructions
+had no way for a tool that can't edit the colophon to record itself.
 
 ## Builder history (newest first)
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
+| 2026-11-13 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Instructions version 1.2: a "When you can't edit the colophon" section with a colophon note, and setting (reasoning level) and mode (how the tool ran) defined as separate things; the template's model placeholders and a new FAQ answer to match. Prompted by a pre-print review of a book in Google Antigravity (Gemini 4 Argon, then Gemini 4 Hydrogen), where the reviewers had been told to change no files and their settings had to be asked for afterward | Observed in session; the version 1.2 pull request |
 | 2026-10-31 | Google Antigravity | Reviewed and built | Desktop app on Ron's Mac | Gemini 4 Argon, low (shown by the tool in the session's settings notice) | Reviewed the repository after launch; replaced the timeline SVGs' `<title>` tags with `aria-label` so native browser tooltips no longer cover the hover cards; synced the JS `AGENTS.md` snippet and hero card excerpt in `index.html` with instructions v1.1.2; added `/CONTRIBUTING.md` to `_headers` and `.DS_Store` to `.gitignore` | Observed in session |
 | 2026-10-31 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Instructions versions 1.1 to 1.1.2 from the Grok bot's change lists and Ron's requests. Version 1.1: the rule that a colophon describes the project, never the people; a Review field; an "Is this anti-AI?" question; a line on why this matters now; real favicon files, so search engines can show the site's icon; this file trimmed to a summary. Version 1.1.1: a required "Directed by" field; a note that context files describe what tools were told to do; an "Add your project" link; a new footer that keeps Ron's name; `CONTRIBUTING.md`; the share image's example dates moved into the past, and its tagline moved clear of the label X puts on link cards. Version 1.1.2: an FAQ and a rule that most pull requests leave the colophon untouched, and new phases of work added to the AGENTS.md snippet | Observed in session; commits `1226565` (v1.1), `d750444` (v1.1.1), and `acaf3e9` (v1.1.2) |
 | 2026-10-31 | Grok Bot, directed by Ron Stauffer | Reviewed; no code written | Grok Bot Mac and iPhone apps (per the bot) | Unknown (not shown by the tool; no self-report used) | Change lists for versions 1.1 and 1.1.1 | Both, shared by Ron |
@@ -114,7 +117,7 @@ Earlier entries stay as written; each correction says what changed.
 
 ## Evidence limits
 
-- This file follows COLOPHON.md instructions version 1.1.2. Dates use
+- This file follows COLOPHON.md instructions version 1.2. Dates use
   America/Denver; session timestamps were converted from UTC.
 - The launch and version 1.1 to 1.1.2 entries come from the Claude sessions that did
   the work. Claude's model is the one configured for those sessions; the

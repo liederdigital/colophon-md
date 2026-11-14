@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.1.2, published October 31, 2026. The convention lives at
+Version 1.2, published November 13, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -59,6 +59,33 @@ A person reviewing the pull request sees the colophon change next to the code,
 so approving the pull request approves the entry. There is no separate
 sign-off.
 
+## When you can't edit the colophon
+
+Some work happens where the agent can't or shouldn't edit `COLOPHON.md`: a
+review in another tool that was told to change nothing, a chat assistant with
+no access to the repository, or a task that only produces a report. Don't skip
+the record. End your output with a colophon note, so whoever keeps the
+colophon can add your row without anyone having to ask for it later:
+
+```markdown
+## Colophon note
+
+- Tool and version: {as shown by the tool, or Unknown}
+- Model and setting: {model, version, and reasoning level, with the source: shown by the tool, configured, or self-reported; or Unknown}
+- Mode: {plan, agent, ask, fast, or similar, if the tool has modes; or Unknown}
+- Surface: {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent}
+- Started and finished: {date and time, with time zone}
+- What I did: {reviewed, researched, or built; and what, such as a range of commits or a file}
+- Files created or changed: {every one, including scratch files; or None}
+```
+
+Fill in only what you can see. Many tools don't show a model its own name or
+setting: write Unknown, or label it self-reported if you name yourself. The
+person or agent who keeps the colophon copies the note into a row, keeps its
+sources, and replaces any Unknown they can observe, such as a setting shown in
+the tool's interface. A prompt that asks another tool for a review can ask for
+this note at the end.
+
 ## Keep it current, or reconstruct it
 
 A colophon is either kept as the work happens (proactive mode) or
@@ -72,8 +99,11 @@ model setting, or computer changes, or a new phase of work starts. Don't add a
 row for every commit; a colophon is a summary, not a log.
 
 Record the exact model name and version, and any setting such as a reasoning
-level, along with the date of every switch. Say where each model value came
-from:
+level, along with the date of every switch. A setting is how hard the model was
+told to think: a reasoning, thinking, or effort level, such as high or xhigh. A
+mode is how the tool itself ran, if it has modes, such as plan, agent, ask, or
+fast. They are separate things: record both when a tool has both, and write
+each the way the tool names it. Say where each model value came from:
 
 - **shown by the tool**: in its interface, its logs, or a commit trailer it
   wrote;
@@ -241,6 +271,10 @@ was made.
 
 ## Version history
 
+- **1.2** (November 13, 2026): a colophon note for work done where the
+  colophon can't be edited, such as a review in another tool, so the record is
+  kept as the work happens instead of asked for afterward; setting (the
+  reasoning level) and mode (how the tool ran) defined as separate things.
 - **1.1.2** (October 31, 2026): most pull requests leave the colophon
   untouched; a row is added only for a change of tool, model, setting, or
   computer, a new phase of work, a review, or a release. The AGENTS.md
@@ -270,7 +304,7 @@ elsewhere.
 | Project | {project name} |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
-| Model / mode | {model and setting, with its source: shown by the tool, configured, or self-reported; or Unknown} |
+| Model / mode | {model and setting, plus the tool's mode if it has one, each with its source: shown by the tool, configured, or self-reported; or Unknown} |
 | Editor | {editor, or Unknown} |
 | Review | {Human / AI / Both / None / Unknown}, {who or what reviewed, if known} |
 | Directed by | {the accountable human; required even when AI did all the work; never None, and Unknown only if truly unknown} |
@@ -287,7 +321,7 @@ and how changes were reviewed, tested, or deployed, only as far as established.}
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
-| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting (source), or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
+| {YYYY-MM-DD} | {tool or person} | {built / reviewed / tested / approved / deployed} | {surface} | {model, version, and setting, plus mode if any (source), or Unknown} | {phase, scope, or release} | {commits, paths, PRs, or Owner-confirmed} |
 
 ## Evidence limits
 
