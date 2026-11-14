@@ -21,7 +21,8 @@ AI tools, and a lot of digging (see [`COLOPHON.md`](COLOPHON.md)).
 - **Write it yourself.** Copy [`template.md`](template.md) to your repository
   root as `COLOPHON.md` and fill it in.
 - **Keep it current.** Add the short Colophon snippet from `instructions.md` to
-  your `AGENTS.md`. Every agent then updates the file itself, in the same commit
+  your `AGENTS.md` (create one at the repository root if you don't have it).
+  Every agent then updates the file itself, in the same commit
   or pull request as its work, and approving the pull request approves the
   entry. Nobody fills in a form, and nothing waits on it.
 
@@ -47,7 +48,7 @@ models did the work, where, in what role, and who signed off. Agents cite
 commit trailers, Git AI, and Agent Trace records as evidence where they exist,
 and fill in the gaps where they don't. It also works after the fact.
 
-The current instructions are version 1.1.2 (October 31, 2026).
+The current instructions are version 1.2 (November 13, 2026).
 
 ## What's in this repository
 
