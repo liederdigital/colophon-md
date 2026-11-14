@@ -120,8 +120,9 @@ branch, or the owner says so), name the release version (for example, v1.1.8)
 in the row that covers it, so releases can be compared with model switches.
 
 If the repository's agent instructions (such as `AGENTS.md`) don't mention
-`COLOPHON.md`, suggest adding these lines, and add them only if the owner
-agrees:
+`COLOPHON.md`, suggest adding these lines. If the repository has no agent
+instructions file at all, suggest creating `AGENTS.md` at its root with these
+lines. Either way, add them only if the owner agrees:
 
 ```markdown
 ## Colophon
@@ -275,6 +276,8 @@ was made.
   colophon can't be edited, such as a review in another tool, so the record is
   kept as the work happens instead of asked for afterward; setting (the
   reasoning level) and mode (how the tool ran) defined as separate things.
+  When a repository has no agent instructions file, suggest creating
+  `AGENTS.md` for the Colophon snippet.
 - **1.1.2** (October 31, 2026): most pull requests leave the colophon
   untouched; a row is added only for a change of tool, model, setting, or
   computer, a new phase of work, a review, or a release. The AGENTS.md
