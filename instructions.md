@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.2, published November 13, 2026. The convention lives at
+Version 1.2.1, published November 19, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -155,6 +155,13 @@ history and diffs to see the main phases of work. Use what the owner tells you
 in the conversation. A complete forensic audit is not needed; say what you
 inspected.
 
+Check early commits, `README` history, and package or project files for
+former project, repository, or directory names. Coding agents often index
+local session logs by the folder path or repo slug in use at the time, so a
+forensic pass that searches only for the current name can miss earlier
+sessions. Record former names in the Snapshot `Project` field and note the
+rename in the Builder history row where it happened.
+
 Sort every fact into one of three kinds:
 
 - **Observed**: you saw it directly, in this session or in the files and
@@ -272,6 +279,11 @@ was made.
 
 ## Version history
 
+- **1.2.1** (November 19, 2026): check early commits and project files for
+  former project, repository, or directory names so forensic passes don't miss
+  local session logs indexed under an older folder path or repo slug; record
+  former names in the Snapshot `Project` field and note the rename in Builder
+  history.
 - **1.2** (November 13, 2026): a colophon note for work done where the
   colophon can't be edited, such as a review in another tool, so the record is
   kept as the work happens instead of asked for afterward; setting (the
@@ -304,7 +316,7 @@ elsewhere.
 
 | | |
 |---|---|
-| Project | {project name} |
+| Project | {project name, plus former repo or working names if renamed} |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, plus the tool's mode if it has one, each with its source: shown by the tool, configured, or self-reported; or Unknown} |
