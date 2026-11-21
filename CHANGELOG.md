@@ -7,6 +7,10 @@ changes—if any are ever needed—would be `2.0`.
 Published version snapshots (such as `/v1.3/instructions.md`) are immutable and
 never change after release.
 
+## Site notes (no format version change)
+
+- **November 21, 2026:** Added the FAQ entry *"If the person who commits owns the code, why record the tools?"* to `index.html`.
+
 ## 1.3 (November 21, 2026)
 
 - Frozen `1.x` format and explicit versioning policy.
