@@ -163,10 +163,11 @@ at https://colophon.md/instructions.md.
 
 **Reconstructing it (forensic mode).** When the project already has history and no colophon,
 or the colophon has gaps, rebuild the record from evidence. Besides Git
-history, look for session logs that coding agents saved on this computer, if
-you are able to read them (for example, Codex keeps sessions under
-`~/.codex/sessions/` and Claude Code under `~/.claude/projects/`). Read them
-without changing them, and don't copy transcript text into the colophon.
+history, look only in specific known session-log directories that coding agents
+saved on this computer, if you are able to read them (for example, Codex keeps
+sessions under `~/.codex/sessions/` and Claude Code under `~/.claude/projects/`).
+Never run an unbounded search across the home directory. Read logs without
+changing them, and don't copy transcript text into the colophon.
 
 Session logs stay on the computer where the work happened. Say in "Evidence
 limits" which computers and tools you checked, and tell the owner that running
@@ -305,6 +306,11 @@ otherwise record Unknown and finish.
   computers generically (for example, "a MacBook Pro").
 - For a client's private project, leave it to the owner and the client whether
   the colophon is published.
+- If you embed a timeline chart, use the live
+  `https://colophon.md/svg/owner/repo` URL only in public repositories. For
+  private repositories, generate a static `colophon-timeline.svg` locally in the
+  browser at https://colophon.md/timeline (nothing is sent to a server) and
+  commit that file instead.
 - Optionally add a one-line link from the README to `COLOPHON.md`. Keep the
   detail in the colophon.
 

@@ -30,9 +30,12 @@ for the latest version and template).
   release of `instructions.md`).
 - **Required field.** `Directed by` (the accountable human) is required, even
   when AI wrote all the code. Never write `None`.
-- **Privacy.** Never include credentials, private chat/session links, client
-  records, computer names, usernames, or local file paths exposing them (such as
-  `/Users/...`). Describe machines generically (e.g., "a MacBook Pro").
+- **Privacy and private repos.** Never include credentials, private chat/session
+  links, client records, computer names, usernames, or local file paths exposing
+  them (such as `/Users/...`). Describe machines generically (e.g., "a MacBook
+  Pro"). Use the live `https://colophon.md/svg/owner/repo` timeline URL only in
+  **public** repositories; for private repositories, generate a static
+  `colophon-timeline.svg` locally at https://colophon.md/timeline instead.
 
 ## Modes
 
@@ -43,11 +46,13 @@ for the latest version and template).
   Unknowns intact; add missing `Snapshot` rows (`Convention`, `Directed by`,
   `Review`, `Model / mode`), inspect Git history and local session logs since
   the newest row for unrecorded phases or releases, update `Convention`, and
-  ensure `AGENTS.md` has the Colophon snippet.
+  ensure `AGENTS.md` has the current Colophon snippet.
 - **Forensic reconstruction** (existing repo with no `COLOPHON.md` or gaps):
-  inspect Git history, former project/repo/directory names, and any readable
-  local session logs without modifying them or copying transcripts. Document
-  what you checked and what remains Unknown in `Evidence limits`.
+  inspect Git history, former project/repo/directory names, and only specific
+  known local session-log folders (such as `~/.codex/sessions/` and
+  `~/.claude/projects/`—never run an unbounded search across `~`) without
+  modifying them or copying transcripts. Document what you checked and what
+  remains Unknown in `Evidence limits`.
 - **Read-only / external review** (when you cannot edit `COLOPHON.md`): end your
   reply with a `## Colophon note` listing tool and version, model and setting
   (with source), mode, surface, start and finish times (with timezone), what you
