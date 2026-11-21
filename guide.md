@@ -4,7 +4,8 @@ This guide expands on the core instructions in `instructions.md` for
 reconstructing history after the fact, upgrading an older `COLOPHON.md`,
 handling evidence traps, and embedding a timeline chart.
 
-Version 1.3 (November 21, 2026) — frozen `1.x` format. Pinned copy:
+Format 1.x (frozen at v1.3). This living guide holds editorial clarifications
+and examples for `1.x`; the immutable v1.3 snapshot is at
 https://colophon.md/v1.3/guide.md. Public domain (CC0 1.0).
 
 ## Forensic reconstruction (existing repositories)
@@ -41,6 +42,10 @@ the same pass on their other computers may fill more gaps. Expect more
 
 ### Evidence traps to avoid
 
+- **Dates never come from model memory.** Always take dates from Git, session
+  logs, or the system clock—never from an AI model's own sense of the date.
+  Models routinely hallucinate the wrong year (for example, writing `2025` for
+  a `2026` commit using a model that didn't exist in `2025`).
 - A commit's author is the Git identity that made the commit, not necessarily
   the person or tool that wrote the change.
 - A missing AI trailer (`Co-Authored-By`, `Assisted-by`) does not prove a human
@@ -67,6 +72,9 @@ agent, not a separate CLI tool.
 
 Keep tools, models, settings, modes, surfaces, and editors separate:
 
+- **Tool version string:** When available, record the tool's own reported
+  version (for example, from `claude --version` or the tool's About panel)
+  instead of a vague label—stripping any usernames or hostnames.
 - **Model:** exact name and version.
 - **Setting:** how hard the model was told to think (reasoning, thinking, or
   effort level, such as `high` or `xhigh`).
@@ -111,10 +119,39 @@ has no `Convention` row yet):
   fill them in at your next update instead of asking.
 - When a release is prepared (version bump, tag, release branch, or owner says
   so), name the release version (for example, `v1.1.8`) in the row that covers
-  it.
+  it. Once the release commit or tag exists (never before—do not cite a hash
+  that doesn't exist yet), tie the release row to its tag or commit hash in the
+  `Evidence` column.
 - When later confirmation settles an earlier `Unknown`, add a note under
   `## Corrections` or a new row instead of silently rewriting history as if it
   had always been known.
+
+## Writing useful prose and optional fields
+
+- **Concrete human direction:** In `How the work was done`, prefer specific
+  human contributions (architecture choices, bug reports, acceptance checks, or
+  key feedback) over generic labels like "direction, approval."
+- **Plain-English accountability:** If it helps readers—especially clients,
+  buyers, or students—include a clear accountability sentence matching
+  `Directed by`, for example: *"The maintainers remain responsible for the
+  published code, including any errors that made it through review."*
+- **Optional `Verified by` row:** The template is a starting point; you can add
+  a `Verified by` row to `Snapshot` when useful to record how changes were
+  checked (automated test suite, preview screenshots, manual QA, or `Unknown`).
+
+## Scope: forks, translations, vendored code, and automated tools
+
+- **What a colophon does not cover:** A colophon covers only this repository's
+  own work—not upstream dependencies, vendored code, or Git submodules. Do not
+  copy a course repository's or starter template's `COLOPHON.md` as provenance
+  for a student assignment or downstream project.
+- **Forks and translations:** Link to the upstream `COLOPHON.md` (if one
+  exists) and start a fresh `Builder history` for your own work instead of
+  copying upstream rows or omitting the upstream link.
+- **Automated non-AI tools:** Dependency bots (Dependabot, Renovate),
+  formatters (Prettier, Black), linters, and deterministic code generators are
+  not builders in `Builder history`. Mention them once in `How the work was
+  done` (or `Snapshot`) if they matter to how the repository is maintained.
 
 ## Embedding a timeline chart
 

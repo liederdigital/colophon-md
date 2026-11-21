@@ -354,7 +354,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   <section class="band" aria-labelledby="why">
     <div class="prose">
       <h2 id="why">Why keep one</h2>
-      <p>Someone will inherit your codebase: a client taking delivery from an agency, a buyer doing due diligence before an acquisition, the next engineer on the team, or you a year from now. They’ll want to know how the software was actually made, which parts were reviewed, and who signed off.</p>
+      <p>Someone will inherit your codebase: a client taking delivery from an agency, a buyer doing due diligence before an acquisition, an instructor reviewing AI-assisted coursework, the next engineer on the team, or you a year from now. They’ll want to know how the software was actually made, which parts were reviewed, and who signed off.</p>
       <p>Git history won’t tell them. A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
       <p>COLOPHON.md answers the question in one plain page at the root of the repository. It’s free, public-domain (CC0), and works with any coding agent—or none.</p>
       <p>Think of it as the credits at the end of a film, and as a handoff record you can read in a minute. As a bonus, it doubles as a maintenance log: if a model version later turns out to have a known flaw, or a release cycle felt noticeably weaker, you can see which projects and weeks used that model or setting.</p>
@@ -724,12 +724,19 @@ This project keeps COLOPHON.md at the root: a short, honest record of which tool
         <div><p>Passwords and keys, private chat or session links, client records, computer names and usernames (say “a MacBook Pro,” not its name), and personal details that have nothing to do with how the project was made. If the project belongs to a client, decide with them whether the file is published at all. And a colophon describes the project, never the people: it isn’t for measuring or ranking how much anyone used AI.</p></div>
       </details>
       <details>
+        <summary>What about Prettier, Dependabot, or CI?</summary>
+        <div><p>Automated non-AI tools—formatters, linters, dependency bots, and code generators—aren’t builders in <code>Builder history</code>. If they matter to how the repository is maintained, mention them once in <em>How the work was done</em> or <em>Snapshot</em> instead of adding rows for their runs.</p></div>
+      </details>
+      <details>
         <summary>What if I didn’t use AI?</summary>
         <div><p>Then say so. A colophon can just as well record that a project was written by hand, in which editor, and when.</p></div>
       </details>
       <details>
         <summary>Why “colophon”?</summary>
-        <div><p>In printing, the colophon is the note at the back of a book that records how it was made: the typeface, the paper, the printer. Many websites keep a colophon page for the same reason. COLOPHON.md brings the idea to the repository.</p></div>
+        <div>
+          <p>In printing, the colophon is the note at the back of a book that records how it was made: the typeface, the paper, the printer. Many websites keep a colophon page for the same reason. COLOPHON.md brings the idea to the repository.</p>
+          <p>On GitHub today, most existing <code>COLOPHON.md</code> files list frameworks, tools, and thank-yous—which belong in <code>CREDITS</code> or <code>README</code>. This convention goes further: it records who and what actually built and reviewed the code, when, and with what evidence.</p>
+        </div>
       </details>
     </div>
   </section>
