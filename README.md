@@ -55,6 +55,7 @@ The current instructions are version 1.2.2 (November 20, 2026).
 | File | What it is |
 |---|---|
 | `index.html` | The website: one static page, no build step |
+| `timeline.html`, `timeline.js` | Browser-based `COLOPHON.md` → swimlane timeline SVG generator (zero dependencies) |
 | `instructions.md` | Tool-neutral instructions for AI agents |
 | `template.md` | The blank template |
 | `COLOPHON.md` | How this repository was made |

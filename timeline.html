@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XW1KC5YTVS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XW1KC5YTVS');
+</script>
+<title>Timeline generator · COLOPHON.md</title>
+<meta name="description" content="Turn any COLOPHON.md file into a clean swimlane timeline SVG, right in your browser.">
+<meta property="og:title" content="Timeline generator · COLOPHON.md">
+<meta property="og:description" content="Paste a COLOPHON.md, drop a file, or load a public GitHub repository to generate a swimlane timeline SVG.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://colophon.md/timeline.html">
+<meta property="og:url" content="https://colophon.md/timeline.html">
+<meta property="og:image" content="https://colophon.md/og.png?v=3">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-96.png" sizes="96x96" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="fonts/im-fell-english-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face { font-family: "IM Fell English"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/im-fell-english-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IM Fell English"; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/im-fell-english-latin-400-italic.woff2) format("woff2"); }
+@font-face { font-family: "IM Fell English SC"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/im-fell-english-sc-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-sans-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: italic; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-sans-latin-400-italic.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Sans"; font-style: normal; font-weight: 600; font-display: swap; src: url(fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url(fonts/ibm-plex-mono-latin-400-normal.woff2) format("woff2"); }
+@font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url(fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2"); }
+
+:root {
+  --paper: #F2F3EF;
+  --page: #FBFBF8;
+  --ink: #1C2230;
+  --muted: #545B69;
+  --rule: #CBCEC6;
+  --cloth: #23443D;
+  --cloth-ink: #E8EAE3;
+  --gilt: #9C762B;
+  --dot-built: #23443D;
+
+  --serif: "IM Fell English", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --serif-sc: "IM Fell English SC", var(--serif);
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --gutter: 16px;
+  --wide: 72rem;
+  --prose: 42rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #15181D;
+    --page: #1C2027;
+    --ink: #E6E5DE;
+    --muted: #A3A8B2;
+    --rule: #323741;
+    --cloth: #1F3C36;
+    --cloth-ink: #E8EAE3;
+    --gilt: #C9A95E;
+    --dot-built: #6FA796;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
+code { font-family: var(--mono); font-size: 0.9em; }
+
+.wrap { max-width: var(--wide); margin-inline: auto; padding-inline: var(--gutter); }
+.band {
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(var(--wide) - 2 * var(--gutter));
+  margin-inline: auto;
+  padding-block: 2.5rem;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 720px) { :root { --gutter: 32px; } }
+
+/* Masthead */
+.masthead { padding-block: 2.5rem 2rem; }
+.crumb {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  margin-bottom: 1rem;
+  font: 400 0.9375rem/1.2 var(--sans);
+  color: var(--muted);
+  text-decoration: none;
+}
+.crumb:hover { color: var(--ink); text-decoration: underline; }
+.masthead h1 {
+  margin: 0;
+  font: 400 clamp(2.2rem, 6vw, 3.6rem)/1.05 var(--serif);
+  letter-spacing: -0.01em;
+}
+.lede { max-width: var(--prose); margin: 0.85rem 0 0; font-size: 1.125rem; line-height: 1.5; color: var(--muted); }
+
+/* Buttons & inputs */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 2.5rem; padding: 0.45rem 1rem;
+  font: 500 0.9375rem/1.2 var(--sans);
+  color: var(--ink); background: transparent;
+  border: 1px solid var(--ink); border-radius: 3px;
+  text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: color-mix(in srgb, var(--ink) 7%, transparent); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn-primary { background: var(--cloth); border-color: var(--cloth); color: var(--cloth-ink); }
+.btn-primary:hover { background: color-mix(in srgb, var(--cloth) 88%, #000); }
+.btn-subtle { border-color: var(--rule); color: var(--ink); background: var(--page); }
+.btn-subtle:hover { border-color: var(--ink); }
+
+.repo-form {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: stretch;
+  max-width: 44rem;
+}
+.repo-input {
+  flex: 1 1 16rem;
+  min-height: 2.5rem; padding: 0.45rem 0.75rem;
+  font: 400 0.9375rem/1.3 var(--mono);
+  color: var(--ink); background: var(--page);
+  border: 1px solid var(--rule); border-radius: 3px;
+}
+.repo-input:focus { border-color: var(--ink); outline: none; }
+
+.quick-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem;
+  margin-top: 0.85rem;
+  font-size: 0.9375rem; color: var(--muted);
+}
+.link-btn {
+  padding: 0; border: 0; background: none; color: var(--ink);
+  font: inherit; text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer;
+}
+.link-btn:hover { text-decoration-thickness: 2px; }
+.status { min-height: 1.4em; margin: 0.65rem 0 0; font-size: 0.9375rem; color: var(--muted); }
+.status.is-error { color: var(--gilt); }
+
+/* Stage */
+.stage-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1rem;
+}
+.chart-title { margin: 0; font: italic 400 1.65rem/1.2 var(--serif); }
+.controls {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 1.1rem;
+  font-size: 0.875rem; color: var(--muted);
+}
+.controls label { display: inline-flex; align-items: center; gap: 0.35rem; cursor: pointer; }
+.controls select {
+  font: 400 0.875rem/1.2 var(--sans);
+  color: var(--ink); background: var(--page);
+  border: 1px solid var(--rule); border-radius: 3px;
+  padding: 0.28rem 0.5rem;
+}
+.controls input[type="checkbox"] { accent-color: var(--cloth); }
+
+.stage {
+  position: relative;
+  background: var(--page);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 1rem;
+}
+.stage[data-preview-theme="light"] {
+  --paper: #F2F3EF; --page: #FBFBF8; --ink: #1C2230; --muted: #545B69; --rule: #CBCEC6; --gilt: #9C762B; --dot-built: #23443D;
+  background: #F2F3EF; color: #1C2230; border-color: #CBCEC6;
+}
+.stage[data-preview-theme="dark"] {
+  --paper: #15181D; --page: #1C2027; --ink: #E6E5DE; --muted: #A3A8B2; --rule: #323741; --gilt: #C9A95E; --dot-built: #6FA796;
+  background: #15181D; color: #E6E5DE; border-color: #323741;
+}
+.stage[data-preview-theme="transparent"] {
+  background-image:
+    linear-gradient(45deg, color-mix(in srgb, var(--rule) 28%, transparent) 25%, transparent 25%),
+    linear-gradient(-45deg, color-mix(in srgb, var(--rule) 28%, transparent) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, color-mix(in srgb, var(--rule) 28%, transparent) 75%),
+    linear-gradient(-45deg, transparent 75%, color-mix(in srgb, var(--rule) 28%, transparent) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+}
+
+.chart-scroll { overflow-x: auto; margin: 0.25rem 0; }
+.timeline { display: block; width: 100%; min-width: 36rem; height: auto; }
+.scroll-hint { display: none; margin: 0.35rem 0 0; color: var(--muted); font-size: 0.85rem; }
+@media (max-width: 640px) { .scroll-hint { display: block; } }
+.tl-lane { stroke: var(--rule); stroke-width: 1; }
+.tl-label { fill: var(--ink); font: 500 13.5px var(--sans); }
+.tl-axis-line { stroke: var(--rule); }
+.tl-tick { stroke: var(--muted); }
+.tl-month { fill: var(--muted); font: 400 12.5px var(--sans); }
+.tl-release { stroke: var(--gilt); stroke-width: 1.5; stroke-dasharray: 3 4; }
+.tl-release-label { fill: var(--gilt); font: 500 12.5px var(--mono); }
+.tl-path { fill: none; stroke: var(--muted); stroke-width: 2; stroke-linejoin: round; opacity: 0.55; }
+.tl-built { fill: var(--dot-built); stroke: var(--paper); stroke-width: 2.5; }
+.tl-reviewed { fill: var(--paper); stroke: var(--gilt); stroke-width: 3; }
+.tl-approved { fill: var(--ink); stroke: var(--paper); stroke-width: 2.5; }
+.pt { cursor: pointer; outline: none; }
+.pt:focus-visible .tl-built, .pt:focus-visible .tl-reviewed, .pt:focus-visible .tl-approved,
+.pt.is-active .tl-built, .pt.is-active .tl-reviewed, .pt.is-active .tl-approved { stroke: var(--ink); stroke-width: 3; }
+
+.tl-legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin: 0 0 0.75rem; padding: 0; list-style: none; color: var(--muted); font-size: 0.9rem; }
+.tl-legend li { display: inline-flex; align-items: center; gap: 0.45rem; }
+.tl-legend .tl-built, .tl-legend .tl-approved { stroke-width: 0; }
+
+.tl-tip {
+  position: absolute; z-index: 5; width: max-content; max-width: 19rem;
+  padding: 0.6rem 0.75rem; border-radius: 4px;
+  background: var(--ink); color: var(--paper);
+  font: 400 0.875rem/1.45 var(--sans); pointer-events: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+}
+.tl-tip .tip-when { display: block; font-size: 0.8125rem; opacity: 0.72; }
+.tl-tip .tip-who { display: block; font-weight: 600; }
+.tl-tip .tip-model { display: block; margin-top: 0.3rem; font-family: var(--mono); font-size: 0.8125rem; }
+.tl-tip .tip-where { display: block; font-size: 0.8125rem; opacity: 0.72; }
+
+.empty-state {
+  padding: 3rem 1.5rem; text-align: center; color: var(--muted);
+  font: italic 400 1.2rem/1.5 var(--serif);
+}
+
+.stage-foot {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.75rem 1.5rem;
+  margin-top: 1rem;
+}
+.meta { font-size: 0.9rem; color: var(--muted); margin: 0; }
+.export-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.warnings {
+  margin: 0.75rem 0 0; padding: 0.65rem 0.9rem;
+  border-left: 3px solid var(--gilt);
+  background: var(--page);
+  font-size: 0.875rem; color: var(--muted);
+}
+.warnings ul { margin: 0.25rem 0 0; padding-left: 1.2rem; }
+
+/* Editor */
+.editor-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.5rem 1rem; margin-bottom: 0.75rem;
+}
+.editor-head h2 { margin: 0; font: 400 1.6rem/1.15 var(--serif); }
+.drop-hint { font-size: 0.875rem; color: var(--muted); margin: 0; }
+.md-input {
+  width: 100%; min-height: 15rem; padding: 0.9rem 1rem;
+  font: 400 0.8125rem/1.6 var(--mono);
+  color: var(--ink); background: var(--page);
+  border: 1px solid var(--rule); border-radius: 4px;
+  resize: vertical;
+}
+.md-input:focus { border-color: var(--ink); outline: none; }
+.md-input.is-drag { border-color: var(--cloth); border-style: dashed; background: color-mix(in srgb, var(--cloth) 6%, var(--page)); }
+
+footer { border-top: 1px solid var(--rule); padding-block: 2rem 3rem; color: var(--muted); font-size: 0.9375rem; }
+footer .device { display: block; margin: 0 0 1rem; color: var(--gilt); }
+footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
+</style>
+</head>
+<body>
+
+<header class="wrap masthead">
+  <a class="crumb" href="./">← Back to COLOPHON.md</a>
+  <h1>Timeline generator</h1>
+  <p class="lede">Turn any <code>COLOPHON.md</code> into a swimlane chart. Paste Markdown, drop a file, or load a public GitHub repository—everything runs in your browser.</p>
+</header>
+
+<main>
+  <section class="band" aria-label="Load a colophon">
+    <form class="repo-form" id="repo-form">
+      <input class="repo-input" id="repo-input" type="text" placeholder="owner/repo or GitHub URL" aria-label="GitHub repository">
+      <button type="submit" class="btn btn-primary" id="load-repo">Load from GitHub</button>
+    </form>
+    <div class="quick-row">
+      <span>Try:</span>
+      <button type="button" class="link-btn" id="load-self">This site’s COLOPHON.md</button>
+      <span>·</span>
+      <button type="button" class="link-btn" id="load-sample">Nine-month sample</button>
+      <span>·</span>
+      <button type="button" class="link-btn" id="upload-trigger">Open local file…</button>
+      <input type="file" id="file-input" accept=".md,.markdown,.txt,text/markdown,text/plain" hidden>
+    </div>
+    <p class="status" id="status" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="band" aria-label="Timeline preview">
+    <div class="stage-head">
+      <h2 class="chart-title" id="chart-title">Timeline preview</h2>
+      <div class="controls">
+        <label>
+          Spacing
+          <select id="opt-spacing">
+            <option value="time">Time-scaled</option>
+            <option value="even">Evenly spaced</option>
+          </select>
+        </label>
+        <label>
+          SVG theme
+          <select id="opt-theme">
+            <option value="light">Light paper</option>
+            <option value="dark">Dark slate</option>
+            <option value="transparent">Transparent</option>
+          </select>
+        </label>
+        <label><input type="checkbox" id="opt-milestones" checked> Milestones</label>
+        <label id="origins-wrap" hidden><input type="checkbox" id="opt-origins"> Include Origins</label>
+      </div>
+    </div>
+
+    <div class="stage" id="stage" data-preview-theme="light">
+      <ul class="tl-legend" aria-label="Legend">
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle class="tl-built" cx="9" cy="9" r="7"/></svg>Built</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle class="tl-reviewed" cx="9" cy="9" r="5.5"/></svg>Reviewed or researched</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path class="tl-approved" d="M9 1.5 L16.5 9 L9 16.5 L1.5 9 Z"/></svg>Approved, deployed, or proposed</li>
+        <li><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><line class="tl-release" x1="9" y1="1" x2="9" y2="17"/></svg>Milestone</li>
+      </ul>
+      <div class="chart-scroll" id="chart-mount">
+        <div class="empty-state">Paste a <code>COLOPHON.md</code> below or load an example above.</div>
+      </div>
+      <p class="scroll-hint">Swipe sideways to see the whole timeline.</p>
+      <div class="tl-tip" id="tl-tip" role="tooltip" hidden></div>
+    </div>
+
+    <div class="stage-foot">
+      <p class="meta" id="chart-meta"></p>
+      <div class="export-actions">
+        <button type="button" class="btn btn-primary" id="btn-download" disabled>Download SVG</button>
+        <button type="button" class="btn btn-subtle" id="btn-copy-svg" disabled>Copy SVG</button>
+        <button type="button" class="btn btn-subtle" id="btn-copy-md" disabled>Copy Markdown embed</button>
+      </div>
+    </div>
+    <div class="warnings" id="warnings" hidden></div>
+  </section>
+
+  <section class="band" aria-label="COLOPHON.md source">
+    <div class="editor-head">
+      <h2>COLOPHON.md source</h2>
+      <p class="drop-hint">Paste Markdown or drag and drop a file here. Nothing is sent to a server.</p>
+    </div>
+    <textarea class="md-input" id="md-input" spellcheck="false" aria-label="COLOPHON.md Markdown source" placeholder="# Colophon&#10;&#10;## Builder history (newest first)&#10;&#10;| Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |&#10;|---|---|---|---|---|---|---|"></textarea>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="device" width="20" height="29" viewBox="0 0 40 58" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="40" r="14"/><path d="M6 40h28M20 26V5M13 11.5h14"/></svg>
+    <p><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Part of <a href="./">COLOPHON.md</a> by <a href="https://github.com/ronstauffer">Ron Stauffer</a> of <a href="https://liederdigital.com">Lieder Digital</a></p>
+  </div>
+</footer>
+
+<script src="timeline.js"></script>
+<script>
+(() => {
+  const { parseColophon, renderTimelineSVG } = window.ColophonTimeline;
+
+  const repoForm = document.getElementById("repo-form");
+  const repoInput = document.getElementById("repo-input");
+  const statusEl = document.getElementById("status");
+  const mdInput = document.getElementById("md-input");
+  const fileInput = document.getElementById("file-input");
+  const chartTitle = document.getElementById("chart-title");
+  const chartMount = document.getElementById("chart-mount");
+  const chartMeta = document.getElementById("chart-meta");
+  const warningsEl = document.getElementById("warnings");
+  const stage = document.getElementById("stage");
+  const tip = document.getElementById("tl-tip");
+
+  const optSpacing = document.getElementById("opt-spacing");
+  const optTheme = document.getElementById("opt-theme");
+  const optMilestones = document.getElementById("opt-milestones");
+  const optOrigins = document.getElementById("opt-origins");
+  const originsWrap = document.getElementById("origins-wrap");
+
+  const btnDownload = document.getElementById("btn-download");
+  const btnCopySvg = document.getElementById("btn-copy-svg");
+  const btnCopyMd = document.getElementById("btn-copy-md");
+
+  const SAMPLE_MD = `# Colophon
+
+## Snapshot
+
+| | |
+|---|---|
+| Project | acme-web: a nine-month sample web app |
+| Directed by | You |
+| Era | 2026-02-03 to 2026-09-10 (UTC) |
+
+## Builder history (newest first)
+
+| Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
+|---|---|---|---|---|---|---|
+| 2026-09-10 | You | Approved | github.com | Not applicable | Released v1.3 | Tag v1.3 |
+| 2026-08-28 | Claude Code | Built | Terminal on a MacBook Pro | Sonnet 5.5 (from its commit trailer) | Faster checkout | PR #84 |
+| 2026-07-24 | You | Approved | github.com | Not applicable | Released v1.2 | Tag v1.2 |
+| 2026-07-18 | Claude Code | Reviewed | Terminal on a MacBook Pro | Opus 5.5 (from its commit trailer) | Reviewed the sign-up pull request | PR #61 |
+| 2026-07-14 | A collaborator, using Codex | Built | Codex, on their laptop | GPT-6-Astra, high (shown by the tool) | New sign-up flow | PR #61 |
+| 2026-06-05 | You | Approved | github.com | Not applicable | Released v1.1 | Tag v1.1 |
+| 2026-06-02 | GitHub Copilot | Built | Chrome, on github.com | Unknown | Fixed the pricing table | PR #49 |
+| 2026-05-14 | Claude Code | Built | Terminal on a MacBook Pro | Opus 5.5 (from its commit trailer) | Sharing | PR #42 |
+| 2026-04-22 | Grok bot | Built | iPhone, through the GitHub command line | Unknown | Two copy changes, by voice | PR #31 |
+| 2026-03-19 | You | Approved | github.com | Not applicable | Released v1.0 | Tag v1.0 |
+| 2026-03-14 | Codex | Reviewed | Codex app on your Mac | GPT-6-Sol (shown by the tool) | Reviewed the billing pull request | PR #18 |
+| 2026-03-10 | Claude Code | Built | Terminal on a MacBook Pro | Opus 5.5 (from its commit trailer) | Billing | PR #18 |
+| 2026-02-24 | Google Antigravity | Built | Mac app | Gemini 4 Argon (shown by the tool) | Accounts | PR #9 |
+| 2026-02-03 | Google Antigravity | Built | Mac app | Gemini 4 Argon (shown by the tool) | First version | Initial commits |
+`;
+
+  let currentParsed = null;
+  let currentStandaloneSvg = "";
+  let activePt = null;
+  let lastPointerType = "";
+
+  // Match system dark mode as initial SVG theme
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    optTheme.value = "dark";
+    stage.dataset.previewTheme = "dark";
+  }
+
+  function say(msg, isError) {
+    statusEl.textContent = msg;
+    statusEl.classList.toggle("is-error", Boolean(isError));
+  }
+
+  function track(name) {
+    if (typeof window.gtag === "function") window.gtag("event", name);
+  }
+
+  function confirmOn(button, label = "Copied") {
+    const original = button.dataset.label || button.textContent;
+    button.dataset.label = original;
+    button.textContent = label;
+    clearTimeout(button._reset);
+    button._reset = setTimeout(() => { button.textContent = original; }, 2200);
+  }
+
+  async function writeClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.append(ta);
+    ta.select();
+    const ok = document.execCommand("copy");
+    ta.remove();
+    if (!ok) throw new Error("copy failed");
+  }
+
+  function hideTip() {
+    tip.hidden = true;
+    if (activePt) activePt.classList.remove("is-active");
+    activePt = null;
+  }
+
+  function lineEl(cls, text) {
+    const span = document.createElement("span");
+    span.className = cls;
+    span.textContent = text;
+    return span;
+  }
+
+  function showTip(pt) {
+    const d = pt.dataset;
+    if (activePt) activePt.classList.remove("is-active");
+    activePt = pt;
+    pt.classList.add("is-active");
+    tip.replaceChildren(
+      lineEl("tip-when", d.when),
+      lineEl("tip-who", `${d.who} (${d.role})`),
+      lineEl("tip-what", d.what || ""),
+      lineEl("tip-model", `Model: ${d.model}`)
+    );
+    if (d.where) tip.append(lineEl("tip-where", d.where));
+    tip.hidden = false;
+    const g = stage.getBoundingClientRect();
+    const r = (pt.firstElementChild || pt).getBoundingClientRect();
+    const w = tip.offsetWidth;
+    const h = tip.offsetHeight;
+    let left = r.left + r.width / 2 - g.left - w / 2;
+    left = Math.max(8, Math.min(left, g.width - w - 8));
+    let top = r.top - g.top - h - 10;
+    if (r.top - h - 10 < 8) top = r.bottom - g.top + 10;
+    tip.style.left = `${left}px`;
+    tip.style.top = `${top}px`;
+  }
+
+  function bindPoints() {
+    chartMount.querySelectorAll(".pt").forEach((pt) => {
+      pt.addEventListener("pointerdown", (e) => { lastPointerType = e.pointerType; });
+      pt.addEventListener("pointerenter", (e) => { if (e.pointerType === "mouse") showTip(pt); });
+      pt.addEventListener("pointerleave", (e) => { if (e.pointerType === "mouse") hideTip(); });
+      pt.addEventListener("focus", () => { if (lastPointerType !== "touch") showTip(pt); });
+      pt.addEventListener("blur", hideTip);
+      pt.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (lastPointerType !== "mouse" && !tip.hidden && activePt === pt) hideTip();
+        else showTip(pt);
+      });
+    });
+  }
+
+  function render() {
+    hideTip();
+    const md = mdInput.value;
+    stage.dataset.previewTheme = optTheme.value;
+
+    if (!md.trim()) {
+      currentParsed = null;
+      currentStandaloneSvg = "";
+      originsWrap.hidden = true;
+      chartTitle.textContent = "Timeline preview";
+      chartMount.innerHTML = '<div class="empty-state">Paste a <code>COLOPHON.md</code> below or load an example above.</div>';
+      chartMeta.textContent = "";
+      warningsEl.hidden = true;
+      btnDownload.disabled = btnCopySvg.disabled = btnCopyMd.disabled = true;
+      return;
+    }
+
+    const parsed = parseColophon(md, { includeOrigins: optOrigins.checked });
+    originsWrap.hidden = !parsed.hasOrigins;
+
+    if (parsed.events.length === 0) {
+      currentParsed = null;
+      currentStandaloneSvg = "";
+      chartTitle.textContent = `How ${parsed.project} was made`;
+      chartMount.innerHTML = '<div class="empty-state">No Builder history rows found yet. Add a Markdown table under <code>## Builder history</code>.</div>';
+      chartMeta.textContent = "";
+      warningsEl.hidden = true;
+      btnDownload.disabled = btnCopySvg.disabled = btnCopyMd.disabled = true;
+      return;
+    }
+
+    currentParsed = parsed;
+    const opts = {
+      spacing: optSpacing.value,
+      theme: optTheme.value,
+      showMilestones: optMilestones.checked,
+    };
+
+    const interactiveSvg = renderTimelineSVG(parsed, Object.assign({}, opts, { standalone: false }));
+    currentStandaloneSvg = renderTimelineSVG(parsed, Object.assign({}, opts, { standalone: true }));
+
+    chartTitle.textContent = `How ${parsed.project} was made`;
+    chartMount.innerHTML = interactiveSvg;
+    bindPoints();
+
+    const parts = [
+      `${parsed.events.length} ${parsed.events.length === 1 ? "event" : "events"}`,
+      `${parsed.lanes.length} ${parsed.lanes.length === 1 ? "builder" : "builders"}`,
+    ];
+    if (parsed.timezone) parts.push(parsed.timezone);
+    chartMeta.textContent = parts.join(" · ");
+
+    if (parsed.warnings.length > 0) {
+      warningsEl.replaceChildren(
+        Object.assign(document.createElement("strong"), { textContent: "Notes:" }),
+        (() => {
+          const ul = document.createElement("ul");
+          parsed.warnings.forEach((w) => {
+            const li = document.createElement("li");
+            li.textContent = w;
+            ul.append(li);
+          });
+          return ul;
+        })()
+      );
+      warningsEl.hidden = false;
+    } else {
+      warningsEl.hidden = true;
+    }
+
+    btnDownload.disabled = btnCopySvg.disabled = btnCopyMd.disabled = false;
+  }
+
+  function parseRepoSlug(input) {
+    const s = input.trim().replace(/\.git$/i, "").replace(/\/+$/, "");
+    const urlMatch = s.match(/github\.com\/([^/\s]+)\/([^/\s]+)/i);
+    if (urlMatch) return `${urlMatch[1]}/${urlMatch[2]}`;
+    const slugMatch = s.match(/^([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)$/);
+    if (slugMatch) return `${slugMatch[1]}/${slugMatch[2]}`;
+    return null;
+  }
+
+  async function loadFromGitHub(rawInput) {
+    const slug = parseRepoSlug(rawInput);
+    if (!slug) {
+      say("Enter a repository as owner/repo or paste a GitHub URL.", true);
+      return;
+    }
+    say(`Loading COLOPHON.md from ${slug}…`);
+    const candidates = [
+      `https://raw.githubusercontent.com/${slug}/HEAD/COLOPHON.md`,
+      `https://raw.githubusercontent.com/${slug}/main/COLOPHON.md`,
+      `https://raw.githubusercontent.com/${slug}/master/COLOPHON.md`,
+    ];
+    let text = null;
+    for (const url of candidates) {
+      try {
+        const res = await fetch(url);
+        if (res.ok) {
+          text = await res.text();
+          break;
+        }
+      } catch {
+        // try next candidate
+      }
+    }
+    if (!text) {
+      say(`Could not find COLOPHON.md in ${slug} (must be a public repository with COLOPHON.md at its root).`, true);
+      return;
+    }
+    mdInput.value = text;
+    optOrigins.checked = false;
+    render();
+    say(`Loaded COLOPHON.md from ${slug}.`);
+    track("timeline_load_github");
+    if (location.protocol === "https:" || location.protocol === "http:") {
+      const u = new URL(location.href);
+      u.searchParams.set("repo", slug);
+      history.replaceState(null, "", u);
+    }
+  }
+
+  async function loadSelf() {
+    say("Loading this site’s COLOPHON.md…");
+    try {
+      const res = await fetch(new URL("COLOPHON.md", location.href));
+      if (!res.ok) throw new Error(String(res.status));
+      mdInput.value = await res.text();
+      optOrigins.checked = true;
+      render();
+      say("Loaded this site’s COLOPHON.md (with Origins included).");
+    } catch {
+      say("Couldn’t fetch local COLOPHON.md. Try loading liederdigital/colophon-md from GitHub.", true);
+    }
+  }
+
+  repoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    loadFromGitHub(repoInput.value);
+  });
+  document.getElementById("load-self").addEventListener("click", loadSelf);
+  document.getElementById("load-sample").addEventListener("click", () => {
+    mdInput.value = SAMPLE_MD;
+    optOrigins.checked = false;
+    render();
+    say("Loaded the nine-month sample.");
+  });
+  document.getElementById("upload-trigger").addEventListener("click", () => fileInput.click());
+  fileInput.addEventListener("change", async () => {
+    const file = fileInput.files && fileInput.files[0];
+    if (!file) return;
+    mdInput.value = await file.text();
+    optOrigins.checked = false;
+    render();
+    say(`Loaded ${file.name}.`);
+    fileInput.value = "";
+  });
+
+  // Drag-and-drop onto textarea
+  mdInput.addEventListener("dragover", (e) => { e.preventDefault(); mdInput.classList.add("is-drag"); });
+  mdInput.addEventListener("dragleave", () => mdInput.classList.remove("is-drag"));
+  mdInput.addEventListener("drop", async (e) => {
+    e.preventDefault();
+    mdInput.classList.remove("is-drag");
+    const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if (!file) return;
+    mdInput.value = await file.text();
+    optOrigins.checked = false;
+    render();
+    say(`Loaded ${file.name}.`);
+  });
+
+  mdInput.addEventListener("input", render);
+  optSpacing.addEventListener("change", render);
+  optTheme.addEventListener("change", render);
+  optMilestones.addEventListener("change", render);
+  optOrigins.addEventListener("change", render);
+
+  btnDownload.addEventListener("click", () => {
+    if (!currentStandaloneSvg) return;
+    const blob = new Blob([currentStandaloneSvg], { type: "image/svg+xml;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "colophon-timeline.svg";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    track("timeline_download_svg");
+  });
+
+  btnCopySvg.addEventListener("click", async () => {
+    if (!currentStandaloneSvg) return;
+    try {
+      await writeClipboard(currentStandaloneSvg);
+      confirmOn(btnCopySvg);
+      track("timeline_copy_svg");
+    } catch {
+      confirmOn(btnCopySvg, "Copy failed");
+    }
+  });
+
+  btnCopyMd.addEventListener("click", async () => {
+    if (!currentParsed) return;
+    const alt = `Timeline of how ${currentParsed.project} was made`;
+    const md = `![${alt}](colophon-timeline.svg)`;
+    try {
+      await writeClipboard(md);
+      confirmOn(btnCopyMd);
+      track("timeline_copy_markdown");
+    } catch {
+      confirmOn(btnCopyMd, "Copy failed");
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    lastPointerType = "";
+    if (e.key === "Escape") hideTip();
+  });
+  document.addEventListener("click", (e) => { if (!tip.hidden && !e.target.closest(".pt")) hideTip(); });
+  chartMount.addEventListener("scroll", hideTip, { passive: true });
+  window.addEventListener("resize", hideTip);
+
+  // Initial load: ?repo=owner/repo, or local COLOPHON.md, or sample fallback
+  const params = new URLSearchParams(location.search);
+  const initialRepo = params.get("repo");
+  if (initialRepo) {
+    repoInput.value = initialRepo;
+    loadFromGitHub(initialRepo);
+  } else {
+    fetch(new URL("COLOPHON.md", location.href))
+      .then((r) => { if (!r.ok) throw new Error(); return r.text(); })
+      .then((t) => {
+        mdInput.value = t;
+        optOrigins.checked = true;
+        render();
+      })
+      .catch(() => {
+        mdInput.value = SAMPLE_MD;
+        render();
+      });
+  }
+})();
+</script>
+</body>
+</html>
