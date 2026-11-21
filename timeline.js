@@ -13,6 +13,20 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
+  const CURRENT_VERSION = "1.2.3";
+
+  function compareVersions(a, b) {
+    const pa = String(a || "").split(".").map((n) => parseInt(n, 10) || 0);
+    const pb = String(b || "").split(".").map((n) => parseInt(n, 10) || 0);
+    const len = Math.max(pa.length, pb.length);
+    for (let i = 0; i < len; i++) {
+      const da = pa[i] || 0;
+      const db = pb[i] || 0;
+      if (da !== db) return da < db ? -1 : 1;
+    }
+    return 0;
+  }
+
   const MONTHS = {
     jan: 0, january: 0,
     feb: 1, february: 1,
@@ -349,6 +363,7 @@
 
     let project = "";
     let timezone = "";
+    let specVersion = "";
     const humanNames = new Set();
 
     // Inspect Snapshot table if present
@@ -362,6 +377,9 @@
           if (!val) continue;
           if (key === "project") {
             project = val.split(":")[0].trim();
+          } else if (/^(convention|format|spec|instructions|colophon\s+version)$/.test(key)) {
+            const vm = val.match(/v?(\d+\.\d+(?:\.\d+)?)/i);
+            if (vm) specVersion = vm[1];
           } else if (key === "directed by") {
             const name = val.split(/[(,:;]/)[0].trim();
             if (name && !/^unknown$/i.test(name)) humanNames.add(name);
@@ -376,13 +394,17 @@
       }
     }
 
-    // Also detect timezone from Evidence limits if not in Snapshot
-    if (!timezone) {
-      const evSec = sections.find((s) => /^evidence\s+limits\b/i.test(s.heading));
-      if (evSec) {
-        const text = evSec.lines.join(" ");
+    // Detect timezone and fallback spec version from Evidence limits if not in Snapshot
+    const evSec = sections.find((s) => /^evidence\s+limits\b/i.test(s.heading));
+    if (evSec) {
+      const text = evSec.lines.join(" ");
+      if (!timezone) {
         const tzMatch = text.match(/Dates\s+(?:are|use)\s+([A-Za-z0-9_/+ -]+?)(?:[.;,]|$)/i);
         if (tzMatch) timezone = tzMatch[1].trim();
+      }
+      if (!specVersion) {
+        const vm = text.match(/COLOPHON\.md\s+instructions\s+(?:version\s+|v)(\d+\.\d+(?:\.\d+)?)/i);
+        if (vm) specVersion = vm[1];
       }
     }
 
@@ -503,6 +525,7 @@
     return {
       project: project || "Colophon",
       timezone,
+      specVersion,
       hasOrigins,
       lanes,
       events,
@@ -921,6 +944,8 @@
   }
 
   return {
+    CURRENT_VERSION,
+    compareVersions,
     parseColophon,
     renderTimelineSVG,
     normalizeBuilder,

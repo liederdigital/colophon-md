@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.2.2, published November 20, 2026. The convention lives at
+Version 1.2.3, published November 20, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -24,6 +24,8 @@ If `COLOPHON.md` already exists and is up to date, you only need these rules:
 - Note the source of each model value (`shown by the tool`, `configured`, or
   `self-reported`). If you can't edit the file, end your reply with a Colophon
   note (see "When you can't edit the colophon").
+- Keep the `Convention` row in `Snapshot` up to date with the version of these
+  instructions you followed (for example, `[COLOPHON.md](https://colophon.md) v1.2.3`).
 - If the repository has no agent instructions file (or it doesn't mention
   `COLOPHON.md`), suggest creating `AGENTS.md` at the root or adding the
   Colophon snippet below.
@@ -284,8 +286,10 @@ otherwise record Unknown and finish.
 
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
-- Note in "Evidence limits" which version of these instructions you followed
-  (for example, "COLOPHON.md instructions v1.2.2").
+- Record which version of these instructions you followed in the Snapshot
+  `Convention` row (for example, `[COLOPHON.md](https://colophon.md) v1.2.3`),
+  so anyone opening the file can see at a glance whether it matches the current
+  convention. Update it when you bring an older colophon up to date.
 - Keep out credentials, private session or chat links, client or customer
   records, signing secrets, computer names, usernames, local file paths that
   expose them (such as `/Users/...`), and unrelated personal details. Describe
@@ -304,6 +308,10 @@ was made.
 
 ## Version history
 
+- **1.2.3** (November 20, 2026): moved the instructions version out of the
+  bottom of `Evidence limits` into a `Convention` row at the top of `Snapshot`
+  (linked to https://colophon.md), so anyone opening a `COLOPHON.md` can see at
+  a glance which version of the convention it follows.
 - **1.2.2** (November 20, 2026): a short "Quick rules (proactive update)"
   summary at the top so agents doing routine updates don't have to wade through
   forensic guidance; a rule for multi-model and subagent sessions; and an
@@ -346,6 +354,7 @@ elsewhere.
 | | |
 |---|---|
 | Project | {project name, plus former repo or working names if renamed} |
+| Convention | [COLOPHON.md](https://colophon.md) v1.2.3 |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, plus the tool's mode if it has one, each with its source: shown by the tool, configured, or self-reported; or Unknown} |

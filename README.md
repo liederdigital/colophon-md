@@ -1,5 +1,7 @@
 # COLOPHON.md
 
+**Current version: v1.2.3** (November 20, 2026) · [colophon.md](https://colophon.md) · [Instructions](instructions.md) · [Template](template.md) · [Timeline generator](https://colophon.md/timeline)
+
 A credits file for AI-built code: a short, honest record of which tools and
 models built a project, when, where they ran, and who signed off. When
 something breaks months later, it tells you where to look.
@@ -48,7 +50,11 @@ models did the work, where, in what role, and who signed off. Agents cite
 commit trailers, Git AI, and Agent Trace records as evidence where they exist,
 and fill in the gaps where they don't. It also works after the fact.
 
-The current instructions are version 1.2.2 (November 20, 2026).
+The current instructions are version 1.2.3 (November 20, 2026); see the
+[version history](instructions.md#version-history) for what changed. Each
+project's `COLOPHON.md` records the version it follows in its `Snapshot` table
+(`Convention | [COLOPHON.md](https://colophon.md) v1.2.3`) so you can spot
+older files at a glance.
 
 ## What's in this repository
 

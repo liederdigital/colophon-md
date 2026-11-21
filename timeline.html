@@ -17,8 +17,8 @@
 <meta property="og:title" content="Timeline generator · COLOPHON.md">
 <meta property="og:description" content="Paste a COLOPHON.md, drop a file, or load a public GitHub repository to generate a swimlane timeline SVG.">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://colophon.md/timeline.html">
-<meta property="og:url" content="https://colophon.md/timeline.html">
+<link rel="canonical" href="https://colophon.md/timeline">
+<meta property="og:url" content="https://colophon.md/timeline">
 <meta property="og:image" content="https://colophon.md/og.png?v=3">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="color-scheme" content="light dark">
@@ -247,6 +247,7 @@ code { font-family: var(--mono); font-size: 0.9em; }
   margin-top: 1rem;
 }
 .meta { font-size: 0.9rem; color: var(--muted); margin: 0; }
+.meta .ver-old { color: var(--gilt); font-weight: 500; }
 .export-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .warnings {
   margin: 0.75rem 0 0; padding: 0.65rem 0.9rem;
@@ -397,7 +398,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 <script src="timeline.js"></script>
 <script>
 (() => {
-  const { parseColophon, renderTimelineSVG } = window.ColophonTimeline;
+  const { CURRENT_VERSION, compareVersions, parseColophon, renderTimelineSVG } = window.ColophonTimeline;
 
   const repoForm = document.getElementById("repo-form");
   const repoInput = document.getElementById("repo-input");
@@ -431,6 +432,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 | | |
 |---|---|
 | Project | acme-web: a nine-month sample web app |
+| Convention | [COLOPHON.md](https://colophon.md) v1.2.3 |
 | Directed by | You |
 | Era | 2026-02-03 to 2026-09-10 (UTC) |
 
@@ -623,7 +625,24 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       `${parsed.lanes.length} ${parsed.lanes.length === 1 ? "builder" : "builders"}`,
     ];
     if (parsed.timezone) parts.push(parsed.timezone);
-    chartMeta.textContent = parts.join(" · ");
+    chartMeta.replaceChildren(document.createTextNode(parts.join(" · ")));
+    if (parsed.specVersion) {
+      chartMeta.append(document.createTextNode(" · "));
+      const span = document.createElement("span");
+      if (compareVersions(parsed.specVersion, CURRENT_VERSION) < 0) {
+        span.className = "ver-old";
+        span.textContent = `COLOPHON.md v${parsed.specVersion} (latest: v${CURRENT_VERSION})`;
+      } else {
+        span.textContent = `COLOPHON.md v${parsed.specVersion}`;
+      }
+      chartMeta.append(span);
+    } else {
+      chartMeta.append(document.createTextNode(" · "));
+      const span = document.createElement("span");
+      span.className = "ver-old";
+      span.textContent = `Convention version not noted (latest: v${CURRENT_VERSION})`;
+      chartMeta.append(span);
+    }
 
     if (parsed.warnings.length > 0) {
       warningsEl.replaceChildren(
