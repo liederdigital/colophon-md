@@ -76,7 +76,7 @@ older files at a glance.
 | `fonts/` | Self-hosted IM Fell English and IBM Plex fonts |
 | `og.png` | The image shown when the site is shared on social media |
 | `favicon.ico`, `favicon.svg`, `favicon-96.png`, `apple-touch-icon.png` | The site icon, as real files so search engines can find it |
-| `colophon-timeline.svg` | A timeline of how COLOPHON.md itself was made, shown in `COLOPHON.md` |
+| `colophon-timeline.svg` | Static launch-day timeline SVG (September 28 to October 30, 2026) |
 
 ## Live timeline SVG
 

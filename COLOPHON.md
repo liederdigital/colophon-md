@@ -6,7 +6,7 @@ each contributed, and who directed it. License and third-party notices live in
 
 Private repositories are named with placeholders such as `<ios-app>`.
 
-![A timeline of how COLOPHON.md was made, from Ron's first message on September 28 to launch on October 30, 2026](colophon-timeline.svg)
+<a href="https://colophon.md/timeline?repo=liederdigital/colophon-md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://colophon.md/svg/liederdigital/colophon-md?theme=dark&amp;origins=1"><source media="(prefers-color-scheme: light)" srcset="https://colophon.md/svg/liederdigital/colophon-md?origins=1"><img alt="Timeline of how colophon-md was made" src="https://colophon.md/svg/liederdigital/colophon-md?origins=1"></picture></a>
 
 ## Snapshot
 
