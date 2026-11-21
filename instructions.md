@@ -239,7 +239,11 @@ current format: add any missing Snapshot rows (such as `Convention`,
 `Directed by`, `Review`, or `Model / mode`), check Git history and local
 session logs since the newest Builder history row for any unrecorded phases,
 model switches, or releases, update `Convention` to the current version, and
-check that `AGENTS.md` exists and includes the current Colophon snippet.
+check that `AGENTS.md` exists and includes the current Colophon snippet. Keep
+the file's existing timezone convention unless converting to UTC; if you do
+convert to UTC, leave rows with no backing commit in their original timezone
+(and note their UTC date as Unknown), and do not rewrite dates quoted inside
+older Corrections.
 
 Include:
 
@@ -279,9 +283,9 @@ Don't cite a commit hash for the commit that will contain your own edit; it
 doesn't exist yet. The commit that created the file can be found later with
 `git log -- COLOPHON.md`.
 
-Keep older history. When a new confirmation settles an earlier Unknown, add a
-correction or a new row instead of silently rewriting history as if it had
-always been known.
+Keep older history. When a new confirmation settles an earlier Unknown (such as
+a model found later in a commit trailer), add a correction or a new row instead
+of silently rewriting history as if it had always been known.
 
 Describe the owner's direction, review, testing, and deployment only as far as
 the evidence supports. Don't say the owner reviewed every change unless that
@@ -307,9 +311,16 @@ otherwise record Unknown and finish.
 - For a client's private project, leave it to the owner and the client whether
   the colophon is published.
 - If you embed a timeline chart, use the live
-  `https://colophon.md/svg/owner/repo` URL only in public repositories. For
-  private repositories, generate a static `colophon-timeline.svg` locally in the
-  browser at https://colophon.md/timeline (nothing is sent to a server) and
+  `https://colophon.md/svg/OWNER/REPO` URL only in public repositories. Place it
+  just above `## Snapshot` in `COLOPHON.md` (and optionally under the title or
+  next to the `COLOPHON.md` link in `README.md`), using this dark/light markup:
+
+  ```html
+  <a href="https://colophon.md/timeline?repo=OWNER/REPO"><picture><source media="(prefers-color-scheme: dark)" srcset="https://colophon.md/svg/OWNER/REPO?theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://colophon.md/svg/OWNER/REPO"><img alt="Timeline of how PROJECT was made" src="https://colophon.md/svg/OWNER/REPO"></picture></a>
+  ```
+
+  For private repositories, generate a static `colophon-timeline.svg` locally in
+  the browser at https://colophon.md/timeline (nothing is sent to a server) and
   commit that file instead.
 - Optionally add a one-line link from the README to `COLOPHON.md`. Keep the
   detail in the colophon.
