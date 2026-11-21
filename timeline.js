@@ -445,8 +445,29 @@
     const fallbackYear = yearMatch ? Number(yearMatch[1]) : new Date().getUTCFullYear();
 
     const rawEvents = [];
+    const outOfOrderPairs = [];
     for (const entry of tablesToRead) {
       const cols = mapColumns(entry.table.header);
+      // Check newest-first ordering on the primary Builder history table before reversing
+      if (entry.source === "history" && cols.date >= 0) {
+        let prevDateMs = null;
+        let prevDateRaw = "";
+        for (const row of entry.table.rows) {
+          const dRaw = stripMarkdown(row[cols.date] || "");
+          if (!dRaw || /^\{[^}]+\}$/.test(dRaw)) continue;
+          const pd = parseDateField(dRaw, fallbackYear);
+          if (pd.ms != null && !pd.approximate) {
+            // In newest-first order, each row should be <= the row above it (by calendar day)
+            const day = Math.floor(pd.ms / 86400000);
+            const prevDay = prevDateMs != null ? Math.floor(prevDateMs / 86400000) : null;
+            if (prevDay != null && day > prevDay) {
+              outOfOrderPairs.push(`${prevDateRaw} above ${dRaw}`);
+            }
+            prevDateMs = pd.ms;
+            prevDateRaw = dRaw;
+          }
+        }
+      }
       // Reverse rows because Builder history & Origins are newest-first
       const rows = entry.table.rows.slice().reverse();
       rows.forEach((cells, idx) => {
@@ -540,6 +561,44 @@
     }
     const lanes = aiLanes.concat(humanLanes);
 
+    // Lightweight sanity checks (non-blocking hints)
+    const checks = [];
+    let directedBy = "";
+    if (snapshotSec) {
+      const tables = extractTables(snapshotSec.lines);
+      if (tables.length > 0) {
+        for (const row of tables[0].rows) {
+          if (stripMarkdown(row[0] || "").toLowerCase() === "directed by") {
+            directedBy = stripMarkdown(row[1] || "");
+            break;
+          }
+        }
+      }
+    }
+    if (!directedBy || /^none$/i.test(directedBy) || /^\{[^}]+\}$/.test(directedBy)) {
+      checks.push('Missing "Directed by" in Snapshot (the one required field in COLOPHON.md).');
+    }
+
+    // Check for leftover template placeholders outside fenced/inline code
+    const strippedForLint = String(markdown || "")
+      .replace(/```[\s\S]*?```/g, "")
+      .replace(/`[^`]*`/g, "");
+    const placeholderMatches = strippedForLint.match(/\{(?:project name|tool, or Unknown|YYYY-MM-DD|the accountable human|Two to four sentences|What was inspected|first date|latest date|timezone|name|surface|phase, scope)[^}]*\}/gi);
+    if (placeholderMatches && placeholderMatches.length > 0) {
+      checks.push(`Leftover template placeholder found (${placeholderMatches[0]}).`);
+    }
+
+    // Check for accidental local filesystem paths exposing a username (including inline code spans)
+    const noFences = String(markdown || "").replace(/```[\s\S]*?```/g, "");
+    const pathMatch = noFences.match(/(?:\/Users\/|\/home\/|[A-Z]:\\Users\\)([A-Za-z0-9._-]+)/);
+    if (pathMatch && !/^(\.\.\.|<[^>]+>|username|yourname|user|name)$/i.test(pathMatch[1])) {
+      checks.push(`Possible local path with a username found ("${pathMatch[0]}"). Strip personal paths before publishing.`);
+    }
+
+    if (outOfOrderPairs.length > 0) {
+      checks.push(`Builder history has out-of-order dates (${outOfOrderPairs[0]}; newest-first is expected).`);
+    }
+
     return {
       project: project || "Colophon",
       timezone,
@@ -548,6 +607,7 @@
       lanes,
       events,
       warnings,
+      checks,
     };
   }
 

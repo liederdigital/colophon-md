@@ -1,10 +1,12 @@
 # COLOPHON.md
 
-**Current version: v1.2.4** (November 20, 2026) · [colophon.md](https://colophon.md) · [Instructions](instructions.md) · [Template](template.md) · [Timeline generator](https://colophon.md/timeline)
+**Current version: v1.2.4** (November 20, 2026) · [colophon.md](https://colophon.md) · [Instructions](instructions.md) · [Template](template.md) · [Skill](SKILL.md) · [Timeline generator](https://colophon.md/timeline)
 
 A credits file for AI-built code: a short, honest record of which tools and
 models built a project, when, where they ran, and who signed off. When
 something breaks months later, it tells you where to look.
+
+<a href="https://colophon.md/timeline?repo=liederdigital/colophon-md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://colophon.md/svg/liederdigital/colophon-md?theme=dark&amp;origins=1"><source media="(prefers-color-scheme: light)" srcset="https://colophon.md/svg/liederdigital/colophon-md?origins=1"><img alt="Timeline of how colophon-md was made" src="https://colophon.md/svg/liederdigital/colophon-md?origins=1"></picture></a>
 
 Books have always had a colophon, the note at the back that tells you how the
 book was made. `COLOPHON.md` does the same for a repository, so whoever
@@ -23,7 +25,8 @@ AI tools, and a lot of digging (see [`COLOPHON.md`](COLOPHON.md)).
 - **Write it yourself.** Copy [`template.md`](template.md) to your repository
   root as `COLOPHON.md` and fill it in.
 - **Keep it current.** Add the short Colophon snippet from `instructions.md` to
-  your `AGENTS.md` (create one at the repository root if you don't have it).
+  your `AGENTS.md` (create one at the repository root if you don't have it), or
+  install [`SKILL.md`](SKILL.md) once in your agent's skills folder.
   Every agent then updates the file itself, in the same commit
   or pull request as its work, and approving the pull request approves the
   entry. Nobody fills in a form, and nothing waits on it.
@@ -65,6 +68,7 @@ older files at a glance.
 | `functions/svg/[owner]/[repo].js` | Cloudflare Pages Function that renders a live `image/svg+xml` timeline at `/svg/owner/repo` |
 | `instructions.md` | Tool-neutral instructions for AI agents |
 | `template.md` | The blank template |
+| `SKILL.md` | Drop-in agent skill for Claude Code, Codex, Cursor, Antigravity, and other skill-aware tools |
 | `COLOPHON.md` | How this repository was made |
 | `AGENTS.md` | Notes for agents working on this repository |
 | `CONTRIBUTING.md` | How to suggest a change or add your project |

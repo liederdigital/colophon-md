@@ -612,7 +612,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
           </div>
         </li>
       </ol>
-      <p>Prefer to do it by hand? <a href="template.md" download="COLOPHON.md">Download the template</a> and fill it in yourself.</p>
+      <p>Prefer to do it by hand? <a href="template.md" download="COLOPHON.md">Download the template</a> and fill it in yourself. Want it across every repository? Drop <a href="SKILL.md" download="SKILL.md">SKILL.md</a> into your agent’s skills folder.</p>
     </div>
   </section>
 
@@ -652,7 +652,14 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       </details>
       <details>
         <summary>What if the tool can’t edit the file?</summary>
-        <div><p>Some work happens where the colophon can’t be edited: a review in another tool that was told to change nothing, or a chat with no access to the repository. That tool ends its output with a short colophon note: its tool, model and setting, mode, start and finish times, and every file it touched. Whoever keeps the colophon copies the note into a row, so nobody has to go back and ask later.</p></div>
+        <div>
+          <p>Some work happens where the colophon can’t be edited: a review in another tool that was told to change nothing, or a chat with no access to the repository. That tool ends its output with a short colophon note: its tool, model and setting, mode, start and finish times, and every file it touched. Whoever keeps the colophon copies the note into a row, so nobody has to go back and ask later.</p>
+          <p>Paste this at the end of a review or chat prompt:</p>
+          <div class="prompt">
+            <code id="note-prompt-text">End your reply with a Colophon note following https://colophon.md/instructions.md (tool and version, model and setting with source, mode, surface, start and finish times, what you did, and files touched).</code>
+            <button type="button" class="btn" id="copy-note-prompt">Copy</button>
+          </div>
+        </div>
       </details>
       <details>
         <summary>Is this anti-AI?</summary>
@@ -678,7 +685,15 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       </details>
       <details>
         <summary>Who’s using it?</summary>
-        <div><p>It’s brand new, so not many projects yet. You can see every public repository with a COLOPHON.md using <a href="https://github.com/search?q=path%3A**%2FCOLOPHON.md&amp;type=code">GitHub’s code search</a> (you’ll need to be signed in to GitHub). Some results are older book-style colophons that predate this convention.</p><p>Using it? <a href="https://github.com/liederdigital/colophon-md/issues/new?title=Add%20my%20project%20to%20Who%E2%80%99s%20using%20it&amp;body=Project%3A%20%0ALink%20to%20its%20COLOPHON.md%3A%20">Add your project</a>.</p></div>
+        <div>
+          <p>A few public repositories using COLOPHON.md today:</p>
+          <ul>
+            <li><a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">colophon-md</a> — this convention and site (<a href="timeline.html?repo=liederdigital/colophon-md">timeline</a>)</li>
+            <li><a href="https://github.com/ronstauffer/lawsandeffect/blob/main/COLOPHON.md">Laws &amp; Effects</a> — mental models, laws, and cognitive effects directory (<a href="timeline.html?repo=ronstauffer/lawsandeffect">timeline</a>)</li>
+          </ul>
+          <p>You can also see every public repository with a COLOPHON.md using <a href="https://github.com/search?q=path%3A**%2FCOLOPHON.md&amp;type=code">GitHub’s code search</a> (you’ll need to be signed in to GitHub). Some results are older book-style colophons that predate this convention.</p>
+          <p>Using it? <a href="https://github.com/liederdigital/colophon-md/issues/new?title=Add%20my%20project%20to%20Who%E2%80%99s%20using%20it&amp;body=Project%3A%20%0ALink%20to%20its%20COLOPHON.md%3A%20">Add your project</a>.</p>
+        </div>
       </details>
       <details>
         <summary>Can someone reconstruct one for me?</summary>
@@ -809,8 +824,10 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       }
     });
   }
+  const notePromptText = document.getElementById("note-prompt-text").textContent;
   copyOnClick("copy-prompt", promptText, "copy_prompt");
   copyOnClick("copy-snippet", snippetText, "copy_agents_snippet");
+  copyOnClick("copy-note-prompt", notePromptText, "copy_note_prompt");
 
   document.querySelectorAll('a[download]').forEach((link) => {
     link.addEventListener("click", () => track("download_template"));

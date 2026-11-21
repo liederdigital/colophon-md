@@ -267,11 +267,21 @@ code { font-family: var(--mono); font-size: 0.9em; }
   background: var(--page); border: 1px solid var(--rule); border-radius: 4px;
 }
 .live-embed-head {
-  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
-  gap: 0.25rem 1rem; margin-bottom: 0.5rem;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.4rem 1rem; margin-bottom: 0.55rem;
 }
 .live-embed-head strong { font-size: 0.9375rem; font-weight: 600; }
 .live-embed-head span { font-size: 0.85rem; color: var(--muted); }
+.embed-tabs { display: inline-flex; gap: 0.25rem; }
+.embed-tab {
+  padding: 0.22rem 0.6rem;
+  font: 500 0.8125rem/1.2 var(--sans);
+  color: var(--muted); background: transparent;
+  border: 1px solid var(--rule); border-radius: 3px; cursor: pointer;
+}
+.embed-tab[aria-pressed="true"] {
+  color: var(--cloth-ink); background: var(--cloth); border-color: var(--cloth);
+}
 .live-embed-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
 .live-embed code {
   flex: 1 1 20rem; font-size: 0.8125rem; line-height: 1.5;
@@ -375,8 +385,14 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     <div class="warnings" id="warnings" hidden></div>
     <div class="live-embed" id="live-embed" hidden>
       <div class="live-embed-head">
-        <strong>Live auto-updating embed</strong>
-        <span>Updates automatically when <code>COLOPHON.md</code> changes on GitHub</span>
+        <div>
+          <strong>Live auto-updating embed</strong>
+          <span> · Updates automatically when <code>COLOPHON.md</code> changes on GitHub</span>
+        </div>
+        <div class="embed-tabs" role="group" aria-label="Embed format">
+          <button type="button" class="embed-tab" id="embed-fmt-md" aria-pressed="true">Markdown</button>
+          <button type="button" class="embed-tab" id="embed-fmt-picture" aria-pressed="false">GitHub dark/light</button>
+        </div>
       </div>
       <div class="live-embed-row">
         <code id="live-embed-code"></code>
@@ -430,6 +446,8 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   const liveEmbedEl = document.getElementById("live-embed");
   const liveEmbedCode = document.getElementById("live-embed-code");
   const btnCopyLive = document.getElementById("btn-copy-live");
+  const btnFmtMd = document.getElementById("embed-fmt-md");
+  const btnFmtPicture = document.getElementById("embed-fmt-picture");
 
   const SAMPLE_MD = `# Colophon
 
@@ -465,6 +483,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   let currentParsed = null;
   let currentStandaloneSvg = "";
   let currentRepoSlug = null;
+  let embedFormat = "md";
   let activePt = null;
   let lastPointerType = "";
 
@@ -473,16 +492,46 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       liveEmbedEl.hidden = true;
       return;
     }
-    const qs = new URLSearchParams();
-    if (optTheme.value !== "light") qs.set("theme", optTheme.value);
-    if (optSpacing.value !== "time") qs.set("spacing", optSpacing.value);
-    if (!optMilestones.checked) qs.set("milestones", "0");
-    if (optOrigins.checked) qs.set("origins", "1");
-    const qStr = qs.toString() ? `?${qs.toString()}` : "";
-    const svgUrl = `https://colophon.md/svg/${currentRepoSlug}${qStr}`;
     const pageUrl = `https://colophon.md/timeline?repo=${currentRepoSlug}`;
     const alt = `Timeline of how ${currentParsed.project} was made`;
-    liveEmbedCode.textContent = `[![${alt}](${svgUrl})](${pageUrl})`;
+
+    if (embedFormat === "picture") {
+      const darkQs = new URLSearchParams();
+      darkQs.set("theme", "dark");
+      const lightQs = new URLSearchParams();
+      if (optSpacing.value !== "time") {
+        darkQs.set("spacing", optSpacing.value);
+        lightQs.set("spacing", optSpacing.value);
+      }
+      if (!optMilestones.checked) {
+        darkQs.set("milestones", "0");
+        lightQs.set("milestones", "0");
+      }
+      if (optOrigins.checked) {
+        darkQs.set("origins", "1");
+        lightQs.set("origins", "1");
+      }
+      const base = `https://colophon.md/svg/${currentRepoSlug}`;
+      const darkUrl = `${base}?${darkQs.toString()}`.replace(/&/g, "&amp;");
+      const lightStr = lightQs.toString();
+      const lightUrl = (lightStr ? `${base}?${lightStr}` : base).replace(/&/g, "&amp;");
+      const safeAlt = alt.replace(/"/g, "&quot;");
+      liveEmbedCode.textContent =
+        `<a href="${pageUrl}"><picture>` +
+        `<source media="(prefers-color-scheme: dark)" srcset="${darkUrl}">` +
+        `<source media="(prefers-color-scheme: light)" srcset="${lightUrl}">` +
+        `<img alt="${safeAlt}" src="${lightUrl}">` +
+        `</picture></a>`;
+    } else {
+      const qs = new URLSearchParams();
+      if (optTheme.value !== "light") qs.set("theme", optTheme.value);
+      if (optSpacing.value !== "time") qs.set("spacing", optSpacing.value);
+      if (!optMilestones.checked) qs.set("milestones", "0");
+      if (optOrigins.checked) qs.set("origins", "1");
+      const qStr = qs.toString() ? `?${qs.toString()}` : "";
+      const svgUrl = `https://colophon.md/svg/${currentRepoSlug}${qStr}`;
+      liveEmbedCode.textContent = `[![${alt}](${svgUrl})](${pageUrl})`;
+    }
     liveEmbedEl.hidden = false;
   }
 
@@ -662,12 +711,13 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       chartMeta.append(span);
     }
 
-    if (parsed.warnings.length > 0) {
+    const allNotices = (parsed.checks || []).concat(parsed.warnings || []);
+    if (allNotices.length > 0) {
       warningsEl.replaceChildren(
-        Object.assign(document.createElement("strong"), { textContent: "Notes:" }),
+        Object.assign(document.createElement("strong"), { textContent: "Sanity checks:" }),
         (() => {
           const ul = document.createElement("ul");
-          parsed.warnings.forEach((w) => {
+          allNotices.forEach((w) => {
             const li = document.createElement("li");
             li.textContent = w;
             ul.append(li);
@@ -831,6 +881,19 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     } catch {
       confirmOn(btnCopyMd, "Copy failed");
     }
+  });
+
+  btnFmtMd.addEventListener("click", () => {
+    embedFormat = "md";
+    btnFmtMd.setAttribute("aria-pressed", "true");
+    btnFmtPicture.setAttribute("aria-pressed", "false");
+    updateLiveEmbed();
+  });
+  btnFmtPicture.addEventListener("click", () => {
+    embedFormat = "picture";
+    btnFmtMd.setAttribute("aria-pressed", "false");
+    btnFmtPicture.setAttribute("aria-pressed", "true");
+    updateLiveEmbed();
   });
 
   btnCopyLive.addEventListener("click", async () => {
