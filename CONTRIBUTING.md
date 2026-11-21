@@ -16,4 +16,5 @@ agree to release your contribution the same way.
 
 Pull requests that change the template should change `template.md` and the
 template inside `instructions.md` together, and update `COLOPHON.md`, as
-described in [`AGENTS.md`](AGENTS.md).
+described in [`AGENTS.md`](AGENTS.md). Published version folders (such as
+`v1.3/`) are immutable and must not be modified after release.

@@ -1,373 +1,105 @@
 # COLOPHON.md: instructions for AI agents
 
-Follow these instructions to create or update `COLOPHON.md`, a short record of
-how a repository was made: which tools did the work, where they ran, what each
-contributed, and who directed it.
+Create or update `COLOPHON.md` at the repository root: a short, honest record of
+which tools and models built the project, where they ran, what each contributed,
+and who directed and reviewed it.
 
-Version 1.2.4, published November 20, 2026. The convention lives at
-https://colophon.md (source: https://github.com/liederdigital/colophon-md)
-and is in the public domain (CC0 1.0).
+Version 1.3 (November 21, 2026) — frozen `1.x` format. Pinned copy:
+https://colophon.md/v1.3/instructions.md. Public domain (CC0 1.0). For forensic
+reconstruction of an older repo, upgrading legacy files, or timeline embeds, see
+`guide.md` (https://colophon.md/v1.3/guide.md).
 
-## Quick rules (proactive update)
+## Core principles
 
-If `COLOPHON.md` already exists and is up to date, you only need these rules:
+- **Scope:** Context files (`AGENTS.md`, `CLAUDE.md`, rules) describe what tools
+  were told to do; `COLOPHON.md` records what they actually did. Keep licenses
+  and dependency notices in their own files.
+- **Project, never people:** Describe the project, never the people. Don't
+  record, measure, or rank how much any individual used AI.
+- **The one rule:** Sort every fact into **Observed** (seen directly in this
+  session, files, or history), **Owner-confirmed** (stated by the accountable
+  human), or **Unknown**. Write **Unknown** instead of guessing.
 
-- Update `COLOPHON.md` in the same commit or pull request as your work.
-- Add a row only when the tool, model, model setting, or computer changes, when
-  a new phase of work starts, when you review someone else's work, or before a
-  release. Most pull requests leave it untouched.
-- Match the existing file's style and timezone, put new rows at the top of
-  Builder history, and combine same-day work by the same builder into one row.
-- Record only what you can observe or the owner confirmed; write **Unknown**
-  instead of guessing. Never cite a commit hash for a commit that doesn't exist
-  yet.
-- Note the source of each model value (`shown by the tool`, `configured`, or
-  `self-reported`). If you can't edit the file, end your reply with a Colophon
-  note (see "When you can't edit the colophon").
-- Keep the `Convention` row in `Snapshot` up to date with the version of these
-  instructions you followed (for example, `[COLOPHON.md](https://colophon.md) v1.2.4`).
-- If the repository has no agent instructions file (or it doesn't mention
-  `COLOPHON.md`), suggest creating `AGENTS.md` at the root or adding the
-  Colophon snippet below.
-- For a new colophon or forensic reconstruction from history, read the full
-  instructions below.
+## Keeping COLOPHON.md current
 
-## What a colophon is for
+- **Never get in the way.** Update `COLOPHON.md` yourself in the same commit or
+  pull request as your work. Never hold up a commit, merge, or release for it.
+- **Summary, not a log.** Add a row only when the tool, model, model setting, or
+  computer changes, when a new phase of work starts, when you review another
+  tool's work, or before a release. Most pull requests leave it untouched.
+- **Format and ordering.** For a new file, adapt the template below and omit
+  sections that don't apply. For an existing file, match its style and timezone
+  (use UTC if none is set), put new rows at the top of `Builder history` (newest
+  first), and combine same-day work by the same builder into one row.
+- **Exact model, setting, mode, and source.** Record model name and version,
+  setting (reasoning or effort level), and tool mode (such as plan, agent, ask,
+  or fast) separately. Label each model value's source: `shown by the tool`,
+  `configured`, or `self-reported` (not Observed). Never infer a model from
+  defaults or config files. In multi-model or subagent sessions, record the
+  primary builder model and note subagent models only when they authored code or
+  reviews.
+- **Required and standard fields.** `Directed by` (the accountable human) is
+  required even when AI wrote all the code; never write `None`. Record `Review`
+  as `Human`, `AI`, `Both`, `None`, or `Unknown`. Name release versions (e.g.,
+  `v1.2`) in the row that covers them.
+- **Evidence and history.** Cite commits, paths, pull requests, or
+  `Owner-confirmed`, but never cite a commit hash for a commit that doesn't
+  exist yet. Keep earlier history intact; record later confirmations as a new
+  row or correction instead of silently rewriting history.
+- **Privacy.** Omit credentials, private chat/session links, client records,
+  computer names, usernames, and local paths that expose them (like
+  `/Users/...`). Describe machines generically (for example, "a MacBook Pro").
+- **Asking the owner.** Ask at most one short yes-or-no question, and only if
+  the answer would materially change attribution. Otherwise write **Unknown**,
+  save the file, and tell the owner what remains Unknown.
 
-A colophon answers five questions for the next person who opens the repository:
+## When you can't edit the file
 
-1. Which tools and models built this?
-2. Where did they run?
-3. When did each one start and stop?
-4. What did each one contribute?
-5. Who directed or reviewed the work?
-
-Like the credits at the end of a film, it lists everyone and everything
-involved. Like a maintenance log, it lets someone trace a problem, or an
-improvement, back to the tools and models in use at the time: for example,
-seeing that a weaker release followed a switch to a different model.
-
-Context files (such as `AGENTS.md`, `CLAUDE.md`, or `.cursor` rules) and shared
-prompts describe what tools were told to do; the colophon records what they
-actually did.
-
-It is not a license, a dependency list, or a list of contributors. Keep license
-and third-party notices in their own files.
-
-A colophon describes the project, never the people. Don't record, measure, or
-rank how much any individual used AI.
-
-Save it as `COLOPHON.md` at the repository root, unless the project already
-uses another name for this record or the owner asks for one.
-
-## Never get in the way
-
-A colophon must never slow down a commit or a pull request. If keeping it
-becomes a chore, people stop keeping it. So the agent doing the work keeps it:
-
-- Update `COLOPHON.md` yourself, in the same commit or pull request as the
-  work it describes.
-- A colophon is a summary, not a log. Agents add a row only when the tool,
-  model, model setting, or computer changes, when a new phase of work starts,
-  when they review someone else's work, and before each release. Most pull
-  requests leave it untouched.
-- Fill in everything you can observe. Never ask the owner to type an entry.
-- When you can't establish something, write Unknown and keep going. That's the
-  default.
-- Ask the owner only when they're present and the answer would change who gets
-  credit for the work. Make it one yes-or-no question with your best evidence
-  already filled in.
-- Don't hold up a commit, a merge, or a release waiting on the colophon.
-
-A person reviewing the pull request sees the colophon change next to the code,
-so approving the pull request approves the entry. There is no separate
-sign-off.
-
-## When you can't edit the colophon
-
-Some work happens where the agent can't or shouldn't edit `COLOPHON.md`: a
-review in another tool that was told to change nothing, a chat assistant with
-no access to the repository, or a task that only produces a report. Don't skip
-the record. End your output with a colophon note, so whoever keeps the
-colophon can add your row without anyone having to ask for it later:
+If you can't or shouldn't edit `COLOPHON.md` (such as a read-only review or a
+chat without repo access), end your reply with a Colophon note so whoever keeps
+the file can copy it into a row:
 
 ```markdown
 ## Colophon note
 
 - Tool and version: {as shown by the tool, or Unknown}
-- Model and setting: {model, version, and reasoning level, with the source: shown by the tool, configured, or self-reported; or Unknown}
-- Mode: {plan, agent, ask, fast, or similar, if the tool has modes; or Unknown}
+- Model and setting: {model, version, and reasoning level, with source: shown by the tool, configured, or self-reported; or Unknown}
+- Mode: {plan, agent, ask, fast, or similar; or Unknown}
 - Surface: {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent}
 - Started and finished: {date and time, with time zone}
-- What I did: {reviewed, researched, or built; and what, such as a range of commits or a file}
+- What I did: {reviewed, researched, or built; and what, such as a commit range or file}
 - Files created or changed: {every one, including scratch files; or None}
 ```
 
-Fill in only what you can see. Many tools don't show a model its own name or
-setting: write Unknown, or label it self-reported if you name yourself. The
-person or agent who keeps the colophon copies the note into a row, keeps its
-sources, and replaces any Unknown they can observe, such as a setting shown in
-the tool's interface. A prompt that asks another tool for a review can ask for
-this note at the end.
+## Keeping future agents in sync
 
-## Keep it current, or reconstruct it
-
-A colophon is either kept as the work happens (proactive mode) or
-reconstructed afterward (forensic mode).
-Decide which one applies before you start; a project can need both.
-
-**Keeping it current (proactive mode).** When the project is new, or its colophon is up to
-date, record what you can observe in this session: your tool, where you are
-running, and your model if you can see it. Add a row whenever the tool, model,
-model setting, or computer changes, or a new phase of work starts. Don't add a
-row for every commit; a colophon is a summary, not a log.
-
-Record the exact model name and version, and any setting such as a reasoning
-level, along with the date of every switch. A setting is how hard the model was
-told to think: a reasoning, thinking, or effort level, such as high or xhigh. A
-mode is how the tool itself ran, if it has modes, such as plan, agent, ask, or
-fast. They are separate things: record both when a tool has both, and write
-each the way the tool names it. Say where each model value came from:
-
-- **shown by the tool**: in its interface, its logs, or a commit trailer it
-  wrote;
-- **configured**: in a setting or config file;
-- **self-reported**: the model named itself.
-
-A model naming itself is not Observed; label it self-reported. If a session uses
-multiple models or delegates to subagents, record the primary builder model, and
-note other models only when they authored code or reviews. That precision
-is what lets someone line up a problem with the model that was in use when it
-was introduced. Git already records when each commit happened; the colophon
-records which model was active then.
-
-When you can see a release being prepared (a version bump, a new tag, a release
-branch, or the owner says so), name the release version (for example, v1.1.8)
-in the row that covers it, so releases can be compared with model switches.
-
-If the repository's agent instructions (such as `AGENTS.md`) don't mention
-`COLOPHON.md`, suggest adding these lines. If the repository has no agent
-instructions file at all, suggest creating `AGENTS.md` at its root with these
-lines. Either way, add them only if the owner agrees:
+If the repository's `AGENTS.md` (or agent instructions file) doesn't mention
+`COLOPHON.md`, suggest adding this self-contained snippet—or creating
+`AGENTS.md` at the root if none exists. Add it only if the owner agrees:
 
 ```markdown
 ## Colophon
 
-This project keeps COLOPHON.md, a short record of how it was made.
-Agents update it themselves, in the same commit or pull request as their
-work: add a row when the tool, model, model setting, or computer changes,
-when a new phase of work starts, when you review someone else's work, and
-before each release. Never hold up a commit for it. Follow the instructions
-at https://colophon.md/instructions.md.
+This project keeps COLOPHON.md at the root: a short, honest record of which
+tools and models built it, where they ran, and who directed and reviewed it.
+
+- Update COLOPHON.md in the same commit or pull request as your work, only when
+  the tool, model, model setting, or computer changes, a new phase starts, you
+  review another tool's work, or before a release. Most PRs leave it alone.
+- Never hold up a commit for it. Match the file's style and timezone, put new
+  rows at the top of Builder history, and combine same-day rows per builder.
+- Write Unknown instead of guessing. Record exact model, setting, mode, and
+  source (shown by the tool, configured, or self-reported). Never cite a commit
+  hash that doesn't exist yet.
+- Keep secrets, private links, computer names, usernames, and local paths out.
+- If you can't edit COLOPHON.md, end your reply with a Colophon note (tool,
+  model/setting + source, mode, surface, times + timezone, work done, files).
 ```
 
-**Reconstructing it (forensic mode).** When the project already has history and no colophon,
-or the colophon has gaps, rebuild the record from evidence. Besides Git
-history, look only in specific known session-log directories that coding agents
-saved on this computer, if you are able to read them (for example, Codex keeps
-sessions under `~/.codex/sessions/` and Claude Code under `~/.claude/projects/`).
-Never run an unbounded search across the home directory. Read logs without
-changing them, and don't copy transcript text into the colophon.
+## Versioning
 
-Session logs stay on the computer where the work happened. Say in "Evidence
-limits" which computers and tools you checked, and tell the owner that running
-the same pass on their other computers may fill more gaps. Expect more
-Unknowns than in a colophon kept as you go; that is normal.
-
-## Gather the record
-
-Read the repository's instructions for agents (such as `AGENTS.md`), any
-existing colophon, the README, any history documents, and enough of the Git
-history and diffs to see the main phases of work. Use what the owner tells you
-in the conversation. A complete forensic audit is not needed; say what you
-inspected.
-
-Check early commits, `README` history, and package or project files for
-former project, repository, or directory names. Coding agents often index
-local session logs by the folder path or repo slug in use at the time, so a
-forensic pass that searches only for the current name can miss earlier
-sessions. Record former names in the Snapshot `Project` field and note the
-rename in the Builder history row where it happened.
-
-Sort every fact into one of three kinds:
-
-- **Observed**: you saw it directly, in this session or in the files and
-  history you inspected.
-- **Owner-confirmed**: the human owner told you. Label the important ones.
-- **Unknown**: not established. Write "Unknown". Never fill in a plausible
-  guess.
-
-Watch for these traps:
-
-- A commit's author is the Git identity that made the commit, not necessarily
-  the person or tool that wrote the change.
-- A missing AI trailer (such as `Co-Authored-By` or `Assisted-by`) does not
-  prove a human wrote the change alone.
-- A tool's config file (`AGENTS.md`, `CLAUDE.md`, `.cursor/`, editor settings)
-  shows the tool was set up, not that it was used.
-- A linked repository, or another project's colophon, is not evidence about
-  this one.
-- Session logs on one computer say nothing about work done on another.
-- Do not infer an exact model or setting from a list of available models, a
-  default preference, or another project's colophon. Record a model only with
-  its source (shown by the tool, configured, or self-reported) or as confirmed
-  by the owner.
-
-If the repository has line-level attribution (such as Git AI or Agent Trace
-records) or commit trailers (such as `Co-Authored-By`), use them as evidence
-and cite them. The colophon summarizes those records; it doesn't replace them.
-
-Name the surface where each tool ran as precisely as you can: desktop app,
-browser or cloud workspace, command line (CLI), IDE extension, or a hosted
-agent on a code platform. A desktop agent that runs shell commands is still a
-desktop agent, not a separate CLI tool. Keep tools, models, surfaces, and
-editors separate. Record known switches and their dates. Don't claim a complete
-list of builders when you only know one session or phase.
-
-## Write or update the file
-
-For a new file, adapt the template at the end of these instructions. It shows
-the shape of the output; it is not a form the owner must fill in. Replace each
-placeholder with evidence or "Unknown", and leave out sections that don't
-apply. When a colophon already exists, match its style instead of replacing it
-with the template.
-
-**Upgrading an older colophon.** When an existing `COLOPHON.md` follows an older
-version of these instructions (or has no `Convention` row yet), keep all
-existing history, wording, and Unknowns intact, and bring the file up to the
-current format: add any missing Snapshot rows (such as `Convention`,
-`Directed by`, `Review`, or `Model / mode`), check Git history and local
-session logs since the newest Builder history row for any unrecorded phases,
-model switches, or releases, update `Convention` to the current version, and
-check that `AGENTS.md` exists and includes the current Colophon snippet. Keep
-the file's existing timezone convention unless converting to UTC; if you do
-convert to UTC, leave rows with no backing commit in their original timezone
-(and note their UTC date as Unknown), and do not rewrite dates quoted inside
-older Corrections.
-
-Include:
-
-- a short snapshot table,
-- two to four sentences on how the work was done,
-- a builder history, newest first,
-- the limits of your evidence.
-
-Add a history row for a new builder, a change of surface, model, or model
-setting, a review, a release, or a meaningful phase of work, not for every
-small edit. A meaningful phase is something you'd mention to someone taking
-over the project: a new feature, a rewrite, a migration, or a release. Combine
-same-day work by the same builder into one row. Cite commit hashes, paths, pull requests, or "Owner-confirmed" as
-evidence. If the repository is a toolkit
-or template, keep the toolkit's own history separate from products built with
-it.
-
-Give each row a role in a word or two: built, reviewed, tested, approved, or
-deployed. When you review work that another tool or model built, add a
-"reviewed" row that names what you reviewed (a pull request or a range of
-commits) and your model. Approvals usually show in Git already, because a merge
-records who merged it; fill them in at your next update instead of asking.
-
-Record who reviewed the work as one of: Human, AI, Both, None, or Unknown.
-Review by AI alone is valid; record it as AI, not as None and not left blank.
-
-Record who directed the work. "Directed by" means the accountable human: the
-person who set the tools to work and answers for the result. It is required,
-even when AI did all the work. Never write None. Write Unknown only if it truly
-can't be established.
-
-Write dates in the repository's existing timezone convention. If there isn't
-one, use UTC and say so (for example, "Dates are UTC"). Don't stop to ask, and
-don't assume the clock of the machine you are running on is the project's
-timezone.
-Don't cite a commit hash for the commit that will contain your own edit; it
-doesn't exist yet. The commit that created the file can be found later with
-`git log -- COLOPHON.md`.
-
-Keep older history. When a new confirmation settles an earlier Unknown (such as
-a model found later in a commit trailer), add a correction or a new row instead
-of silently rewriting history as if it had always been known.
-
-Describe the owner's direction, review, testing, and deployment only as far as
-the evidence supports. Don't say the owner reviewed every change unless that
-was established. Owning a repository does not make someone the author of its
-code.
-
-When information is incomplete, still write a useful file. Ask the owner one
-short question only if the answer would materially change the attribution;
-otherwise record Unknown and finish.
-
-## Before you finish
-
-- Check dates, names, and references against what you inspected.
-- Remove any leftover placeholders.
-- Record which version of these instructions you followed in the Snapshot
-  `Convention` row (for example, `[COLOPHON.md](https://colophon.md) v1.2.4`),
-  so anyone opening the file can see at a glance whether it matches the current
-  convention. Update it when you bring an older colophon up to date.
-- Keep out credentials, private session or chat links, client or customer
-  records, signing secrets, computer names, usernames, local file paths that
-  expose them (such as `/Users/...`), and unrelated personal details. Describe
-  computers generically (for example, "a MacBook Pro").
-- For a client's private project, leave it to the owner and the client whether
-  the colophon is published.
-- If you embed a timeline chart, use the live
-  `https://colophon.md/svg/OWNER/REPO` URL only in public repositories. Place it
-  just above `## Snapshot` in `COLOPHON.md` (and optionally under the title or
-  next to the `COLOPHON.md` link in `README.md`), using this dark/light markup:
-
-  ```html
-  <a href="https://colophon.md/timeline?repo=OWNER/REPO"><picture><source media="(prefers-color-scheme: dark)" srcset="https://colophon.md/svg/OWNER/REPO?theme=dark"><source media="(prefers-color-scheme: light)" srcset="https://colophon.md/svg/OWNER/REPO"><img alt="Timeline of how PROJECT was made" src="https://colophon.md/svg/OWNER/REPO"></picture></a>
-  ```
-
-  For private repositories, generate a static `colophon-timeline.svg` locally in
-  the browser at https://colophon.md/timeline (nothing is sent to a server) and
-  commit that file instead.
-- Optionally add a one-line link from the README to `COLOPHON.md`. Keep the
-  detail in the colophon.
-
-Save the file and tell the owner what remains Unknown.
-
-Stay within what you were asked to do. Commit, push, or open a pull request only
-if the owner has already allowed it. Don't change licenses, repository
-visibility, dependencies, or unrelated files while documenting how the project
-was made.
-
-## Version history
-
-- **1.2.4** (November 20, 2026): added explicit guidance for upgrading an older
-  `COLOPHON.md` to the current format without rewriting existing history or
-  Unknowns, while catching up unrecorded phases and syncing `AGENTS.md`.
-- **1.2.3** (November 20, 2026): moved the instructions version out of the
-  bottom of `Evidence limits` into a `Convention` row at the top of `Snapshot`
-  (linked to https://colophon.md), so anyone opening a `COLOPHON.md` can see at
-  a glance which version of the convention it follows.
-- **1.2.2** (November 20, 2026): a short "Quick rules (proactive update)"
-  summary at the top so agents doing routine updates don't have to wade through
-  forensic guidance; a rule for multi-model and subagent sessions; and an
-  explicit reminder to strip local file paths that expose usernames.
-- **1.2.1** (November 19, 2026): check early commits and project files for
-  former project, repository, or directory names so forensic passes don't miss
-  local session logs indexed under an older folder path or repo slug; record
-  former names in the Snapshot `Project` field and note the rename in Builder
-  history.
-- **1.2** (November 13, 2026): a colophon note for work done where the
-  colophon can't be edited, such as a review in another tool, so the record is
-  kept as the work happens instead of asked for afterward; setting (the
-  reasoning level) and mode (how the tool ran) defined as separate things.
-  When a repository has no agent instructions file, suggest creating
-  `AGENTS.md` for the Colophon snippet.
-- **1.1.2** (October 31, 2026): most pull requests leave the colophon
-  untouched; a row is added only for a change of tool, model, setting, or
-  computer, a new phase of work, a review, or a release. The AGENTS.md
-  snippet now names new phases of work too.
-- **1.1.1** (October 31, 2026): a required "Directed by" field for the
-  accountable human; a note that context files and shared prompts describe what
-  tools were told to do, while the colophon records what they actually did.
-- **1.1** (October 31, 2026): a colophon describes the project, never the
-  people; a Review field (Human, AI, Both, None, or Unknown); "write Unknown and
-  keep going" is the default, and asking the owner is the exception; the
-  proactive and forensic mode names.
-- **1.0** (October 30, 2026): first public version.
+The `1.x` format is frozen: wording clarifications don't bump the version, and
+published version URLs never change. See `CHANGELOG.md` for version history.
 
 ## Template
 
@@ -383,7 +115,7 @@ elsewhere.
 | | |
 |---|---|
 | Project | {project name, plus former repo or working names if renamed} |
-| Convention | [COLOPHON.md](https://colophon.md) v1.2.4 |
+| Convention | [COLOPHON.md](https://colophon.md) v1.3 |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, plus the tool's mode if it has one, each with its source: shown by the tool, configured, or self-reported; or Unknown} |

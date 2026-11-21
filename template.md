@@ -9,7 +9,7 @@ elsewhere.
 | | |
 |---|---|
 | Project | {project name, plus former repo or working names if renamed} |
-| Convention | [COLOPHON.md](https://colophon.md) v1.2.4 |
+| Convention | [COLOPHON.md](https://colophon.md) v1.3 |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, plus the tool's mode if it has one, each with its source: shown by the tool, configured, or self-reported; or Unknown} |

@@ -420,7 +420,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 <script src="timeline.js"></script>
 <script>
 (() => {
-  const { CURRENT_VERSION, compareVersions, parseColophon, renderTimelineSVG } = window.ColophonTimeline;
+  const { CURRENT_VERSION, MIN_COMPAT_VERSION, compareVersions, parseColophon, renderTimelineSVG } = window.ColophonTimeline;
 
   const repoForm = document.getElementById("repo-form");
   const repoInput = document.getElementById("repo-input");
@@ -456,7 +456,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 | | |
 |---|---|
 | Project | acme-web: a nine-month sample web app |
-| Convention | [COLOPHON.md](https://colophon.md) v1.2.4 |
+| Convention | [COLOPHON.md](https://colophon.md) v1.3 |
 | Directed by | You |
 | Era | 2026-02-03 to 2026-09-10 (UTC) |
 
@@ -682,21 +682,21 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     if (parsed.timezone) parts.push(parsed.timezone);
     chartMeta.replaceChildren(document.createTextNode(parts.join(" · ")));
 
-    const isOutdated = !parsed.specVersion || compareVersions(parsed.specVersion, CURRENT_VERSION) < 0;
+    const needsUpgrade = !parsed.specVersion || !parsed.hasConventionRow || compareVersions(parsed.specVersion, MIN_COMPAT_VERSION) < 0;
     chartMeta.append(document.createTextNode(" · "));
     const span = document.createElement("span");
-    if (isOutdated) {
+    if (needsUpgrade) {
       span.className = "ver-old";
       span.textContent = parsed.specVersion
-        ? `COLOPHON.md v${parsed.specVersion} (latest: v${CURRENT_VERSION})`
-        : `Convention version not noted (latest: v${CURRENT_VERSION})`;
+        ? `COLOPHON.md v${parsed.specVersion} (1.x format: v${CURRENT_VERSION})`
+        : `Convention version not noted (1.x format: v${CURRENT_VERSION})`;
       chartMeta.append(span);
       const upBtn = document.createElement("button");
       upBtn.type = "button";
       upBtn.className = "upgrade-btn";
       upBtn.textContent = "Copy upgrade prompt";
       upBtn.addEventListener("click", async () => {
-        const prompt = `Read https://colophon.md/instructions.md and upgrade this repository's COLOPHON.md to v${CURRENT_VERSION} (keep all existing history and Unknowns intact, add any missing Snapshot fields and unrecorded work since the last row, and ensure AGENTS.md has the current Colophon snippet).`;
+        const prompt = `Read https://colophon.md/v${CURRENT_VERSION}/instructions.md and https://colophon.md/v${CURRENT_VERSION}/guide.md and upgrade this repository's COLOPHON.md to v${CURRENT_VERSION} (keep all existing history and Unknowns intact, add any missing Snapshot fields and unrecorded work since the last row, and ensure AGENTS.md has the self-contained Colophon snippet).`;
         try {
           await writeClipboard(prompt);
           confirmOn(upBtn);

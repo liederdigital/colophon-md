@@ -1,17 +1,17 @@
 # COLOPHON.md
 
-**Current version: v1.2.4** (November 20, 2026) · [colophon.md](https://colophon.md) · [Instructions](instructions.md) · [Template](template.md) · [Skill](SKILL.md) · [Timeline generator](https://colophon.md/timeline)
+**Format v1.3 (frozen 1.x · November 21, 2026)** · [colophon.md](https://colophon.md) · [Core instructions](instructions.md) · [Full guide](guide.md) · [Template](template.md) · [Skill](SKILL.md) · [Changelog](CHANGELOG.md) · [Timeline generator](https://colophon.md/timeline)
 
 A credits file for AI-built code: a short, honest record of which tools and
-models built a project, when, where they ran, and who signed off. When
-something breaks months later, it tells you where to look.
+models built a project, where they ran, and who signed off — built for client
+handoffs, codebase due diligence, and whoever inherits the repo next.
 
 <a href="https://colophon.md/timeline?repo=liederdigital/colophon-md"><picture><source media="(prefers-color-scheme: dark)" srcset="https://colophon.md/svg/liederdigital/colophon-md?theme=dark&amp;origins=1"><source media="(prefers-color-scheme: light)" srcset="https://colophon.md/svg/liederdigital/colophon-md?origins=1"><img alt="Timeline of how colophon-md was made" src="https://colophon.md/svg/liederdigital/colophon-md?origins=1"></picture></a>
 
 Books have always had a colophon, the note at the back that tells you how the
-book was made. `COLOPHON.md` does the same for a repository, so whoever
-inherits it (a client, the next developer, or you in a year) doesn't have to
-guess.
+book was made. `COLOPHON.md` does the same for a repository, so a client taking
+delivery, a buyer checking a codebase, the next engineer, or you a year from now
+doesn't have to guess.
 
 ## Add one to your project
 
@@ -19,27 +19,37 @@ Start one when you create the repository. It takes a minute on day one.
 Reconstructing this repository's own history afterward took an evening, three
 AI tools, and a lot of digging (see [`COLOPHON.md`](COLOPHON.md)).
 
-- **Ask your agent.** Give it [`instructions.md`](instructions.md), or tell it:
-  *"Read https://colophon.md/instructions.md and follow it to create or update
-  COLOPHON.md for this repository."*
+- **Keep it local and self-contained (recommended).** Install [`SKILL.md`](SKILL.md)
+  in your agent's skills folder, or copy [`instructions.md`](instructions.md)
+  into your session. Add the self-contained Colophon snippet from
+  `instructions.md` to your `AGENTS.md` (create one at the repository root if
+  you don't have it). Neither `SKILL.md` nor the `AGENTS.md` snippet tells your
+  agent to fetch instructions from a live web page.
+- **One-time pinned URL prompt.** If you want an agent with web access to
+  bootstrap a colophon once, point it at an immutable version URL (published
+  version URLs never change):
+  *"Read https://colophon.md/v1.3/instructions.md and follow it to create or
+  update COLOPHON.md for this repository."*
 - **Write it yourself.** Copy [`template.md`](template.md) to your repository
   root as `COLOPHON.md` and fill it in.
-- **Keep it current.** Add the short Colophon snippet from `instructions.md` to
-  your `AGENTS.md` (create one at the repository root if you don't have it), or
-  install [`SKILL.md`](SKILL.md) once in your agent's skills folder.
-  Every agent then updates the file itself, in the same commit
-  or pull request as its work, and approving the pull request approves the
-  entry. Nobody fills in a form, and nothing waits on it.
 
-Like the credits at the end of a film, it lists everyone and everything
-involved. Like a maintenance log, it lets you trace a bug, or a weaker release,
-back to the models in use at the time.
+Once set up, agents update `COLOPHON.md` in the same commit or pull request as
+their work, and approving the pull request approves the entry. Nobody fills in
+a form, and nothing waits on it.
 
-Already have a project with history? The same instructions cover forensic
-mode: reconstructing a colophon from Git history and the session logs your agents
-saved. Those logs stay on each computer, so run it on every computer you used.
+Already have a project with history? Read [`guide.md`](guide.md) (pinned at
+`https://colophon.md/v1.3/guide.md`) for forensic mode: reconstructing a
+colophon from Git history and the session logs your agents saved, upgrading an
+older file, or embedding a timeline chart.
 
 The one rule: write **Unknown** instead of guessing.
+
+## Stability and versioning
+
+The `1.x` format is frozen at `v1.3`. Clarifying edits and examples do not bump
+the format version; any future breaking format change would be `2.0`. Published
+version snapshots under `/v1.3/` are immutable and never change after release.
+See [`CHANGELOG.md`](CHANGELOG.md) for the full version history.
 
 ## How it's different
 
@@ -53,12 +63,6 @@ models did the work, where, in what role, and who signed off. Agents cite
 commit trailers, Git AI, and Agent Trace records as evidence where they exist,
 and fill in the gaps where they don't. It also works after the fact.
 
-The current instructions are version 1.2.4 (November 20, 2026); see the
-[version history](instructions.md#version-history) for what changed. Each
-project's `COLOPHON.md` records the version it follows in its `Snapshot` table
-(`Convention | [COLOPHON.md](https://colophon.md) v1.2.4`) so you can spot
-older files at a glance.
-
 ## What's in this repository
 
 | File | What it is |
@@ -66,13 +70,16 @@ older files at a glance.
 | `index.html` | The website: one static page, no build step |
 | `timeline.html`, `timeline.js` | Browser-based `COLOPHON.md` → swimlane timeline SVG generator (zero dependencies) |
 | `functions/svg/[owner]/[repo].js` | Cloudflare Pages Function that renders a live `image/svg+xml` timeline at `/svg/owner/repo` |
-| `instructions.md` | Tool-neutral instructions for AI agents |
+| `instructions.md` | Lean, tool-neutral core instructions for AI agents |
+| `guide.md` | Full guide for forensic reconstruction, upgrades, evidence traps, and timeline embeds |
 | `template.md` | The blank template |
-| `SKILL.md` | Drop-in agent skill for Claude Code, Codex, Cursor, Antigravity, and other skill-aware tools |
+| `SKILL.md` | Self-contained, offline-safe agent skill for skill-aware tools |
+| `v1.3/` | Immutable published snapshot of `instructions.md`, `template.md`, `guide.md`, and `SKILL.md` |
+| `CHANGELOG.md` | Versioning policy and release history |
 | `COLOPHON.md` | How this repository was made |
 | `AGENTS.md` | Notes for agents working on this repository |
 | `CONTRIBUTING.md` | How to suggest a change or add your project |
-| `_headers` | Cloudflare Pages headers so `.md` files display as plain text |
+| `_headers` | Cloudflare Pages headers so `.md` files display as plain text and `/v1.3/*` is cached as immutable |
 | `fonts/` | Self-hosted IM Fell English and IBM Plex fonts |
 | `og.png` | The image shown when the site is shared on social media |
 | `favicon.ico`, `favicon.svg`, `favicon-96.png`, `apple-touch-icon.png` | The site icon, as real files so search engines can find it |
@@ -110,10 +117,10 @@ Ideas and fixes are welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-The instructions, template, and site are dedicated to the public domain under
-[CC0 1.0](LICENSE): use, copy, and change them, no attribution required. The
-fonts in `fonts/` are under the SIL Open Font License; see the license files in
-that folder.
+The instructions, guide, template, and site are dedicated to the public domain
+under [CC0 1.0](LICENSE): use, copy, and change them, no attribution required.
+The fonts in `fonts/` are under the SIL Open Font License; see the license
+files in that folder.
 
 Live at https://colophon.md. Started by
 [Ron Stauffer](https://github.com/ronstauffer) of

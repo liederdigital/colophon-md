@@ -13,7 +13,8 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
-  const CURRENT_VERSION = "1.2.4";
+  const CURRENT_VERSION = "1.3";
+  const MIN_COMPAT_VERSION = "1.2";
 
   function compareVersions(a, b) {
     const pa = String(a || "").split(".").map((n) => parseInt(n, 10) || 0);
@@ -372,6 +373,7 @@
 
     // Inspect Snapshot table if present
     const snapshotSec = sections.find((s) => /^snapshot\b/i.test(s.heading));
+    let hasConventionRow = false;
     if (snapshotSec) {
       const tables = extractTables(snapshotSec.lines);
       if (tables.length > 0) {
@@ -382,7 +384,8 @@
           if (key === "project") {
             project = val.split(":")[0].trim();
           } else if (/^(convention|format|spec|instructions|colophon\s+version)$/.test(key)) {
-            const vm = val.match(/v?(\d+\.\d+(?:\.\d+)?)/i);
+            hasConventionRow = true;
+            const vm = val.match(/v?(\d+(?:\.\d+)*)/i);
             if (vm) specVersion = vm[1];
           } else if (key === "directed by") {
             const name = val.split(/[(,:;]/)[0].trim();
@@ -603,6 +606,7 @@
       project: project || "Colophon",
       timezone,
       specVersion,
+      hasConventionRow,
       hasOrigins,
       lanes,
       events,
@@ -1023,6 +1027,7 @@
 
   return {
     CURRENT_VERSION,
+    MIN_COMPAT_VERSION,
     compareVersions,
     parseColophon,
     renderTimelineSVG,

@@ -15,7 +15,7 @@
 <title>COLOPHON.md</title>
 <meta name="description" content="A credits file for AI-built code: an open convention for recording which AI tools and models built a project, when, where they ran, and who directed the work.">
 <meta property="og:title" content="COLOPHON.md">
-<meta property="og:description" content="A credits file for AI-built code: which tools and models built a project, when, where they ran, and who signed off. When something breaks, it tells you where to look.">
+<meta property="og:description" content="A credits file for AI-built code: which tools and models built a project, where they ran, and who signed off — for client handoffs, due diligence, and whoever inherits the repo.">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://colophon.md/">
 <meta property="og:url" content="https://colophon.md/">
@@ -308,13 +308,13 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 
 <header class="wrap masthead">
   <h1>COLOPHON<span class="ext">.md</span></h1>
-  <p class="lede">A credits file for AI-built code: a short, honest record of which tools and models built a project, when, where they ran, and who signed off. When something breaks months later, it tells you where to look.</p>
+  <p class="lede">A credits file for AI-built code: a short, honest record of which tools and models built a project, where they ran, and who signed off — built for client handoffs, codebase due diligence, and whoever inherits the repo next.</p>
   <div class="actions">
     <button type="button" class="btn btn-primary" id="copy-instructions">Copy instructions for your agent</button>
     <a class="btn" href="template.md" download="COLOPHON.md">Download the template</a>
     <a class="btn btn-text" href="https://github.com/liederdigital/colophon-md">View on GitHub</a>
   </div>
-  <p class="version-note">Current version: <code>v1.2.4</code> (November 20, 2026) · <a href="https://github.com/liederdigital/colophon-md/blob/main/instructions.md#version-history">Changelog</a> · <a href="timeline.html">Timeline generator</a></p>
+  <p class="version-note">Format <code>v1.3</code> (frozen 1.x · November 21, 2026) · Pinned: <a href="v1.3/instructions.md"><code>/v1.3/instructions.md</code></a> · <a href="guide.md">Full guide</a> · <a href="CHANGELOG.md">Changelog</a> · <a href="timeline.html">Timeline generator</a></p>
   <p class="status" id="status" role="status" aria-live="polite"></p>
   <noscript><p>To copy the instructions, open <a href="instructions.md">instructions.md</a>.</p></noscript>
 </header>
@@ -337,7 +337,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 
 <span class="md-p">| | |
 |---|---|</span>
-<span class="md-p">|</span> Convention      <span class="md-p">|</span> COLOPHON.md v1.2.4                         <span class="md-p">|</span>
+<span class="md-p">|</span> Convention      <span class="md-p">|</span> COLOPHON.md v1.3                           <span class="md-p">|</span>
 <span class="md-p">|</span> Primary builder <span class="md-p">|</span> Claude, by Anthropic                       <span class="md-p">|</span>
 <span class="md-p">|</span> Surface         <span class="md-p">|</span> Cloud workspace, Claude app                <span class="md-p">|</span>
 <span class="md-p">|</span> Model / mode    <span class="md-p">|</span> Claude Opus 5.5 (configured); mode <span class="md-u">Unknown</span> <span class="md-p">|</span>
@@ -354,11 +354,10 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   <section class="band" aria-labelledby="why">
     <div class="prose">
       <h2 id="why">Why keep one</h2>
-      <p>More and more, people want to know how the software they rely on was made, not just what it does. COLOPHON.md is a free, open way to show them.</p>
-      <p>Someone will inherit your project: a client, the next developer, or you, a year from now. They’ll want to know how it was built, and the Git history won’t tell them.</p>
-      <p>A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
-      <p>COLOPHON.md answers the question in one plain page. It works with any agent, or none.</p>
-      <p>Think of it as the credits at the end of a film, and as a maintenance log: who built each part, which model reviewed it, and who signed off. When version 1.1.8 turns out worse than 1.1.7, or a bug turns up in production, the colophon shows which agents and models were working on the project at the time, and with which setting or mode. If a model version later turns out to have had a flaw, you’ll know which projects, and which weeks, to check.</p>
+      <p>Someone will inherit your codebase: a client taking delivery from an agency, a buyer doing due diligence before an acquisition, the next engineer on the team, or you a year from now. They’ll want to know how the software was actually made, which parts were reviewed, and who signed off.</p>
+      <p>Git history won’t tell them. A commit’s author is whichever account made the commit, not necessarily who or what wrote the code. A missing AI note doesn’t prove a person wrote it alone. A tool’s config file shows it was set up, not that it was used.</p>
+      <p>COLOPHON.md answers the question in one plain page at the root of the repository. It’s free, public-domain (CC0), and works with any coding agent—or none.</p>
+      <p>Think of it as the credits at the end of a film, and as a handoff record you can read in a minute. As a bonus, it doubles as a maintenance log: if a model version later turns out to have a known flaw, or a release cycle felt noticeably weaker, you can see which projects and weeks used that model or setting.</p>
       <p>Start one when you create the repository. It takes a minute on day one. Reconstructing <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">this site’s own history</a> afterward took an evening, three AI tools, and a lot of digging.</p>
     </div>
   </section>
@@ -512,7 +511,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 </svg>
         </div>
         <div class="prose slide-caption">
-          <p>When a checkout bug turns up in v1.3, the colophon shows what changed: on August 28, Claude Code built checkout on Sonnet 5.5 instead of Opus 5.5. The Unknowns are honest gaps, because those tools didn’t show which model they used.</p>
+          <p>When a checkout bug turns up in v1.3, git bisect finds the commit—and the colophon adds the missing context: on August 28, Claude Code built checkout on Sonnet 5.5 instead of Opus 5.5. The Unknowns are honest gaps, because those tools didn’t show which model they used.</p>
           <details class="rows">
             <summary>Show the same history as rows in COLOPHON.md</summary>
             <div class="table-scroll wide">
@@ -555,7 +554,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       </div>
       <div>
         <h3>Forensic mode</h3>
-        <p><strong>Reconstruct one after the fact,</strong> for a project that already has history. The agent reads the Git log and any session logs your coding agents saved, fills in what it can, and marks the rest Unknown. Those logs stay on the computer where the work happened, so run it on each computer you used. If you’d rather hand it off, <a href="https://liederdigital.com">Lieder Digital</a> can reconstruct it for you.</p>
+        <p><strong>Reconstruct one after the fact,</strong> for a project that already has history. Using the <a href="guide.md">forensic guide</a>, the agent reads the Git log and any session logs your coding agents saved, fills in what it can, and marks the rest Unknown. Those logs stay on the computer where the work happened, so run it on each computer you used. If you’d rather hand it off, <a href="https://liederdigital.com">Lieder Digital</a> can reconstruct it for you.</p>
       </div>
     </div>
   </section>
@@ -579,10 +578,11 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       <ol class="steps">
         <li>
           <div>
-            <h3>Give your agent the instructions</h3>
-            <p>Use the copy button above and paste the instructions into your coding agent. Or, if it can read web pages, send it this line:</p>
+            <h3>Give your agent the instructions locally</h3>
+            <p>Best option: use the copy button above to paste the short core spec (<a href="instructions.md">instructions.md</a>) into your agent, or drop the self-contained <a href="SKILL.md" download="SKILL.md">SKILL.md</a> into your agent’s skills folder so it works offline without fetching anything from the web.</p>
+            <p>For a one-time setup in an agent that can read web pages, you can also send this pinned, immutable URL (once a version URL is published, it never changes):</p>
             <div class="prompt">
-              <code id="prompt-text">Read https://colophon.md/instructions.md and follow it to create or update COLOPHON.md for this repository.</code>
+              <code id="prompt-text">Read https://colophon.md/v1.3/instructions.md and follow it to create or update COLOPHON.md for this repository.</code>
               <button type="button" class="btn" id="copy-prompt">Copy</button>
             </div>
           </div>
@@ -590,7 +590,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
         <li>
           <div>
             <h3>Let it write the first version</h3>
-            <p>On a new project, the agent records the session it’s working in. On an existing one, it reads the Git history and any saved session logs. Either way, it writes COLOPHON.md at the root.</p>
+            <p>On a new project, the agent records the session it’s working in. On an existing one, give it the <a href="guide.md">forensic guide</a> too so it can read Git history and saved session logs. Either way, it writes COLOPHON.md at the root.</p>
           </div>
         </li>
         <li>
@@ -601,18 +601,24 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
         </li>
         <li>
           <div>
-            <h3>Keep it current</h3>
-            <p>Add these lines to your AGENTS.md, or whichever instructions file your agents read, so each one updates the colophon itself, in the same commit or pull request as its work. No instructions file yet? Create AGENTS.md at the root of your repository. You approve it when you approve the pull request; there’s nothing extra to fill in. A colophon is a summary, not a log, so it doesn’t need a line for every commit.</p>
+            <h3>Keep it current (self-contained, no remote fetch)</h3>
+            <p>Add these lines to your AGENTS.md, or whichever instructions file your agents read, so each one updates the colophon itself in the same commit or pull request as its work. No instructions file yet? Create AGENTS.md at the root of your repository. The snippet is self-contained by design—your agent never fetches instructions from a live web page.</p>
             <div class="prompt snippet">
               <pre id="snippet-text">## Colophon
 
-This project keeps COLOPHON.md, a short record of how it was made. Agents update it themselves, in the same commit or pull request as their work: add a row when the tool, model, model setting, or computer changes, when a new phase of work starts, when you review someone else's work, and before each release. Never hold up a commit for it. Follow the instructions at https://colophon.md/instructions.md.</pre>
+This project keeps COLOPHON.md at the root: a short, honest record of which tools and models built it, where they ran, and who directed and reviewed it.
+
+- Update COLOPHON.md in the same commit or pull request as your work, only when the tool, model, model setting, or computer changes, a new phase starts, you review another tool's work, or before a release. Most PRs leave it alone.
+- Never hold up a commit for it. Match the file's style and timezone, put new rows at the top of Builder history, and combine same-day rows per builder.
+- Write Unknown instead of guessing. Record exact model, setting, mode, and source (shown by the tool, configured, or self-reported). Never cite a commit hash that doesn't exist yet.
+- Keep secrets, private links, computer names, usernames, and local paths out.
+- If you can't edit COLOPHON.md, end your reply with a Colophon note (tool, model/setting + source, mode, surface, times + timezone, work done, files).</pre>
               <button type="button" class="btn" id="copy-snippet">Copy</button>
             </div>
           </div>
         </li>
       </ol>
-      <p>Prefer to do it by hand? <a href="template.md" download="COLOPHON.md">Download the template</a> and fill it in yourself. Want it across every repository? Drop <a href="SKILL.md" download="SKILL.md">SKILL.md</a> into your agent’s skills folder.</p>
+      <p>Prefer to do it by hand? <a href="template.md" download="COLOPHON.md">Download the template</a> and fill it in yourself. Reconstructing an older repo or upgrading an older file? Read the <a href="guide.md">full guide</a>.</p>
     </div>
   </section>
 
@@ -656,7 +662,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
           <p>Some work happens where the colophon can’t be edited: a review in another tool that was told to change nothing, or a chat with no access to the repository. That tool ends its output with a short colophon note: its tool, model and setting, mode, start and finish times, and every file it touched. Whoever keeps the colophon copies the note into a row, so nobody has to go back and ask later.</p>
           <p>Paste this at the end of a review or chat prompt:</p>
           <div class="prompt">
-            <code id="note-prompt-text">End your reply with a Colophon note following https://colophon.md/instructions.md (tool and version, model and setting with source, mode, surface, start and finish times, what you did, and files touched).</code>
+            <code id="note-prompt-text">End your reply with a "## Colophon note" listing: tool and version; model, version, and reasoning setting (with source: shown by the tool, configured, or self-reported, or Unknown); mode (if any); surface; start and finish times with timezone; what you did; and every file created or changed (or None).</code>
             <button type="button" class="btn" id="copy-note-prompt">Copy</button>
           </div>
         </div>
@@ -668,6 +674,13 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       <details>
         <summary>Is this an official standard?</summary>
         <div><p>Not yet. It’s an open convention that anyone can use, change, or ignore. The more projects keep one, the more people will know to look for it. The instructions and template are in the public domain under CC0.</p></div>
+      </details>
+      <details>
+        <summary>Will the format keep changing? Are the URLs safe to link?</summary>
+        <div>
+          <p>The <code>1.x</code> format is frozen at <code>v1.3</code>. Clarifying edits and examples won’t bump the version number, and any future breaking format change would be <code>v2.0</code>. See <a href="CHANGELOG.md">CHANGELOG.md</a> for the full history.</p>
+          <p>Published version URLs such as <code>/v1.3/instructions.md</code> are immutable and never change once published. Even better, the recommended <code>AGENTS.md</code> snippet and <a href="SKILL.md">SKILL.md</a> are completely self-contained—your agents never fetch or obey a live web page.</p>
+        </div>
       </details>
       <details>
         <summary>Isn’t this what git blame is for?</summary>
@@ -686,7 +699,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
       <details>
         <summary>Who’s using it?</summary>
         <div>
-          <p>Public repositories using COLOPHON.md today:</p>
+          <p>So far, these are all our own public repositories—we’re using the convention across our own projects first. Yours could be next:</p>
           <ul>
             <li><a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">colophon-md</a> — this convention and site (<a href="timeline.html?repo=liederdigital/colophon-md">timeline</a>)</li>
             <li><a href="https://github.com/liederdigital/app-mechanic/blob/main/COLOPHON.md">App Mechanic</a> — macOS utility that scans installed apps and shows pending updates (<a href="timeline.html?repo=liederdigital/app-mechanic">timeline</a>)</li>
@@ -694,13 +707,9 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
             <li><a href="https://github.com/liederdigital/mr-bill/blob/main/COLOPHON.md">Mr. Bill</a> — local Node.js tool that turns bill text into Basecamp to-dos (<a href="timeline.html?repo=liederdigital/mr-bill">timeline</a>)</li>
             <li><a href="https://github.com/ronstauffer/apple-podcasts-reporter/blob/main/COLOPHON.md">Apple Podcasts Connect Reporter</a> — patched macOS setup for Apple’s Reporter CLI (<a href="timeline.html?repo=ronstauffer/apple-podcasts-reporter">timeline</a>)</li>
           </ul>
-          <p>You can also see every public repository with a COLOPHON.md using <a href="https://github.com/search?q=path%3A**%2FCOLOPHON.md&amp;type=code">GitHub’s code search</a> (you’ll need to be signed in to GitHub). Some results are older book-style colophons that predate this convention.</p>
-          <p>Using it? <a href="https://github.com/liederdigital/colophon-md/issues/new?title=Add%20my%20project%20to%20Who%E2%80%99s%20using%20it&amp;body=Project%3A%20%0ALink%20to%20its%20COLOPHON.md%3A%20">Add your project</a>.</p>
+          <p>You can also check <a href="https://github.com/search?q=path%3A**%2FCOLOPHON.md&amp;type=code">GitHub’s code search</a> (you’ll need to be signed in to GitHub). Some results are older book-style colophons that predate this convention.</p>
+          <p>Using it on an outside project? <a href="https://github.com/liederdigital/colophon-md/issues/new?title=Add%20my%20project%20to%20Who%E2%80%99s%20using%20it&amp;body=Project%3A%20%0ALink%20to%20its%20COLOPHON.md%3A%20">Add your project</a>.</p>
         </div>
-      </details>
-      <details>
-        <summary>Can someone reconstruct one for me?</summary>
-        <div><p>Yes. If a project already has months of history across several tools and computers, <a href="https://liederdigital.com">Lieder Digital</a>, the studio behind COLOPHON.md, can reconstruct its colophon for you, with the evidence for each entry. It’s useful for agencies handing a project to a client, and for buyers checking a codebase before they take it over.</p></div>
       </details>
       <details>
         <summary>Can a colophon prove who wrote the code?</summary>
@@ -730,27 +739,21 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
   <div class="wrap">
     <svg class="device" width="20" height="29" viewBox="0 0 40 58" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="40" r="14"/><path d="M6 40h28M20 26V5M13 11.5h14"/></svg>
     <p><a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a> · Made by <a href="https://github.com/ronstauffer">Ron Stauffer</a> of <a href="https://liederdigital.com">Lieder Digital</a> · Ideas? <a href="https://github.com/liederdigital/colophon-md/issues/new">Open an issue</a> or email <a href="mailto:feedback@colophon.md">feedback@colophon.md</a></p>
-    <p>Instructions version 1.2.4, November 20, 2026. How this site was made is recorded in its own <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">COLOPHON.md</a>.</p>
+    <p>Format v1.3 (frozen 1.x), November 21, 2026. How this site was made is recorded in its own <a href="https://github.com/liederdigital/colophon-md/blob/main/COLOPHON.md">COLOPHON.md</a>.</p>
   </div>
 </footer>
 
 <script>
 (() => {
   const statusEl = document.getElementById("status");
-  const repoFile = "https://colophon.md/instructions.md";
+  const pinnedFile = "https://colophon.md/v1.3/instructions.md";
   const localUrl = new URL("instructions.md", location.href);
   const onWeb = location.protocol === "https:" || location.protocol === "http:";
 
-  const promptText = `Read ${repoFile} and follow it to create or update COLOPHON.md for this repository.`;
+  const promptText = `Read ${pinnedFile} and follow it to create or update COLOPHON.md for this repository.`;
   document.getElementById("prompt-text").textContent = promptText;
 
-  const snippetText = "## Colophon\n\n" +
-    "This project keeps COLOPHON.md, a short record of how it was made. " +
-    "Agents update it themselves, in the same commit or pull request as their work: " +
-    "add a row when the tool, model, model setting, or computer changes, " +
-    "when a new phase of work starts, when you review someone else's work, and before each release. " +
-    `Never hold up a commit for it. Follow the instructions at ${repoFile}.`;
-  document.getElementById("snippet-text").textContent = snippetText;
+  const snippetText = document.getElementById("snippet-text").textContent;
 
   let instructions = null;
   const loading = fetch(localUrl)
@@ -762,7 +765,7 @@ This project keeps COLOPHON.md, a short record of how it was made. Agents update
     statusEl.textContent = message;
     if (withLink) {
       const a = document.createElement("a");
-      a.href = onWeb ? "instructions.md" : repoFile;
+      a.href = onWeb ? "instructions.md" : pinnedFile;
       a.textContent = "Open instructions.md";
       statusEl.append(" ", a, ".");
     }

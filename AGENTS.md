@@ -4,8 +4,10 @@
   any static server (for example `npx serve`) to preview it.
 - The Template section of `instructions.md` must match `template.md` exactly.
   Change both together.
-- Keep `instructions.md` tool-neutral. Product names are fine as examples, but
-  no rule should depend on one vendor's tool.
+- Published version directories (such as `v1.3/`) are immutable: never edit a
+  published version folder after release.
+- Keep `instructions.md` and `guide.md` tool-neutral. Product names are fine as
+  examples, but no rule should depend on one vendor's tool.
 - `index.html` loads `instructions.md` at runtime for the copy button, and
   links to `template.md` for the download. Keep those paths stable.
 - Write in plain English, sentence case, active voice.
