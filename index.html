@@ -690,6 +690,10 @@ This project keeps COLOPHON.md at the root: a short, honest record of which tool
         </div>
       </details>
       <details>
+        <summary>If the person who commits owns the code, why record the tools?</summary>
+        <div><p>Agreed: whoever commits the code owns it. COLOPHON.md doesn’t change who’s responsible. It records what happened, so whoever debugs, audits, or inherits the project later knows which tools wrote it, what reviewed it, and who signed off. Ownership answers who’s accountable; a colophon answers where to look.</p></div>
+      </details>
+      <details>
         <summary>Doesn’t something like this already exist?</summary>
         <div>
           <p>Pieces of it do, and COLOPHON.md is meant to sit on top of them. AI declaration files such as <a href="https://github.com/DimwitLabs/AI-DECLARATION.md">AI-DECLARATION.md</a> state how much AI was involved, as a single level. Line-by-line tools such as <a href="https://agent-trace.dev/">Agent Trace</a> and <a href="https://github.com/git-ai-project/git-ai">Git AI</a> record exactly which lines an agent wrote. Commit notes like Co-Authored-By name the tool on each commit, but they’re optional, many people turn them off, and they don’t say where the tool ran, who reviewed the work, or which release it shipped in. The Linux kernel asked for an Assisted-by line on AI-assisted commits, but the line no longer names the model, and in October <a href="https://lwn.net/Articles/1099653/">a patch proposed dropping it</a>.</p>
