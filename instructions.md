@@ -4,7 +4,7 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.2.3, published November 20, 2026. The convention lives at
+Version 1.2.4, published November 20, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
 
@@ -25,7 +25,7 @@ If `COLOPHON.md` already exists and is up to date, you only need these rules:
   `self-reported`). If you can't edit the file, end your reply with a Colophon
   note (see "When you can't edit the colophon").
 - Keep the `Convention` row in `Snapshot` up to date with the version of these
-  instructions you followed (for example, `[COLOPHON.md](https://colophon.md) v1.2.3`).
+  instructions you followed (for example, `[COLOPHON.md](https://colophon.md) v1.2.4`).
 - If the repository has no agent instructions file (or it doesn't mention
   `COLOPHON.md`), suggest creating `AGENTS.md` at the root or adding the
   Colophon snippet below.
@@ -231,6 +231,15 @@ placeholder with evidence or "Unknown", and leave out sections that don't
 apply. When a colophon already exists, match its style instead of replacing it
 with the template.
 
+**Upgrading an older colophon.** When an existing `COLOPHON.md` follows an older
+version of these instructions (or has no `Convention` row yet), keep all
+existing history, wording, and Unknowns intact, and bring the file up to the
+current format: add any missing Snapshot rows (such as `Convention`,
+`Directed by`, `Review`, or `Model / mode`), check Git history and local
+session logs since the newest Builder history row for any unrecorded phases,
+model switches, or releases, update `Convention` to the current version, and
+check that `AGENTS.md` exists and includes the current Colophon snippet.
+
 Include:
 
 - a short snapshot table,
@@ -287,7 +296,7 @@ otherwise record Unknown and finish.
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
 - Record which version of these instructions you followed in the Snapshot
-  `Convention` row (for example, `[COLOPHON.md](https://colophon.md) v1.2.3`),
+  `Convention` row (for example, `[COLOPHON.md](https://colophon.md) v1.2.4`),
   so anyone opening the file can see at a glance whether it matches the current
   convention. Update it when you bring an older colophon up to date.
 - Keep out credentials, private session or chat links, client or customer
@@ -308,6 +317,9 @@ was made.
 
 ## Version history
 
+- **1.2.4** (November 20, 2026): added explicit guidance for upgrading an older
+  `COLOPHON.md` to the current format without rewriting existing history or
+  Unknowns, while catching up unrecorded phases and syncing `AGENTS.md`.
 - **1.2.3** (November 20, 2026): moved the instructions version out of the
   bottom of `Evidence limits` into a `Convention` row at the top of `Snapshot`
   (linked to https://colophon.md), so anyone opening a `COLOPHON.md` can see at
@@ -354,7 +366,7 @@ elsewhere.
 | | |
 |---|---|
 | Project | {project name, plus former repo or working names if renamed} |
-| Convention | [COLOPHON.md](https://colophon.md) v1.2.3 |
+| Convention | [COLOPHON.md](https://colophon.md) v1.2.4 |
 | Primary builder | {tool, or Unknown} |
 | Surface | {desktop app / browser or cloud workspace / CLI / IDE extension / hosted agent, or Unknown} |
 | Model / mode | {model and setting, plus the tool's mode if it has one, each with its source: shown by the tool, configured, or self-reported; or Unknown} |

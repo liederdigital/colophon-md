@@ -13,7 +13,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
-  const CURRENT_VERSION = "1.2.3";
+  const CURRENT_VERSION = "1.2.4";
 
   function compareVersions(a, b) {
     const pa = String(a || "").split(".").map((n) => parseInt(n, 10) || 0);

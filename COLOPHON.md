@@ -13,7 +13,7 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | | |
 |---|---|
 | Project | colophon-md: the COLOPHON.md convention and its website |
-| Convention | [COLOPHON.md](https://colophon.md) v1.2.3 |
+| Convention | [COLOPHON.md](https://colophon.md) v1.2.4 |
 | Primary builder | Claude, by Anthropic, for the public convention and website; Codex for one provenance update; Google Antigravity for post-launch review and fixes. The precursor files were written by several tools; see Origins |
 | Surface | Claude cloud workspace, started from the Claude desktop app; Codex CLI for its update; Google Antigravity desktop app on macOS |
 | Model / mode | Claude: Opus 5.5, configured for the sessions (`claude-opus-5-5`); the serving model was not independently verified; mode Unknown. Codex: `gpt-6-astra`, high, shown by the tool in its session log. Google Antigravity: Gemini 4 Argon, low (2026-10-31) and medium (2026-11-19, `gemini-4-argon-medium`, mode: agent), and Gemini 4 Neon, high (2026-11-20, mode Unknown), shown by the tool in its session settings and transcripts. The Grok bot reviewer and the precursor sessions: mostly Unknown |
@@ -21,7 +21,7 @@ Private repositories are named with placeholders such as `<ios-app>`.
 | Review | AI: a Grok bot reviewed the site, instructions, and template three times before launch, and wrote the change lists for versions 1.1 and 1.1.1; Google Antigravity reviewed the repository post-launch. Ron Stauffer approved the launch |
 | Directed by | Ron Stauffer |
 | Human owner | Ron Stauffer (Lieder Digital): proposed the idea and the name `CREDITS.md` on 2026-09-28, directed the work, chose the COLOPHON.md name and byline, and approved the launch on 2026-10-30. The Grok bot says it drafted the first file's wording from his message. How closely he read every page is not recorded |
-| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30; instructions versions 1.1 to 1.1.2 on 2026-10-31; version 1.2 on 2026-11-13; version 1.2.1 on 2026-11-19; versions 1.2.2 and 1.2.3 on 2026-11-20 (America/Denver) |
+| Era | Idea proposed 2026-09-28; first file 2026-09-30; Codex skill 2026-10-15; public convention and website 2026-10-30; instructions versions 1.1 to 1.1.2 on 2026-10-31; version 1.2 on 2026-11-13; version 1.2.1 on 2026-11-19; versions 1.2.2 to 1.2.4 on 2026-11-20 (America/Denver) |
 | Status | Live at https://colophon.md; public repository |
 
 ## How the work was done
@@ -42,16 +42,16 @@ bot's change lists and Ron's requests, and Google Antigravity reviewed the
 repository and applied post-launch fixes. On November 13, at Ron's request,
 Claude made version 1.2, after a review in another tool showed that the
 instructions had no way for a tool that can't edit the colophon to record
-itself. On November 19 and 20, Google Antigravity made versions 1.2.1 through 1.2.3
+itself. On November 19 and 20, Google Antigravity made versions 1.2.1 through 1.2.4
 (rename tracking, proactive quick rules, multi-model sessions, path privacy,
-and a top-of-file `Convention` version row), built the timeline SVG generator
-and live endpoint, and applied site fixes.
+a top-of-file `Convention` version row, and upgrade guidance), built the
+timeline SVG generator and live endpoint, and applied site fixes.
 
 ## Builder history (newest first)
 
 | Date | Builder | Role | Surface | Model / mode | Contribution | Evidence |
 |---|---|---|---|---|---|---|
-| 2026-11-20 | Google Antigravity | Reviewed and built | Desktop app on Ron's Mac | Gemini 4 Neon, high (shown by the tool in the session's settings notice); mode: Unknown | Reviewed the repository and shipped instructions versions 1.2.2 and 1.2.3: added a "Quick rules (proactive update)" summary at the top of `instructions.md`, a rule for multi-model and subagent sessions, an explicit reminder to strip local file paths that expose usernames, and a `Convention` row at the top of `Snapshot` (`[COLOPHON.md](https://colophon.md) v1.2.3`) in `template.md`, `instructions.md`, and `COLOPHON.md`, with the current version surfaced at the top of `README.md` and `index.html`. In `index.html` and `colophon-timeline.svg`: pinned copied prompt and `AGENTS.md` snippet URLs to `https://colophon.md/instructions.md`, added inline copy-error feedback on buttons, widened the launch-day timeline panel to eliminate overlapping dots, added larger invisible touch targets and tap-to-toggle tooltips, and synced the hero card, prose, and example table with the current template. Built the `COLOPHON.md` → swimlane SVG timeline generator (`timeline.js`, `timeline.html`, including version detection vs. latest) and live Cloudflare Pages Function (`functions/svg/[owner]/[repo].js` at `/svg/owner/repo`) | Observed in session |
+| 2026-11-20 | Google Antigravity | Reviewed and built | Desktop app on Ron's Mac | Gemini 4 Neon, high (shown by the tool in the session's settings notice); mode: Unknown | Reviewed the repository and shipped instructions versions 1.2.2 through 1.2.4: added a "Quick rules (proactive update)" summary at the top of `instructions.md`, a rule for multi-model and subagent sessions, an explicit reminder to strip local file paths that expose usernames, a `Convention` row at the top of `Snapshot` (`[COLOPHON.md](https://colophon.md) v1.2.4`) in `template.md`, `instructions.md`, and `COLOPHON.md`, explicit guidance for upgrading older colophons, and current-version banners in `README.md` and `index.html`. In `index.html` and `colophon-timeline.svg`: pinned copied prompt and `AGENTS.md` snippet URLs to `https://colophon.md/instructions.md`, added inline copy-error feedback on buttons, widened the launch-day timeline panel to eliminate overlapping dots, added larger invisible touch targets and tap-to-toggle tooltips, and synced the hero card, prose, and example table with the current template. Built the `COLOPHON.md` → swimlane SVG timeline generator (`timeline.js`, `timeline.html`, including version detection and one-click upgrade prompt) and live Cloudflare Pages Function (`functions/svg/[owner]/[repo].js` at `/svg/owner/repo`) | Observed in session |
 | 2026-11-19 | Google Antigravity | Built | Desktop app on Ron's Mac | Gemini 4 Argon, medium (`gemini-4-argon-medium`, shown by the tool in the session's transcript); mode: agent | Instructions version 1.2.1: check early commits and project files for former project, repository, or directory names so forensic passes don't miss local session logs indexed under an older folder path or repo slug; record former names in the Snapshot `Project` field and note the rename in Builder history; updated `template.md`, `README.md`, and `index.html` to match. Prompted by updating the colophon for `<ios-app>`, which had been renamed across its local directory, app target, and App Store / GitHub repository slug | Observed in session |
 | 2026-11-13 | Claude | Built | Cloud workspace (Claude desktop app) | Claude Opus 5.5 (configured for the session; the serving model was not independently verified) | Instructions version 1.2: a "When you can't edit the colophon" section with a colophon note, and setting (reasoning level) and mode (how the tool ran) defined as separate things; a suggestion to create AGENTS.md when a repository has none; the template's model placeholders and a new FAQ answer to match. Prompted by a pre-print review of a book in Google Antigravity (Gemini 4 Argon, then Gemini 4 Hydrogen), where the reviewers had been told to change no files and their settings had to be asked for afterward | Observed in session; the version 1.2 pull request |
 | 2026-10-31 | Google Antigravity | Reviewed and built | Desktop app on Ron's Mac | Gemini 4 Argon, low (shown by the tool in the session's settings notice) | Reviewed the repository after launch; replaced the timeline SVGs' `<title>` tags with `aria-label` so native browser tooltips no longer cover the hover cards; synced the JS `AGENTS.md` snippet and hero card excerpt in `index.html` with instructions v1.1.2; added `/CONTRIBUTING.md` to `_headers` and `.DS_Store` to `.gitignore` | Observed in session |
@@ -125,7 +125,7 @@ Earlier entries stay as written; each correction says what changed.
 
 ## Evidence limits
 
-- This file follows COLOPHON.md instructions version 1.2.3. Dates use
+- This file follows COLOPHON.md instructions version 1.2.4. Dates use
   America/Denver; session timestamps were converted from UTC.
 - The launch and version 1.1 to 1.2 entries come from the Claude sessions that did
   the work. Claude's model is the one configured for those sessions; the

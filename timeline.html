@@ -248,6 +248,12 @@ code { font-family: var(--mono); font-size: 0.9em; }
 }
 .meta { font-size: 0.9rem; color: var(--muted); margin: 0; }
 .meta .ver-old { color: var(--gilt); font-weight: 500; }
+.meta .upgrade-btn {
+  margin-left: 0.45rem; padding: 0; border: 0; background: none;
+  font: 500 0.875rem/1.2 var(--sans); color: var(--ink);
+  text-decoration: underline; text-underline-offset: 0.18em; cursor: pointer;
+}
+.meta .upgrade-btn:hover { text-decoration-thickness: 2px; }
 .export-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .warnings {
   margin: 0.75rem 0 0; padding: 0.65rem 0.9rem;
@@ -432,7 +438,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 | | |
 |---|---|
 | Project | acme-web: a nine-month sample web app |
-| Convention | [COLOPHON.md](https://colophon.md) v1.2.3 |
+| Convention | [COLOPHON.md](https://colophon.md) v1.2.4 |
 | Directed by | You |
 | Era | 2026-02-03 to 2026-09-10 (UTC) |
 
@@ -626,21 +632,33 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     ];
     if (parsed.timezone) parts.push(parsed.timezone);
     chartMeta.replaceChildren(document.createTextNode(parts.join(" · ")));
-    if (parsed.specVersion) {
-      chartMeta.append(document.createTextNode(" · "));
-      const span = document.createElement("span");
-      if (compareVersions(parsed.specVersion, CURRENT_VERSION) < 0) {
-        span.className = "ver-old";
-        span.textContent = `COLOPHON.md v${parsed.specVersion} (latest: v${CURRENT_VERSION})`;
-      } else {
-        span.textContent = `COLOPHON.md v${parsed.specVersion}`;
-      }
-      chartMeta.append(span);
-    } else {
-      chartMeta.append(document.createTextNode(" · "));
-      const span = document.createElement("span");
+
+    const isOutdated = !parsed.specVersion || compareVersions(parsed.specVersion, CURRENT_VERSION) < 0;
+    chartMeta.append(document.createTextNode(" · "));
+    const span = document.createElement("span");
+    if (isOutdated) {
       span.className = "ver-old";
-      span.textContent = `Convention version not noted (latest: v${CURRENT_VERSION})`;
+      span.textContent = parsed.specVersion
+        ? `COLOPHON.md v${parsed.specVersion} (latest: v${CURRENT_VERSION})`
+        : `Convention version not noted (latest: v${CURRENT_VERSION})`;
+      chartMeta.append(span);
+      const upBtn = document.createElement("button");
+      upBtn.type = "button";
+      upBtn.className = "upgrade-btn";
+      upBtn.textContent = "Copy upgrade prompt";
+      upBtn.addEventListener("click", async () => {
+        const prompt = `Read https://colophon.md/instructions.md and upgrade this repository's COLOPHON.md to v${CURRENT_VERSION} (keep all existing history and Unknowns intact, add any missing Snapshot fields and unrecorded work since the last row, and ensure AGENTS.md has the current Colophon snippet).`;
+        try {
+          await writeClipboard(prompt);
+          confirmOn(upBtn);
+          track("timeline_copy_upgrade_prompt");
+        } catch {
+          confirmOn(upBtn, "Copy failed");
+        }
+      });
+      chartMeta.append(upBtn);
+    } else {
+      span.textContent = `COLOPHON.md v${parsed.specVersion}`;
       chartMeta.append(span);
     }
 
