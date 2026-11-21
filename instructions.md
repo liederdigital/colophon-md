@@ -4,9 +4,31 @@ Follow these instructions to create or update `COLOPHON.md`, a short record of
 how a repository was made: which tools did the work, where they ran, what each
 contributed, and who directed it.
 
-Version 1.2.1, published November 19, 2026. The convention lives at
+Version 1.2.2, published November 20, 2026. The convention lives at
 https://colophon.md (source: https://github.com/liederdigital/colophon-md)
 and is in the public domain (CC0 1.0).
+
+## Quick rules (proactive update)
+
+If `COLOPHON.md` already exists and is up to date, you only need these rules:
+
+- Update `COLOPHON.md` in the same commit or pull request as your work.
+- Add a row only when the tool, model, model setting, or computer changes, when
+  a new phase of work starts, when you review someone else's work, or before a
+  release. Most pull requests leave it untouched.
+- Match the existing file's style and timezone, put new rows at the top of
+  Builder history, and combine same-day work by the same builder into one row.
+- Record only what you can observe or the owner confirmed; write **Unknown**
+  instead of guessing. Never cite a commit hash for a commit that doesn't exist
+  yet.
+- Note the source of each model value (`shown by the tool`, `configured`, or
+  `self-reported`). If you can't edit the file, end your reply with a Colophon
+  note (see "When you can't edit the colophon").
+- If the repository has no agent instructions file (or it doesn't mention
+  `COLOPHON.md`), suggest creating `AGENTS.md` at the root or adding the
+  Colophon snippet below.
+- For a new colophon or forensic reconstruction from history, read the full
+  instructions below.
 
 ## What a colophon is for
 
@@ -110,7 +132,9 @@ each the way the tool names it. Say where each model value came from:
 - **configured**: in a setting or config file;
 - **self-reported**: the model named itself.
 
-A model naming itself is not Observed; label it self-reported. That precision
+A model naming itself is not Observed; label it self-reported. If a session uses
+multiple models or delegates to subagents, record the primary builder model, and
+note other models only when they authored code or reviews. That precision
 is what lets someone line up a problem with the model that was in use when it
 was introduced. Git already records when each commit happened; the colophon
 records which model was active then.
@@ -261,10 +285,11 @@ otherwise record Unknown and finish.
 - Check dates, names, and references against what you inspected.
 - Remove any leftover placeholders.
 - Note in "Evidence limits" which version of these instructions you followed
-  (for example, "COLOPHON.md instructions v1.1.2").
+  (for example, "COLOPHON.md instructions v1.2.2").
 - Keep out credentials, private session or chat links, client or customer
-  records, signing secrets, computer names, usernames, and unrelated personal
-  details. Describe computers generically (for example, "a MacBook Pro").
+  records, signing secrets, computer names, usernames, local file paths that
+  expose them (such as `/Users/...`), and unrelated personal details. Describe
+  computers generically (for example, "a MacBook Pro").
 - For a client's private project, leave it to the owner and the client whether
   the colophon is published.
 - Optionally add a one-line link from the README to `COLOPHON.md`. Keep the
@@ -279,6 +304,10 @@ was made.
 
 ## Version history
 
+- **1.2.2** (November 20, 2026): a short "Quick rules (proactive update)"
+  summary at the top so agents doing routine updates don't have to wade through
+  forensic guidance; a rule for multi-model and subagent sessions; and an
+  explicit reminder to strip local file paths that expose usernames.
 - **1.2.1** (November 19, 2026): check early commits and project files for
   former project, repository, or directory names so forensic passes don't miss
   local session logs indexed under an older folder path or repo slug; record

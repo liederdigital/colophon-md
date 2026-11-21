@@ -18,71 +18,71 @@
 </style>
 <rect class="bg" width="980" height="396" rx="6"/>
 <text class="title" x="24" y="40">How this website was made</text>
-<line class="tl-lane" x1="164" y1="110" x2="624" y2="110"/>
-<line class="tl-lane" x1="670" y1="110" x2="956" y2="110"/>
+<line class="tl-lane" x1="164" y1="110" x2="556" y2="110"/>
+<line class="tl-lane" x1="594" y1="110" x2="962" y2="110"/>
 <text class="tl-label" x="154" y="114.5" text-anchor="end">Grok bot</text>
-<line class="tl-lane" x1="164" y1="154" x2="624" y2="154"/>
-<line class="tl-lane" x1="670" y1="154" x2="956" y2="154"/>
+<line class="tl-lane" x1="164" y1="154" x2="556" y2="154"/>
+<line class="tl-lane" x1="594" y1="154" x2="962" y2="154"/>
 <text class="tl-label" x="154" y="158.5" text-anchor="end">Claude</text>
-<line class="tl-lane" x1="164" y1="198" x2="624" y2="198"/>
-<line class="tl-lane" x1="670" y1="198" x2="956" y2="198"/>
+<line class="tl-lane" x1="164" y1="198" x2="556" y2="198"/>
+<line class="tl-lane" x1="594" y1="198" x2="962" y2="198"/>
 <text class="tl-label" x="154" y="202.5" text-anchor="end">Codex</text>
-<line class="tl-lane" x1="164" y1="242" x2="624" y2="242"/>
-<line class="tl-lane" x1="670" y1="242" x2="956" y2="242"/>
+<line class="tl-lane" x1="164" y1="242" x2="556" y2="242"/>
+<line class="tl-lane" x1="594" y1="242" x2="962" y2="242"/>
 <text class="tl-label" x="154" y="246.5" text-anchor="end">Cursor</text>
-<line class="tl-lane" x1="164" y1="286" x2="624" y2="286"/>
-<line class="tl-lane" x1="670" y1="286" x2="956" y2="286"/>
+<line class="tl-lane" x1="164" y1="286" x2="556" y2="286"/>
+<line class="tl-lane" x1="594" y1="286" x2="962" y2="286"/>
 <text class="tl-label" x="154" y="290.5" text-anchor="end">Ron Stauffer</text>
-<line class="tl-axis-line" x1="164" y1="306" x2="624" y2="306"/>
-<line class="tl-axis-line" x1="670" y1="306" x2="956" y2="306"/>
-<line class="tl-tick" x1="185.5" y1="302" x2="185.5" y2="310"/><text class="tl-month" x="185.5" y="326" text-anchor="middle">Sep 28</text>
-<line class="tl-tick" x1="280.1" y1="302" x2="280.1" y2="310"/><text class="tl-month" x="280.1" y="326" text-anchor="middle">Oct 5</text>
-<line class="tl-tick" x1="374.7" y1="302" x2="374.7" y2="310"/><text class="tl-month" x="374.7" y="326" text-anchor="middle">Oct 12</text>
-<line class="tl-tick" x1="469.3" y1="302" x2="469.3" y2="310"/><text class="tl-month" x="469.3" y="326" text-anchor="middle">Oct 19</text>
-<line class="tl-tick" x1="563.9" y1="302" x2="563.9" y2="310"/><text class="tl-month" x="563.9" y="326" text-anchor="middle">Oct 26</text>
-<line class="tl-tick" x1="676.0" y1="302" x2="676.0" y2="310"/><text class="tl-month" x="676.0" y="326" text-anchor="middle">6 PM</text>
-<line class="tl-tick" x1="730.8" y1="302" x2="730.8" y2="310"/><text class="tl-month" x="730.8" y="326" text-anchor="middle">7 PM</text>
-<line class="tl-tick" x1="785.6" y1="302" x2="785.6" y2="310"/><text class="tl-month" x="785.6" y="326" text-anchor="middle">8 PM</text>
-<line class="tl-tick" x1="840.4" y1="302" x2="840.4" y2="310"/><text class="tl-month" x="840.4" y="326" text-anchor="middle">9 PM</text>
-<line class="tl-tick" x1="895.2" y1="302" x2="895.2" y2="310"/><text class="tl-month" x="895.2" y="326" text-anchor="middle">10 PM</text>
-<line class="tl-tick" x1="950.0" y1="302" x2="950.0" y2="310"/><text class="tl-month" x="950.0" y="326" text-anchor="middle">11 PM</text>
-<text class="tl-panel" x="395.0" y="346" text-anchor="middle">September 28 to October 29</text>
-<text class="tl-panel" x="813.0" y="346" text-anchor="middle">October 30, launch day, by the hour</text>
-<line class="tl-tick" x1="639.0" y1="312" x2="647.0" y2="300"/>
-<line class="tl-tick" x1="647.0" y1="312" x2="655.0" y2="300"/>
-<polyline class="tl-path" points="197.5,286 205.8,110 223.9,110 224.2,154 249.0,286 279.5,154 279.6,198 384.6,154 395.2,242 426.2,198 426.4,154 611.2,154"/>
-<polyline class="tl-path" points="689.7,154 697.9,286 726.2,198 749.1,110 824.9,286 855.0,110 857.8,154 860.5,286 867.8,110 922.6,154 931.7,110 940.9,154"/>
-<line class="tl-path" x1="611.2" y1="154" x2="689.7" y2="154" stroke-dasharray="4 5"/>
-<line class="tl-release" x1="223.9" y1="86" x2="223.9" y2="306"/>
-<text class="tl-release-label" x="223.9" y="76" text-anchor="middle">First file</text>
-<line class="tl-release" x1="426.2" y1="86" x2="426.2" y2="306"/>
-<text class="tl-release-label" x="426.2" y="76" text-anchor="middle">Skill</text>
-<line class="tl-release" x1="860.5" y1="86" x2="860.5" y2="306"/>
-<text class="tl-release-label" x="860.5" y="76" text-anchor="middle">Launch</text>
-<g><title>Sep 28, 9:22 PM. Ron Stauffer, proposed. Proposed the idea and the name CREDITS.md. Model: Not applicable.</title><path class="tl-approved" d="M197.5 278 L205.5 286 L197.5 294 L189.5 286 Z"/></g>
-<g><title>Sep 29 to Oct 1. Grok bot, built. Built the template with Ron. Model: Unknown.</title><circle class="tl-built" cx="205.8" cy="110" r="8"/></g>
-<g><title>Sep 30, 8:06 PM. Grok bot, built. Added the first CREDITS.md, to a private iOS app. Model: Unknown.</title><circle class="tl-built" cx="223.9" cy="110" r="8"/></g>
-<g><title>Sep 30, 8:44 PM. Claude, reviewed. Answered the bot&#x27;s open questions and checked its pull request. Model: Claude Opus 5.5 (from its commit trailers).</title><circle class="tl-reviewed" cx="224.2" cy="154" r="6.5"/></g>
-<g><title>Oct 2, 4:41 PM. Ron Stauffer, approved. Merged the first CREDITS.md. Model: Not applicable.</title><path class="tl-approved" d="M249.0 278 L257.0 286 L249.0 294 L241.0 286 Z"/></g>
-<g><title>Oct 4, 10:58 PM. Claude, built. Pulled the idea out into a reusable kit: a guide, a template, and a skill. Model: Unknown.</title><circle class="tl-built" cx="279.5" cy="154" r="8"/></g>
-<g><title>Oct 4, 11:08 PM. Codex, built. Wrote its first CREDITS.md, for a private company site. Model: GPT-6-based; exact model Unknown.</title><circle class="tl-built" cx="279.6" cy="198" r="8"/></g>
-<g><title>Oct 12, 5:36 PM. Claude, built. Wrote a CREDITS.md for a private Chrome extension. Model: Claude Opus 5.5 (from the file and its commit trailer).</title><circle class="tl-built" cx="384.6" cy="154" r="8"/></g>
-<g><title>Oct 13, 12:16 PM. Cursor, built. Added a CREDITS.md to a private WordPress plugin. Model: Unknown.</title><circle class="tl-built" cx="395.2" cy="242" r="8"/></g>
-<g><title>Oct 15, 7:29 PM. Codex, built. Turned the examples into the repository-credits skill. Model: Unknown.</title><circle class="tl-built" cx="426.2" cy="198" r="8"/></g>
-<g><title>Oct 15, about 7:50 PM. Claude, built. Saved the skill as a Claude skill. Model: Unknown.</title><circle class="tl-built" cx="426.4" cy="154" r="8"/></g>
-<g><title>Oct 29. Claude, researched. Found ten repositories with a CREDITS.md. Model: Unknown.</title><circle class="tl-reviewed" cx="611.2" cy="154" r="6.5"/></g>
-<g><title>Oct 30, 6:15 PM. Claude, built. Built the public convention and this website. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="689.7" cy="154" r="8"/></g>
-<g><title>Oct 30, 6:24 PM. Ron Stauffer, deployed. Put it live on Cloudflare Pages. Model: Not applicable.</title><path class="tl-approved" d="M697.9 278 L705.9 286 L697.9 294 L689.9 286 Z"/></g>
-<g><title>Oct 30, 6:55 PM. Codex, researched. Searched its own history for the origin. Model: GPT-6-Astra, high (shown by the tool).</title><circle class="tl-reviewed" cx="726.2" cy="198" r="6.5"/></g>
-<g><title>Oct 30, about 7:20 PM. Grok bot, researched. Found Ron&#x27;s September 28 message. Model: Unknown.</title><circle class="tl-reviewed" cx="749.1" cy="110" r="6.5"/></g>
-<g><title>Oct 30, 8:43 PM. Ron Stauffer, deployed. Connected colophon.md. Model: Not applicable.</title><path class="tl-approved" d="M824.9 278 L832.9 286 L824.9 294 L816.9 286 Z"/></g>
-<g><title>Oct 30, 9:16 PM. Grok bot, reviewed. Pre-launch review: three fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="855.0" cy="110" r="6.5"/></g>
-<g><title>Oct 30, 9:19 PM. Claude, built. Applied the review. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="857.8" cy="154" r="8"/></g>
-<g><title>Oct 30, 9:22 PM. Ron Stauffer, approved. Approved it for launch. Model: Not applicable.</title><path class="tl-approved" d="M860.5 278 L868.5 286 L860.5 294 L852.5 286 Z"/></g>
-<g><title>Oct 30, about 9:30 PM. Grok bot, reviewed. Second review: three small fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="867.8" cy="110" r="6.5"/></g>
-<g><title>Oct 30, about 10:30 PM. Claude, built. Applied the second review and built this chart. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="922.6" cy="154" r="8"/></g>
-<g><title>Oct 30, about 10:40 PM. Grok bot, reviewed. Final pass: ready to ship. Model: Unknown.</title><circle class="tl-reviewed" cx="931.7" cy="110" r="6.5"/></g>
-<g><title>Oct 30, about 10:50 PM. Claude, built. Applied the final polish. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="940.9" cy="154" r="8"/></g>
+<line class="tl-axis-line" x1="164" y1="306" x2="556" y2="306"/>
+<line class="tl-axis-line" x1="594" y1="306" x2="962" y2="306"/>
+<line class="tl-tick" x1="180.0" y1="302" x2="180.0" y2="310"/><text class="tl-month" x="180.0" y="326" text-anchor="middle">Sep 28</text>
+<line class="tl-tick" x1="261.2" y1="302" x2="261.2" y2="310"/><text class="tl-month" x="261.2" y="326" text-anchor="middle">Oct 5</text>
+<line class="tl-tick" x1="342.4" y1="302" x2="342.4" y2="310"/><text class="tl-month" x="342.4" y="326" text-anchor="middle">Oct 12</text>
+<line class="tl-tick" x1="423.6" y1="302" x2="423.6" y2="310"/><text class="tl-month" x="423.6" y="326" text-anchor="middle">Oct 19</text>
+<line class="tl-tick" x1="504.8" y1="302" x2="504.8" y2="310"/><text class="tl-month" x="504.8" y="326" text-anchor="middle">Oct 26</text>
+<line class="tl-tick" x1="602.0" y1="302" x2="602.0" y2="310"/><text class="tl-month" x="602.0" y="326" text-anchor="middle">6 PM</text>
+<line class="tl-tick" x1="672.0" y1="302" x2="672.0" y2="310"/><text class="tl-month" x="672.0" y="326" text-anchor="middle">7 PM</text>
+<line class="tl-tick" x1="742.0" y1="302" x2="742.0" y2="310"/><text class="tl-month" x="742.0" y="326" text-anchor="middle">8 PM</text>
+<line class="tl-tick" x1="812.0" y1="302" x2="812.0" y2="310"/><text class="tl-month" x="812.0" y="326" text-anchor="middle">9 PM</text>
+<line class="tl-tick" x1="882.0" y1="302" x2="882.0" y2="310"/><text class="tl-month" x="882.0" y="326" text-anchor="middle">10 PM</text>
+<line class="tl-tick" x1="952.0" y1="302" x2="952.0" y2="310"/><text class="tl-month" x="952.0" y="326" text-anchor="middle">11 PM</text>
+<text class="tl-panel" x="360.0" y="346" text-anchor="middle">September 28 to October 29</text>
+<text class="tl-panel" x="778.0" y="346" text-anchor="middle">October 30, launch day, by the hour</text>
+<line class="tl-tick" x1="567.0" y1="312" x2="575.0" y2="300"/>
+<line class="tl-tick" x1="575.0" y1="312" x2="583.0" y2="300"/>
+<polyline class="tl-path" points="190.3,286 194.5,110 212.9,110 213.2,154 234.5,286 260.7,154 260.8,198 350.9,154 359.9,242 386.6,198 386.8,154 545.4,154"/>
+<polyline class="tl-path" points="619.5,154 630.0,286 666.2,198 695.3,110 792.2,286 830.7,110 834.2,154 837.7,286 847.0,110 917.0,154 928.7,110 940.3,154"/>
+<line class="tl-path" x1="545.4" y1="154" x2="619.5" y2="154" stroke-dasharray="4 5"/>
+<line class="tl-release" x1="212.9" y1="86" x2="212.9" y2="306"/>
+<text class="tl-release-label" x="212.9" y="76" text-anchor="middle">First file</text>
+<line class="tl-release" x1="386.6" y1="86" x2="386.6" y2="306"/>
+<text class="tl-release-label" x="386.6" y="76" text-anchor="middle">Skill</text>
+<line class="tl-release" x1="837.7" y1="86" x2="837.7" y2="306"/>
+<text class="tl-release-label" x="837.7" y="76" text-anchor="middle">Launch</text>
+<g><title>Sep 28, 9:22 PM. Ron Stauffer, proposed. Proposed the idea and the name CREDITS.md. Model: Not applicable.</title><path class="tl-approved" d="M190.3 278.5 L197.8 286 L190.3 293.5 L182.8 286 Z"/></g>
+<g><title>Sep 29 to Oct 1. Grok bot, built. Built the template with Ron. Model: Unknown.</title><circle class="tl-built" cx="194.5" cy="110" r="7"/></g>
+<g><title>Sep 30, 8:06 PM. Grok bot, built. Added the first CREDITS.md, to a private iOS app. Model: Unknown.</title><circle class="tl-built" cx="212.9" cy="110" r="7"/></g>
+<g><title>Sep 30, 8:44 PM. Claude, reviewed. Answered the bot&#x27;s open questions and checked its pull request. Model: Claude Opus 5.5 (from its commit trailers).</title><circle class="tl-reviewed" cx="213.2" cy="154" r="5.5"/></g>
+<g><title>Oct 2, 4:41 PM. Ron Stauffer, approved. Merged the first CREDITS.md. Model: Not applicable.</title><path class="tl-approved" d="M234.5 278.5 L242.0 286 L234.5 293.5 L227.0 286 Z"/></g>
+<g><title>Oct 4, 10:58 PM. Claude, built. Pulled the idea out into a reusable kit: a guide, a template, and a skill. Model: Unknown.</title><circle class="tl-built" cx="260.7" cy="154" r="7"/></g>
+<g><title>Oct 4, 11:08 PM. Codex, built. Wrote its first CREDITS.md, for a private company site. Model: GPT-6-based; exact model Unknown.</title><circle class="tl-built" cx="260.8" cy="198" r="7"/></g>
+<g><title>Oct 12, 5:36 PM. Claude, built. Wrote a CREDITS.md for a private Chrome extension. Model: Claude Opus 5.5 (from the file and its commit trailer).</title><circle class="tl-built" cx="350.9" cy="154" r="7"/></g>
+<g><title>Oct 13, 12:16 PM. Cursor, built. Added a CREDITS.md to a private WordPress plugin. Model: Unknown.</title><circle class="tl-built" cx="359.9" cy="242" r="7"/></g>
+<g><title>Oct 15, 7:29 PM. Codex, built. Turned the examples into the repository-credits skill. Model: Unknown.</title><circle class="tl-built" cx="386.6" cy="198" r="7"/></g>
+<g><title>Oct 15, about 7:50 PM. Claude, built. Saved the skill as a Claude skill. Model: Unknown.</title><circle class="tl-built" cx="386.8" cy="154" r="7"/></g>
+<g><title>Oct 29. Claude, researched. Found ten repositories with a CREDITS.md. Model: Unknown.</title><circle class="tl-reviewed" cx="545.4" cy="154" r="5.5"/></g>
+<g><title>Oct 30, 6:15 PM. Claude, built. Built the public convention and this website. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="619.5" cy="154" r="7"/></g>
+<g><title>Oct 30, 6:24 PM. Ron Stauffer, deployed. Put it live on Cloudflare Pages. Model: Not applicable.</title><path class="tl-approved" d="M630.0 278.5 L637.5 286 L630.0 293.5 L622.5 286 Z"/></g>
+<g><title>Oct 30, 6:55 PM. Codex, researched. Searched its own history for the origin. Model: GPT-6-Astra, high (shown by the tool).</title><circle class="tl-reviewed" cx="666.2" cy="198" r="5.5"/></g>
+<g><title>Oct 30, about 7:20 PM. Grok bot, researched. Found Ron&#x27;s September 28 message. Model: Unknown.</title><circle class="tl-reviewed" cx="695.3" cy="110" r="5.5"/></g>
+<g><title>Oct 30, 8:43 PM. Ron Stauffer, deployed. Connected colophon.md. Model: Not applicable.</title><path class="tl-approved" d="M792.2 278.5 L799.7 286 L792.2 293.5 L784.7 286 Z"/></g>
+<g><title>Oct 30, 9:16 PM. Grok bot, reviewed. Pre-launch review: three fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="830.7" cy="110" r="5.5"/></g>
+<g><title>Oct 30, 9:19 PM. Claude, built. Applied the review. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="834.2" cy="154" r="7"/></g>
+<g><title>Oct 30, 9:22 PM. Ron Stauffer, approved. Approved it for launch. Model: Not applicable.</title><path class="tl-approved" d="M837.7 278.5 L845.2 286 L837.7 293.5 L830.2 286 Z"/></g>
+<g><title>Oct 30, about 9:30 PM. Grok bot, reviewed. Second review: three small fixes. Model: Unknown.</title><circle class="tl-reviewed" cx="847.0" cy="110" r="5.5"/></g>
+<g><title>Oct 30, about 10:30 PM. Claude, built. Applied the second review and built this chart. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="917.0" cy="154" r="7"/></g>
+<g><title>Oct 30, about 10:40 PM. Grok bot, reviewed. Final pass: ready to ship. Model: Unknown.</title><circle class="tl-reviewed" cx="928.7" cy="110" r="5.5"/></g>
+<g><title>Oct 30, about 10:50 PM. Claude, built. Applied the final polish. Model: Claude Opus 5.5 (configured).</title><circle class="tl-built" cx="940.3" cy="154" r="7"/></g>
 <circle class="tl-built" cx="31" cy="370" r="6.5" style="stroke-width:0"/><text class="leg" x="44" y="374">Built</text>
 <circle class="tl-reviewed" cx="109" cy="370" r="5.5"/><text class="leg" x="122" y="374">Reviewed or researched</text>
 <path class="tl-approved" d="M305 363 L312 370 L305 377 L298 370 Z" style="stroke-width:0"/><text class="leg" x="318" y="374">Proposed, deployed, or approved</text>
