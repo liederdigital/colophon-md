@@ -329,6 +329,10 @@
     if (/\bno code written\b/i.test(r) || (/^reviewed\b/i.test(r) && !/\bbuilt\b/i.test(r))) {
       return null;
     }
+    // Avoid mistaking a COLOPHON.md format upgrade (e.g. "from the v1.1.2 format to v1.2.4") for a project release
+    if (/\b(?:upgraded|updated|reformatted|migrated)\s+(?:this\s+file|colophon\.md)\b/i.test(text) && !/\binstructions\s+versions?\b/i.test(text)) {
+      return null;
+    }
     const vMatch = text.match(/\b(?:released?\s+)?(v\d+\.\d+(?:\.\d+)?)\b/i);
     if (vMatch) return vMatch[1];
     const verMatch = text.match(/\bversions?\s+(\d+\.\d+(?:\.\d+)?)(?:\s+to\s+(\d+\.\d+(?:\.\d+)?))?/i);
@@ -496,13 +500,27 @@
       });
     }
 
-    // Sort chronologically if timestamps exist; keep original order for ties or missing timestamps
+    // Sort chronologically if timestamps exist; preserve original row order for ties or undated rows
     const hasDates = rawEvents.filter((e) => e.ms != null).length >= 2;
     const events = rawEvents.slice();
-    if (opts.includeOrigins && hasDates) {
-      // When merging Origins + Builder history, sort by parsed timestamp (stable on original order)
+    if (hasDates) {
+      const sortKeys = new Map();
+      events.forEach((ev, idx) => {
+        if (ev.ms != null) {
+          sortKeys.set(ev, ev.ms);
+        } else {
+          const prev = events.slice(0, idx).reverse().find((p) => p.ms != null);
+          const next = events.slice(idx + 1).find((n) => n.ms != null);
+          if (prev && next) sortKeys.set(ev, (prev.ms + next.ms) / 2);
+          else if (prev) sortKeys.set(ev, prev.ms + 1);
+          else if (next) sortKeys.set(ev, next.ms - 1);
+          else sortKeys.set(ev, 0);
+        }
+      });
       events.sort((a, b) => {
-        if (a.ms != null && b.ms != null && a.ms !== b.ms) return a.ms - b.ms;
+        const ka = sortKeys.get(a);
+        const kb = sortKeys.get(b);
+        if (ka !== kb) return ka - kb;
         if (a.source !== b.source) return a.source === "origins" ? -1 : 1;
         return a.order - b.order;
       });
