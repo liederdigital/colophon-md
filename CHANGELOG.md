@@ -14,10 +14,20 @@ never change after release.
   self-contained (no live remote URL fetches by agents).
 - Added immutable versioned snapshots under `/v1.3/` (`instructions.md`,
   `template.md`, `guide.md`, `SKILL.md`).
-- Split the instructions into a lean core spec (`instructions.md`, under 900
-  words including the template) and a separate full guide (`guide.md`) for
-  forensic reconstruction, upgrading older colophons, and timeline SVG embeds,
-  with version history moved here to `CHANGELOG.md`.
+- Split the instructions into a lean core spec (`instructions.md`, ~1,180 words
+  including the template and copyable snippets—down from ~3,550 words) and a
+  separate full guide (`guide.md`) for forensic reconstruction, upgrading older
+  colophons, and timeline SVG embeds, with version history moved here to
+  `CHANGELOG.md`.
+
+SHA-256 checksums for the immutable `/v1.3/` files:
+
+```text
+226e857a58760457d0206c9358bfa7153d3ea7c0d7300f74bb77bea47db7aa9b  v1.3/instructions.md
+6c2b187dca849fe0c6d5cf317cd270460f8355d861213b46bebd84e7f5dc15b7  v1.3/template.md
+64f383be9b5fc6666eb4e71eaf4fc6225e846d4f9ad892fbbfa4e8855c79c6ad  v1.3/guide.md
+e84b89f936abc9a5d47698dc53635a54f2fe18868fa052e9556cec9add9e13df  v1.3/SKILL.md
+```
 
 ## 1.2.4 (November 20, 2026)
 

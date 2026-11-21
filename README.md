@@ -67,7 +67,7 @@ and fill in the gaps where they don't. It also works after the fact.
 
 | File | What it is |
 |---|---|
-| `index.html` | The website: one static page, no build step |
+| `index.html`, `404.html` | The website (one static page, no build step) and real 404 page so missing paths don't fall back to `index.html` |
 | `timeline.html`, `timeline.js` | Browser-based `COLOPHON.md` → swimlane timeline SVG generator (zero dependencies) |
 | `functions/svg/[owner]/[repo].js` | Cloudflare Pages Function that renders a live `image/svg+xml` timeline at `/svg/owner/repo` |
 | `instructions.md` | Lean, tool-neutral core instructions for AI agents |
