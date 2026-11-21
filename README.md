@@ -56,6 +56,7 @@ The current instructions are version 1.2.2 (November 20, 2026).
 |---|---|
 | `index.html` | The website: one static page, no build step |
 | `timeline.html`, `timeline.js` | Browser-based `COLOPHON.md` → swimlane timeline SVG generator (zero dependencies) |
+| `functions/svg/[owner]/[repo].js` | Cloudflare Pages Function that renders a live `image/svg+xml` timeline at `/svg/owner/repo` |
 | `instructions.md` | Tool-neutral instructions for AI agents |
 | `template.md` | The blank template |
 | `COLOPHON.md` | How this repository was made |
@@ -66,6 +67,20 @@ The current instructions are version 1.2.2 (November 20, 2026).
 | `og.png` | The image shown when the site is shared on social media |
 | `favicon.ico`, `favicon.svg`, `favicon-96.png`, `apple-touch-icon.png` | The site icon, as real files so search engines can find it |
 | `colophon-timeline.svg` | A timeline of how COLOPHON.md itself was made, shown in `COLOPHON.md` |
+
+## Live timeline SVG
+
+Generate a swimlane chart from any `COLOPHON.md` at
+https://colophon.md/timeline, or embed an auto-updating chart for any public
+GitHub repository:
+
+```markdown
+[![Colophon timeline](https://colophon.md/svg/owner/repo)](https://colophon.md/timeline?repo=owner/repo)
+```
+
+Optional query parameters: `theme=light|dark|transparent`,
+`spacing=time|even`, `milestones=0`, `origins=1`, `branch=...`, and
+`path=...` (relative `.md` path, defaults to `COLOPHON.md`).
 
 ## Deploying
 

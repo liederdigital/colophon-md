@@ -255,6 +255,21 @@ code { font-family: var(--mono); font-size: 0.9em; }
   font-size: 0.875rem; color: var(--muted);
 }
 .warnings ul { margin: 0.25rem 0 0; padding-left: 1.2rem; }
+.live-embed {
+  margin-top: 1.15rem; padding: 0.85rem 1rem;
+  background: var(--page); border: 1px solid var(--rule); border-radius: 4px;
+}
+.live-embed-head {
+  display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+  gap: 0.25rem 1rem; margin-bottom: 0.5rem;
+}
+.live-embed-head strong { font-size: 0.9375rem; font-weight: 600; }
+.live-embed-head span { font-size: 0.85rem; color: var(--muted); }
+.live-embed-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.live-embed code {
+  flex: 1 1 20rem; font-size: 0.8125rem; line-height: 1.5;
+  overflow-wrap: anywhere; color: var(--ink);
+}
 
 /* Editor */
 .editor-head {
@@ -351,6 +366,16 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       </div>
     </div>
     <div class="warnings" id="warnings" hidden></div>
+    <div class="live-embed" id="live-embed" hidden>
+      <div class="live-embed-head">
+        <strong>Live auto-updating embed</strong>
+        <span>Updates automatically when <code>COLOPHON.md</code> changes on GitHub</span>
+      </div>
+      <div class="live-embed-row">
+        <code id="live-embed-code"></code>
+        <button type="button" class="btn btn-subtle" id="btn-copy-live">Copy live embed</button>
+      </div>
+    </div>
   </section>
 
   <section class="band" aria-label="COLOPHON.md source">
@@ -395,6 +420,9 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   const btnDownload = document.getElementById("btn-download");
   const btnCopySvg = document.getElementById("btn-copy-svg");
   const btnCopyMd = document.getElementById("btn-copy-md");
+  const liveEmbedEl = document.getElementById("live-embed");
+  const liveEmbedCode = document.getElementById("live-embed-code");
+  const btnCopyLive = document.getElementById("btn-copy-live");
 
   const SAMPLE_MD = `# Colophon
 
@@ -428,8 +456,27 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
 
   let currentParsed = null;
   let currentStandaloneSvg = "";
+  let currentRepoSlug = null;
   let activePt = null;
   let lastPointerType = "";
+
+  function updateLiveEmbed() {
+    if (!currentRepoSlug || !currentParsed) {
+      liveEmbedEl.hidden = true;
+      return;
+    }
+    const qs = new URLSearchParams();
+    if (optTheme.value !== "light") qs.set("theme", optTheme.value);
+    if (optSpacing.value !== "time") qs.set("spacing", optSpacing.value);
+    if (!optMilestones.checked) qs.set("milestones", "0");
+    if (optOrigins.checked) qs.set("origins", "1");
+    const qStr = qs.toString() ? `?${qs.toString()}` : "";
+    const svgUrl = `https://colophon.md/svg/${currentRepoSlug}${qStr}`;
+    const pageUrl = `https://colophon.md/timeline?repo=${currentRepoSlug}`;
+    const alt = `Timeline of how ${currentParsed.project} was made`;
+    liveEmbedCode.textContent = `[![${alt}](${svgUrl})](${pageUrl})`;
+    liveEmbedEl.hidden = false;
+  }
 
   // Match system dark mode as initial SVG theme
   if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -533,6 +580,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       currentParsed = null;
       currentStandaloneSvg = "";
       originsWrap.hidden = true;
+      liveEmbedEl.hidden = true;
       chartTitle.textContent = "Timeline preview";
       chartMount.innerHTML = '<div class="empty-state">Paste a <code>COLOPHON.md</code> below or load an example above.</div>';
       chartMeta.textContent = "";
@@ -547,6 +595,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     if (parsed.events.length === 0) {
       currentParsed = null;
       currentStandaloneSvg = "";
+      liveEmbedEl.hidden = true;
       chartTitle.textContent = `How ${parsed.project} was made`;
       chartMount.innerHTML = '<div class="empty-state">No Builder history rows found yet. Add a Markdown table under <code>## Builder history</code>.</div>';
       chartMeta.textContent = "";
@@ -595,6 +644,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     }
 
     btnDownload.disabled = btnCopySvg.disabled = btnCopyMd.disabled = false;
+    updateLiveEmbed();
   }
 
   function parseRepoSlug(input) {
@@ -635,6 +685,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       return;
     }
     mdInput.value = text;
+    currentRepoSlug = slug;
     optOrigins.checked = false;
     render();
     say(`Loaded COLOPHON.md from ${slug}.`);
@@ -652,6 +703,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       const res = await fetch(new URL("COLOPHON.md", location.href));
       if (!res.ok) throw new Error(String(res.status));
       mdInput.value = await res.text();
+      currentRepoSlug = "liederdigital/colophon-md";
       optOrigins.checked = true;
       render();
       say("Loaded this site’s COLOPHON.md (with Origins included).");
@@ -667,6 +719,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
   document.getElementById("load-self").addEventListener("click", loadSelf);
   document.getElementById("load-sample").addEventListener("click", () => {
     mdInput.value = SAMPLE_MD;
+    currentRepoSlug = null;
     optOrigins.checked = false;
     render();
     say("Loaded the nine-month sample.");
@@ -676,6 +729,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     const file = fileInput.files && fileInput.files[0];
     if (!file) return;
     mdInput.value = await file.text();
+    currentRepoSlug = null;
     optOrigins.checked = false;
     render();
     say(`Loaded ${file.name}.`);
@@ -691,12 +745,16 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     const file = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
     if (!file) return;
     mdInput.value = await file.text();
+    currentRepoSlug = null;
     optOrigins.checked = false;
     render();
     say(`Loaded ${file.name}.`);
   });
 
-  mdInput.addEventListener("input", render);
+  mdInput.addEventListener("input", () => {
+    currentRepoSlug = null;
+    render();
+  });
   optSpacing.addEventListener("change", render);
   optTheme.addEventListener("change", render);
   optMilestones.addEventListener("change", render);
@@ -738,6 +796,18 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
     }
   });
 
+  btnCopyLive.addEventListener("click", async () => {
+    const text = liveEmbedCode.textContent;
+    if (!text) return;
+    try {
+      await writeClipboard(text);
+      confirmOn(btnCopyLive);
+      track("timeline_copy_live_embed");
+    } catch {
+      confirmOn(btnCopyLive, "Copy failed");
+    }
+  });
+
   document.addEventListener("keydown", (e) => {
     lastPointerType = "";
     if (e.key === "Escape") hideTip();
@@ -757,6 +827,7 @@ footer p { max-width: var(--prose); margin: 0 0 0.5rem; }
       .then((r) => { if (!r.ok) throw new Error(); return r.text(); })
       .then((t) => {
         mdInput.value = t;
+        currentRepoSlug = "liederdigital/colophon-md";
         optOrigins.checked = true;
         render();
       })
